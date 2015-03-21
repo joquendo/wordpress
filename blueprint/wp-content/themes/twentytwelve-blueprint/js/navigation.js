@@ -21,7 +21,7 @@
 	}
 
 	searchButton.onclick = function() {
-		if ( -1 === searchForm.classname.indexOf( 'searchform' ) ) {
+		if ( -1 === searchForm.className.indexOf( 'searchform' ) ) {
 			searchForm.className = 'searchform';
 		}
 
@@ -33,5 +33,4 @@
 			searchform.className += ' toggled-on';
 		}
 	};
-		alert('loading 4');
 } )();

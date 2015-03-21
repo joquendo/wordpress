@@ -120,11 +120,16 @@ function styling_chat_post($table_talk) {
 }
 
 // Add child theme javascript files
-function add_js_scripts() {
-	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js')
-	wp_enqueue_script('custom_nav_searchbutton');
+function register_js_scripts() {
+	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js');
 }
-add_action('wp_enqueue_scripts', 'add_js_scripts');
+add_action('init', 'register_js_scripts');
+
+
+function add_js_scripts() {
+	wp_print_scripts('custom_nav_searchbutton');
+}
+add_action('wp_footer', 'add_js_scripts');
 
 
 
