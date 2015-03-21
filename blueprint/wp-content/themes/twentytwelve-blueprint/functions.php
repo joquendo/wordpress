@@ -33,7 +33,8 @@ function create_post_type() {
 			'author',
 			'thumbnail',
 			'excerpt',
-			'comments'
+			'comments',
+			'post-formats'
 		)
 	);
 
@@ -86,10 +87,57 @@ function post_type_updated_messages($messages) {
 }
 
 // Displaying custom post types on the front page
-add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
 function add_my_post_types_to_query( $query ) {
 	if ( is_home() && $query->is_main_query() )
-		$query->set( 'post_type', array( 'post', 'book' ) );
+		$query->set( 'post_type', array( 'post', 'book', 'feature' ) );
 	return $query;
 }
+add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+
+
+// Add theme support for post format chat
+
+// First remove action from parent theme to override
+remove_action( 'after_setup_theme', 'add_post_formats_support' );
+
+function add_post_formats_support() {
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'chat' ) );
+}
+add_action( 'after_setup_theme', 'add_post_formats_support', 11 );
+
+// Styling chat post
+function styling_chat_post($table_talk) {
+	global $post;
+	if(has_post_format('chat')) {
+		$chat_output = "<ul class=\"chat\">\n";
+		$chat_output .= "</ul>\n";
+		$$table_talk = $chat_output;
+		return $table_talk;
+	} else {
+		return 'blah';
+	}
+}
+
+// Add child theme javascript files
+function add_js_scripts() {
+	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js')
+	wp_enqueue_script('custom_nav_searchbutton');
+}
+add_action('wp_enqueue_scripts', 'add_js_scripts');
+
+
+
+/*
+// Rename post formats
+function rename_post_formats($translation, $text, $context, $domain) {
+    $names = array(
+        'Audio'  => 'Podcast',
+        'Status' => 'Tweet'
+    );
+    if ($context == 'Post format') {
+        $translation = str_replace(array_keys($names), array_values($names), $text);
+    }
+    return $translation;
+}
+add_filter('gettext_with_context', 'rename_post_formats', 10, 4);*/

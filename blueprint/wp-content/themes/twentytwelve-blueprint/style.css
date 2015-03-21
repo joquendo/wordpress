@@ -11,3 +11,58 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  twenty-twelve-child
 */
+
+/* Chat Posts */
+.format-chat .entry-content p{
+	background: #e0f1f3; /* The background color of first paragraph */
+	border-left: 7px solid #2ba6cb; /* The setting for border of first paragraph */
+	margin-bottom: 2px;
+	padding-left: 13px;
+}
+.format-chat .entry-content p:nth-child(odd) {
+	background: #e9e9e9; /* The background color of next paragraph */
+	border-left-color: #5da423; /* The setting for border of next paragraph */
+}
+
+/* Header image */
+.header-image-container {
+	min-height: 205px;
+	background-color:darkblue;
+}
+
+.custom-header-image {
+	display:block;
+	max-width:100%;
+	height:auto;
+}
+
+.logo {
+	position:absolute;
+	margin-top:2.8%;
+	margin-left:8.4%;
+	max-width:220px;
+	height:auto;
+	width:13.5%;
+}
+
+.logo img {
+	width:100%;
+	height:auto;
+}
+
+button.menu-toggle {
+	background: white;
+	border:0;
+}
+
+.main-navigation {
+	text-align:right;
+}
+/*
+.search-field { 
+	display:none;
+}
+*/
+.site {
+	max-width:1600px;
+}
