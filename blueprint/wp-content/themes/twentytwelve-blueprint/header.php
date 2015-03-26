@@ -47,10 +47,15 @@
 			<div class="logo">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="http://dev.blueprint.luskin.ucla.edu/wp-content/uploads/2015/03/logo.jpg" alt="UCLA Blueprint" /></a>
 			</div>
-			<?php if ( ! is_home() && get_field('hero_image') ) : ?>
-				<img src="<?php the_field('hero_image'); ?>" class="custom-header-image" alt="<?php the_title(); ?>" />
-			<?php else : ?>
-				<img src="<?php header_image(); ?>" class="custom-header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+
+			<?php if ( get_header_image() ) : ?>
+
+				<?php if ( is_singular() && has_post_thumbnail( $post->ID ) ) : 
+						echo get_the_post_thumbnail( $post->ID, 'full', 'class=header-image' );
+					else : ?>
+						<img src="<?php header_image(); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+				<?php endif; ?>
+
 			<?php endif; ?>
 		</div>
 
