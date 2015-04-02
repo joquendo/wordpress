@@ -24,16 +24,22 @@
 	border-left-color: #5da423; /* The setting for border of next paragraph */
 }
 
-/* Header image */
+/* Header */
+.site-header {
+	padding:0;
+	margin:0 -15px;
+}
 .header-image-container {
 	min-height: 205px;
 	background-color:darkblue;
 }
 
-.custom-header-image {
+img.header-image {
 	display:block;
 	max-width:100%;
 	height:auto;
+	border-radius:0;
+	box-shadow:none;
 }
 
 .logo {
@@ -49,6 +55,8 @@
 	width:100%;
 	height:auto;
 }
+
+/* Navigation */
 
 button.menu-toggle {
 	background: white;
@@ -66,4 +74,39 @@ button.menu-toggle {
 }
 .site {
 	max-width:1600px;
+	padding: 0 15px;
+}
+
+/* Homepage entry and search page entry */
+.entry-image {
+	max-width: 200px;
+	float: left;
+	width: 35%;
+	margin-right:5%;
+}
+.entry-image img {
+	width:100%;
+	height:auto;
+
+}
+.entry-header h1.entry-title {
+	text-transform: uppercase;
+	font-size:14px;
+	font-weight:700;
+}
+h1.entry-title a {
+	color: #000;
+}
+h1.entry-title a:hover {
+	color:#00a5e5;
+}
+.entry-summary {
+	float: left;
+	width: 60%;
+}
+.entry-summary.no-image{
+	width:100%;
+}
+.entry-summary p {
+	font-size: 11px;
 }
