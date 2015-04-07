@@ -1,5 +1,7 @@
 <?php
 
+include_once(__DIR__.'/func/func-sidebar.php');
+
 // Setup a child theme
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
