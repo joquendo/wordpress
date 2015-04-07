@@ -1,0 +1,74 @@
+#main {
+	position:relative;
+	height:auto;
+}
+
+#secondary {
+	position:absolute;
+	height:100%;
+	right:0px;
+	border-left: 1px solid #CCC;
+}
+
+#secondary .container {
+	padding-left:39px;
+	border-top:1px solid #CCC;
+}
+
+#secondary .container .widget {
+	padding-top:11px;
+	padding-bottom:55px;
+	margin-bottom:0;
+}
+
+#secondary .container img {
+	border-radius:0px;
+	box-shadow: 0 0 0;
+}
+
+#secondary .container h3 {
+	color:#c3c3c3;
+	text-transform:uppercase;
+	font-size:16px;
+	margin-bottom:35px;
+	letter-spacing:1px;
+}
+
+#secondary .container h4 {
+	color:#000;
+	text-transform:uppercase;
+	margin-top:16px;
+	font-size:18px;
+}
+
+#secondary .container .date {
+	color:#686868;
+	display:block;
+	margin-top:11px;
+}
+
+#secondary .container .btn {
+	margin-top:20px;
+	background:#000;
+	color:#FFF;
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:16px;
+	position:relative;
+	text-decoration:none;
+	padding:17px 18px 17px 18px;
+	display:inline-block;
+	position:relative;
+}
+
+#secondary .container .btn:active {
+	top:2px;
+}
+
+#secondary .container p {
+	color:#686868;
+	margin-top:12px;
+	margin-bottom:0;
+	font-size:14px;
+	font-weight:100;
+}
