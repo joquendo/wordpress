@@ -37,23 +37,24 @@
 
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
+		<div class="logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="UCLA Blueprint" /></a>
+		</div>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><span class="dashicons dashicons-menu"></span></button>
+			<button class="menu-toggle menu-menu"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-menu.png"/><span class="nav-menu"></span></button>			
+			<button class="menu-toggle menu-topics"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-topic.png" /><span class="nav-topic">Topics</span></button>
+			<button class="menu-toggle menu-issues"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-issue.png" /><span class="nav-issue">Issues</span></button>
+			<button class="menu-toggle menu-search"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-search.png" /><span class="nav-search">Search</span></button>
 
-			<button class="menu-toggle"><span class="dashicons dashicons-search"></span></button>
-			
 			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-			<?php get_search_form(); ?>
+			<div class="searchform">
+				<?php get_search_form(); ?>
+			</div>
 		</nav><!-- #site-navigation -->
 
 
 		<div class="header-image-container">
-			<div class="logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="UCLA Blueprint" /></a>
-			</div>
-
-
 
 			<?php $hero_image = get_field('hero_image');
 
@@ -65,7 +66,6 @@
 				while( $latest_post->have_posts() ) : $latest_post->the_post();
 					// Get hero image from latest issue post
 					$hero_image = get_field('hero_image');
-
 			 	endwhile;
 
 			endif; 
@@ -86,6 +86,19 @@
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
+
+		<?php if (get_field('featured_article')) :
+			$featured_article = get_field('featured_article');
+		?>
+			<div class="issue">
+				<span><?php echo the_title(); ?> Issue</span>
+				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo $featured_article->post_title; ?></span></a>
+			</div>
+			<div class="event">
+				<span>Next Event</span>
+				<a href=""><span class="title">An Evening with Eric Garcetti</span></a>
+			</div>
+		<?php endif; ?>
 
 	</header><!-- #masthead -->
 

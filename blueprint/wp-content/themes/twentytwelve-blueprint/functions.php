@@ -117,39 +117,32 @@ function styling_chat_post($table_talk) {
 }
 
 // Add child theme javascript files
-add_action('init', 'register_js_scripts');
-add_action('wp_enqueue_scripts', 'mytheme_dequeue_scripts');
-add_action('after_setup_theme', 'add_image_sizes');
-add_action('wp_footer', 'add_js_scripts');
-
 function register_js_scripts() {
 	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
 	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js');
 }
-
-function mytheme_dequeue_scripts() {
-	wp_dequeue_script('picturefill', plugins_url( '/js/picturefill.js', __FILE__ ));
-}
-
-function add_image_sizes() {
-	add_image_size('hero_small', 320, 205, array( 'right', 'bottom') );
-	add_image_size('hero_small_2x', 640, 410, array( 'right', 'bottom') );
-}
+add_action('init', 'register_js_scripts');
 
 function add_js_scripts() {
 	wp_print_scripts('custom_nav_searchbutton');
 }
+add_action('wp_footer', 'add_js_scripts');
 
-/*
-// Rename post formats
-function rename_post_formats($translation, $text, $context, $domain) {
-    $names = array(
-        'Audio'  => 'Podcast',
-        'Status' => 'Tweet'
-    );
-    if ($context == 'Post format') {
-        $translation = str_replace(array_keys($names), array_values($names), $text);
-    }
-    return $translation;
+// Add picturefill js for responsive/adaptive images
+function mytheme_dequeue_scripts() {
+	wp_dequeue_script('picturefill', plugins_url( '/js/picturefill.js', __FILE__ ));
 }
-add_filter('gettext_with_context', 'rename_post_formats', 10, 4);*/
+add_action('wp_enqueue_scripts', 'mytheme_dequeue_scripts');
+
+// Image sizes
+function add_image_sizes() {
+	add_image_size('hero_small', 320, 205, array( 'right', 'bottom') );
+	add_image_size('hero_small_2x', 640, 410, array( 'right', 'bottom') );
+}
+add_action('after_setup_theme', 'add_image_sizes');
+
+// Remove Posts from admin menu bar
+function remove_menu_pages() {
+	remove_menu_page('edit.php');
+}
+add_action('admin_menu', remove_menu_pages);
