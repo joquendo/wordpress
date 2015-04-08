@@ -6,7 +6,7 @@
  */
 ?>
 
-<div id="secondary" class="widget-area" role="complementary">
+<div id="secondary" class="widget-area" role="complementary" style="position:relative;">
 	
 	<?php if ( $event_id = getLatestEventID() ) : ?>
 		<div class="container">
@@ -39,12 +39,6 @@
 	
 	
 	
-	<?php
-	//$infographic_id = getInfographicID();
-	//$args = array( 'post_type' => 'infographic', 'posts_per_page' => 1 );
-	//$infographics = new WP_Query( $args );
-	?>
-	
 	<?php if ( $infographic_id = getInfographicID() ) : ?>
 		<div class="container">
 			
@@ -74,16 +68,32 @@
 	
 	
 	
-	<div class="container">
-		
-		<!-- NEWSWORTHY CONTAINER START-->
-		<div class="widget event">
+	<?php
+	$newsworthy = getNewsworthy();
+	?>
+	
+	<?php if ( $newsworthy = getNewsworthy() ) : ?>
+		<div class="container">
 			
-			<h3>Newsworthy</h3>
+			<!-- NEWSWORTHY CONTAINER START-->
+			<div class="widget event">
+				
+				<h3>Newsworthy</h3>
+				
+				<?php
+				$thumb = get_field('thumbnail', $newsworthy['ID']);
+				?>
+				
+				<img class="thumbnail" src="<?php echo $thumb['url'] ?>" />
+				
+				<h4>Headline: <?php echo $newsworthy['title'] ?> </h4>
+				
+				<p><?php echo $newsworthy['excerpt'] ?></p>
+				
+			</div> <!-- NEWSWORTHY CONTAINER END -->
 			
-		</div> <!-- NEWSWORTHY CONTAINER END -->
-		
-	</div>
+		</div>
+	<?php endif; ?>
 	
 	
 	
