@@ -6,7 +6,7 @@
  */
 ?>
 
-<div id="secondary" class="widget-area" role="complementary" style="position:relative;">
+<div id="secondary" class="widget-area" role="complementary">
 	
 	<?php if ( $event_id = getLatestEventID() ) : ?>
 		<div class="container">
@@ -43,7 +43,7 @@
 		<div class="container">
 			
 			<!-- INFOGRAPHIC CONTAINER START-->
-			<div class="widget event">
+			<div class="widget infographic">
 				
 				<h3>Visually Speaking</h3>
 				
@@ -76,7 +76,7 @@
 		<div class="container">
 			
 			<!-- NEWSWORTHY CONTAINER START-->
-			<div class="widget event">
+			<div class="widget newsworthy">
 				
 				<h3>Newsworthy</h3>
 				
@@ -90,6 +90,8 @@
 				
 				<p><?php echo $newsworthy['excerpt'] ?></p>
 				
+				<a class="read-more" href="#">Read Our Coverage</a>
+				
 			</div> <!-- NEWSWORTHY CONTAINER END -->
 			
 		</div>
@@ -99,15 +101,30 @@
 	
 	
 	
-	<div class="container">
-		
-		<!-- EDITOR'S PICKS CONTAINER START-->
-		<div class="widget event">
+	<?php if ( have_rows('pick','options') ) : ?>
+		<div class="container">
 			
-			<h3>Editor's Picks</h3>
+			<!-- EDITOR'S PICKS CONTAINER START-->
+			<div class="widget editor">
+				
+				<h3>Editor's Picks</h3>
+				
+				<ol class="list">
+					
+					<?php while ( have_rows('pick','options') ) : ?>
+					
+						<?php the_row() ?>
+					
+						<li><a href="<?php the_sub_field('link') ?>"><?php the_sub_field('label') ?></a></li>
+					
+					<?php endwhile; ?>
+					
+				</ol>
+				
+			</div> <!-- EDITOR'S PICKS CONTAINER END -->
 			
-		</div> <!-- EDITOR'S PICKS CONTAINER END -->
+		</div>
 		
-	</div>
+	<?php endif; ?>
 	
 </div>

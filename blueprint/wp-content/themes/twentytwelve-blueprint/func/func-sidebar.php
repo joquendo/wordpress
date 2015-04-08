@@ -2,7 +2,7 @@
 
 //get the latest event id
 function getLatestEventID () {
-	
+
 	global $wpdb;
 	
 	//get todays date

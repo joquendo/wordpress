@@ -21,6 +21,12 @@
 	margin-bottom:0;
 }
 
+#secondary .container .widget.event {
+	display:block;
+	height:auto;
+	background:#FFF;
+}
+
 #secondary .container img {
 	border-radius:0px;
 	box-shadow: 0 0 0;
@@ -45,6 +51,8 @@
 	color:#686868;
 	display:block;
 	margin-top:11px;
+	padding-left:0;
+	padding-top:0;
 }
 
 #secondary .container .btn {
@@ -58,7 +66,7 @@
 	text-decoration:none;
 	padding:17px 18px 17px 18px;
 	display:inline-block;
-	position:relative;
+	width:90px;
 }
 
 #secondary .container .btn:active {
@@ -71,4 +79,35 @@
 	margin-bottom:0;
 	font-size:14px;
 	font-weight:100;
+}
+
+#secondary .container .read-more {
+	font-size:14px;
+	font-weight:800;
+	color:#000;
+	text-decoration:none;
+	margin-top:20px;
+	display:block;
+}
+
+#secondary .container .list {
+	list-style:decimal;
+	margin-left:20px;
+}
+
+#secondary .container .list li {
+	color:#C3C3C3;
+	font-weight:600;
+	padding-left:10px;
+	margin-bottom:20px;
+}
+
+#secondary .container .list a {
+	color:#000;
+	font-weight:800;
+	text-decoration:none;
+}
+
+#secondary .container .list a:hover {
+	text-decoration:underline;
 }
