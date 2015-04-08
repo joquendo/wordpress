@@ -2,7 +2,7 @@
 
 //get the latest event id
 function getLatestEventID () {
-	
+
 	global $wpdb;
 	
 	//get todays date
@@ -69,4 +69,38 @@ function getInfographicID () {
 		return false;
 	}
 
+}
+
+
+
+
+
+//get the latest newsworthy item
+function getNewsworthy () {
+	
+	global $wpdb;
+	
+	$ret = array();
+	
+	//get latest newsworthy article
+	$sql = "SELECT *
+	        FROM wp_posts a
+	        WHERE a.post_type='newsworthy' AND a.post_status = 'publish'
+	        ORDER BY a.post_date DESC
+	        LIMIT 1";
+	$result = $wpdb->get_results($sql);
+	
+	if( count($result) > 0 ) {
+		
+		//return newsworthy values
+		$ret['ID']        = $result[0]->ID;
+		$ret['title']     = $result[0]->post_title;
+		$ret['excerpt']   = $result[0]->post_excerpt;
+		
+		return $ret;
+	
+	//else return false
+	} else {
+		return false;
+	}
 }

@@ -39,17 +39,11 @@
 	
 	
 	
-	<?php
-	//$infographic_id = getInfographicID();
-	//$args = array( 'post_type' => 'infographic', 'posts_per_page' => 1 );
-	//$infographics = new WP_Query( $args );
-	?>
-	
 	<?php if ( $infographic_id = getInfographicID() ) : ?>
 		<div class="container">
 			
 			<!-- INFOGRAPHIC CONTAINER START-->
-			<div class="widget event">
+			<div class="widget infographic">
 				
 				<h3>Visually Speaking</h3>
 				
@@ -74,30 +68,63 @@
 	
 	
 	
-	<div class="container">
-		
-		<!-- NEWSWORTHY CONTAINER START-->
-		<div class="widget event">
+	<?php
+	$newsworthy = getNewsworthy();
+	?>
+	
+	<?php if ( $newsworthy = getNewsworthy() ) : ?>
+		<div class="container">
 			
-			<h3>Newsworthy</h3>
+			<!-- NEWSWORTHY CONTAINER START-->
+			<div class="widget newsworthy">
+				
+				<h3>Newsworthy</h3>
+				
+				<?php
+				$thumb = get_field('thumbnail', $newsworthy['ID']);
+				?>
+				
+				<img class="thumbnail" src="<?php echo $thumb['url'] ?>" />
+				
+				<h4>Headline: <?php echo $newsworthy['title'] ?> </h4>
+				
+				<p><?php echo $newsworthy['excerpt'] ?></p>
+				
+				<a class="read-more" href="#">Read Our Coverage</a>
+				
+			</div> <!-- NEWSWORTHY CONTAINER END -->
 			
-		</div> <!-- NEWSWORTHY CONTAINER END -->
-		
-	</div>
+		</div>
+	<?php endif; ?>
 	
 	
 	
 	
 	
-	<div class="container">
-		
-		<!-- EDITOR'S PICKS CONTAINER START-->
-		<div class="widget event">
+	<?php if ( have_rows('pick','options') ) : ?>
+		<div class="container">
 			
-			<h3>Editor's Picks</h3>
+			<!-- EDITOR'S PICKS CONTAINER START-->
+			<div class="widget editor">
+				
+				<h3>Editor's Picks</h3>
+				
+				<ol class="list">
+					
+					<?php while ( have_rows('pick','options') ) : ?>
+					
+						<?php the_row() ?>
+					
+						<li><a href="<?php the_sub_field('link') ?>"><?php the_sub_field('label') ?></a></li>
+					
+					<?php endwhile; ?>
+					
+				</ol>
+				
+			</div> <!-- EDITOR'S PICKS CONTAINER END -->
 			
-		</div> <!-- EDITOR'S PICKS CONTAINER END -->
+		</div>
 		
-	</div>
+	<?php endif; ?>
 	
 </div>
