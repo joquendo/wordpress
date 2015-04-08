@@ -12,6 +12,10 @@
  Text Domain:  twenty-twelve-child
 */
 
+html {
+	font-size:16px;
+}
+
 /* Chat Posts */
 .format-chat .entry-content p{
 	background: #e0f1f3; /* The background color of first paragraph */
@@ -29,13 +33,10 @@
 	padding:0;
 	margin:0 -15px;
 }
-.header-image-container {
-	min-height: 205px;
-	background-color:darkblue;
-}
 
 img.header-image {
 	display:block;
+	margin-top:0;
 	max-width:100%;
 	height:auto;
 	border-radius:0;
@@ -44,11 +45,12 @@ img.header-image {
 
 .logo {
 	position:absolute;
-	margin-top:2.8%;
-	margin-left:8.4%;
-	max-width:220px;
+	margin-top:-9px;
+	margin-left:15px;
+	max-width:95px;
 	height:auto;
-	width:13.5%;
+	width:30%;
+	z-index:20;
 }
 
 .logo img {
@@ -57,21 +59,240 @@ img.header-image {
 }
 
 /* Navigation */
-
-button.menu-toggle {
+.menu-toggle {
 	background: white;
 	border:0;
+	color:#000;
+	padding:7px 10px;
+	max-width:55px;
+	height:auto;
+}
+.menu-toggle.menu-topics,
+.menu-toggle.menu-issues,
+.menu-toggle.menu-search span {
+	display:none;
+}
+
+.menu-toggle span {
+	display:block;
+	text-transform: uppercase;
+	vertical-align: middle;
+	float:right;
+	line-height:3em;
+	margin-left:7px;	
 }
 
 .main-navigation {
+	position:relative;
+	z-index:10;
 	text-align:right;
+	text-transform:uppercase;
+	height:66px;
 }
-.main-navigation form.searchform {
+.main-navigation li a {
+	text-decoration:none;
+	display:block;
+	width:95%;
+	height:100%;
+	padding-left:5%;
+}
+.main-navigation ul li a:hover {
+	color:#00a5e5;
+	background-color: rgba(255,255,255,0.9);
+}
+.main-navigation ul.nav-menu.toggled-on,
+.main-navigation div.nav-menu.toggled-on > ul {
+	display:inline-block !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
+	width:100%;
+}
+.main-navigation li {
+	margin-top:0;
+	line-height:4em;
+	border-bottom:1px solid #ccc;
+}
+.menu-topics-container {
+	position:absolute;
+	left:0;
+	right:162px;
+	background-color:rgba(255,255,255,0.9);
+	text-align:left;
+	width:100%;
+}
+.main-navigation div.searchform {
 	display:none;
+	position:absolute;
+	padding:1%;
+	width:98%;
+	background-color:rgba(255,255,255,0.9);
 }
-.main-navigation form.searchform.toggled-on {
+.main-navigation div.searchform.toggled-on {
+	display:block;
+}
+
+.issue {
+	position:relative;
+	background-color: #00a5e5;
+	height:59px;
+}
+
+.event {
+	position:relative;
+	background-color:#0054a6;
+	height:59px;
+}
+.issue span,
+.event span {
+	color:#fff;
+	font-size:12px;
+	line-height:22px;
+	padding-left:20px;
+	padding-top:12px;
+	display:inline-block;
+	text-transform: uppercase;
+}
+.issue a,
+.event a {
+	color:#fff;
+	text-decoration:none;
+	position: absolute;
+  	display: block;
+  	top: 0;
+  	width: 100%;
+  	height: 100%;
+}
+.issue span.title,
+.event span.title {
+	font-size:1em;
+	font-weight:700;
+	margin-top:17px;
 	display:inline-block;
 }
+.issue span.title:after,
+.event span.title:after {
+		margin-left:7px;
+		border: solid transparent;
+  		content: " ";
+  		height: 0;
+  		width: 0;
+  		position: relative;
+  		pointer-events: none;
+  		border-color: rgba(255, 255, 255, 0);
+  		border-left-color: #fff;
+  		border-width: 7px;
+  		margin-bottom: -1px;
+  		display: inline-block;
+}
+
+/* Minimum width of 600 pixels. */
+@media screen and (min-width: 600px) {
+	.logo {
+		margin-top:90px;
+		margin-left:6.7rem;
+		max-width:220px;
+		width:13.5%;
+	}
+	.menu-toggle {
+		display: inline-block;
+		max-width:inherit;
+	}
+	.menu-toggle.menu-menu {
+		display:none;
+	}
+	.menu-toggle.menu-topics,
+	.menu-toggle.menu-issues,
+	.menu-toggle.menu-search span {
+		display:inline-block;
+	}
+	.main-navigation ul.nav-menu,
+	.main-navigation div.nav-menu > ul {
+		border-bottom: 1px solid #ededed;
+		border-top: 1px solid #ededed;
+		display: none !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
+		text-align: left;
+		width: 100%;
+	}
+	.main-navigation ul.nav-menu li.menu-item {
+		width:100%;
+		border-bottom:none;
+	}
+	.menu-topics-container {
+		left:inherit;
+		max-width:175px;
+	}
+	.main-navigation div.searchform {
+		max-width:330px;
+		right:0;
+	}
+	.issue {
+		position:absolute;
+		margin-top:-100px;
+		background-color:transparent;
+		max-width:50%;
+	}
+	.issue span{
+		color:#00a5e5;
+		font-size:1rem;
+		line-height:22px;
+		padding-left:6.7rem;
+		padding-top:0;
+		display:inline-block;
+		margin-top:0;
+	}
+	.issue span.title {
+		color:#fff;
+		margin-top:0;
+		font-size:1.2rem;
+		line-height:1.5rem;
+		width:65%;
+	}
+	.issue span.title:after {
+		border-width:8px;
+	}
+	.issue a {
+		text-decoration:none;
+		text-transform: uppercase;
+		position: relative;
+  		display: block;
+  	}
+	.event {
+		display:none;
+	}
+}
+/* iPads  ----------- */
+@media only screen and (min-width : 768px) {
+	.issue span.title {
+	  font-size: 1.7rem;
+	  line-height: 1.7rem;
+	  width: 70%;
+	}
+	.issue span.title:after,
+	.event span.title:after {
+  		border-width: 12px;
+  		margin-bottom:-2px;
+	}
+}
+
+/* Desktops and Laptops -----*/
+@media only screen and (min-width : 1200px) {
+
+	.issue {
+		margin-top:-165px;
+	}
+	.issue span {
+		font-size:1.2rem;
+	}
+	.issue span.title {
+		margin-top:1rem;
+		font-size:3rem;
+		line-height:3rem;
+		width:80%;
+	}
+	.issue span.title:after {
+		border-width: 20px;
+  		margin-left: 9px;
+	}
+}
+
 .site {
 	max-width:1600px;
 	padding: 0 15px;
@@ -81,8 +302,8 @@ button.menu-toggle {
 .entry-image {
 	max-width: 200px;
 	float: left;
-	width: 35%;
-	margin-right:5%;
+	width: 30%;
+	margin-right:4%;
 }
 .entry-image img {
 	width:100%;
@@ -102,11 +323,17 @@ h1.entry-title a:hover {
 }
 .entry-summary {
 	float: left;
-	width: 60%;
+	width: 66%;
 }
 .entry-summary.no-image{
 	width:100%;
 }
 .entry-summary p {
 	font-size: 11px;
+}
+
+/* Moving assistive text out of view */
+.assistive-text {
+	top:0;
+	left:0;
 }
