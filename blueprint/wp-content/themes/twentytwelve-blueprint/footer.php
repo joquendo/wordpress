@@ -15,7 +15,7 @@ $about_us_id = get_id_by_slug('about');
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
 			<h3>About Us</h3>
-			<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 30, '...');?> <a href="/about">MORE</a></p>
+			<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 20, '...');?> <a href="/about">MORE</a></p>
 			<h3>Contact Us</h3>
 			<p>
 				<?php echo get_field('street_address', $about_us_id); ?><br/>
