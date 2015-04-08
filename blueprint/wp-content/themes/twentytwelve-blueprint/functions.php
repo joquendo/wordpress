@@ -11,81 +11,6 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('parent-style') );
 }
 
-// Create a custom post type
-add_action('init', 'create_post_type');
-
-function create_post_type() {
-	$args = array(
-		'labels' => post_type_labels( 'Issue' ),
-		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'query_var' => true,
-		'rewrite' => true,
-		'capability_type' => 'post',
-		'has_archive' => true,
-		'hierarchical' => false,
-		'menu_position' => null,
-		'menu_icon' => 'dashicons-book-alt',
-		'supports' => array('title',
-			'editor',
-			'author',
-			'thumbnail',
-			'excerpt',
-			'comments',
-			'post-formats'
-		)
-	);
-
-	register_post_type( 'issue', $args);
-}
-
-// A helper fucntion for generating the labels...
-function post_type_labels($singular, $plural = '')
-{
-	if($plural == '') $plural = $singular . 's';
-		return array(
-			'name' => _x($plural, 'post type general name'),
-			'singular_name' => _x($singular, 'post type singular name'),
-			'add_new' => __('Add New'),
-			'add_new_item' => __('Add New ' . $singular),
-			'edit_item' => __('Edit ' . $singular),
-			'new_item' => __('New ' . $singular),
-			'view_item' => __('View' . $singular),
-			'search_items' => __('Search ' . $plural),
-			'not_found' => __('No ' . $plural . ' found'),
-			'not_found_in_trash' => __('No ' . $plural . ' found in Trash'),
-			'parent_item_colon' => ''
-		);
-}
-
-// Add filter to ensure the text Issue, or issue, is displayed when user updates a issue
-add_filter('post_updated_messages', 'post_type_updated_messages');
-
-function post_type_updated_messages($messages) {
-	global $post, $post_ID;
-	$messages['issue'] = array(
-		0 => '', //Unused. Messages start at index 1.
-		1 => sprintf( __('Issue updated. <a href="%s">View issue</a>'), esc_url(get_permalink($post_ID)) ),
-		2 => __('Custom field updated.'),
-		3 => __('Custom field deleted.'),
-		4 => __('Issue updated.'),
-		5 => isset( $_GET['revision'] ) ? sprintf( __( 'Issue restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-		6 => sprintf( __('Issue published. <a href="%s">View Issue</a>'), esc_url(get_permalink($post_ID)) ),
-		7 => __('Issue saved.'),
-		8 => __('Issue submitted.'),
-		9 => sprintf( __( 'Issue scheduled for: <strong>%1$s</strong>.' ),
-			// translators: Publish box date format, see http://php.net/date
-			date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) )
-		),
-		10 => __( 'Issue draft updated.' )
-	);
-
-	return $messages;
-
-}
-
 // Displaying custom post types on the front page
 add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
@@ -94,7 +19,6 @@ function add_my_post_types_to_query( $query ) {
 		$query->set( 'post_type', array( 'post', 'feature' ) );
 	return $query;
 }
-
 
 // Add theme support for post format chat
 add_action( 'after_setup_theme', 'add_post_formats_support', 11 );
