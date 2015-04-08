@@ -18,14 +18,14 @@ $about_us_id = get_id_by_slug('about');
 			<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 30, '...');?> <a href="/about">MORE</a></p>
 			<h3>Contact Us</h3>
 			<p>
-				<?php echo get_post_meta($about_us_id, 'street_address', true); ?><br/>
-				<?php echo get_post_meta($about_us_id, 'city', true); ?>, <?php echo get_post_meta($about_us_id, 'state', true); ?> <?php echo get_post_meta($about_us_id, 'zip', true); ?>
+				<?php echo get_field('street_address', $about_us_id); ?><br/>
+				<?php echo get_field('city', $about_us_id); ?>, <?php echo get_field('state', $about_us_id); ?> <?php echo get_field('zip', $about_us_id); ?>
 			</p>
 			<p>
-				P: <?php echo get_post_meta($about_us_id, 'phone', true); ?><br/>
-				E: <a href="mailto:<?php echo get_post_meta($about_us_id, 'email', true); ?>"><?php echo get_post_meta($about_us_id, 'email', true); ?></a>
+				P: <?php echo get_field('phone', $about_us_id); ?><br/>
+				E: <a href="mailto:<?php echo get_field('email', $about_us_id); ?>"><?php echo get_field('email', $about_us_id); ?></a>
 			</p>
-			<p><a href="https://twitter.com/<?php echo get_post_meta($about_us_id, 'twitter_username', true); ?>">Twitter</a></a>
+			<p><a href="https://twitter.com/<?php echo get_field('twitter_username', $about_us_id); ?>">Twitter</a></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
