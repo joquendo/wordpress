@@ -44,6 +44,7 @@ function styling_chat_post($table_talk) {
 function register_js_scripts() {
 	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
 	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js');
+	wp_enqueue_script( 'custom_sidebar', get_stylesheet_directory_uri() . '/js/sidebar.js', array( 'jquery' ) );
 }
 add_action('init', 'register_js_scripts');
 
@@ -78,7 +79,7 @@ function get_id_by_slug($page_slug) {
 function remove_menu_pages() {
 	remove_menu_page('edit.php');
 }
-add_action('admin_menu', remove_menu_pages);
+add_action('admin_menu', 'remove_menu_pages');
 
 /**
  * Set up post entry meta.
