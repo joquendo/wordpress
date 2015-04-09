@@ -2,7 +2,9 @@
 
 get_header(); ?>
 
-event page
+<div class="event-wrapper">
+	event page
+</div>
 
 
 <?php get_footer(); ?>

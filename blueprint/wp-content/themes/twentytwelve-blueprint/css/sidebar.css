@@ -1,3 +1,4 @@
+/* SIDEBAR */
 #main {
 	position:relative;
 	height:auto;
@@ -66,7 +67,7 @@
 	text-decoration:none;
 	padding:17px 18px 17px 18px;
 	display:inline-block;
-	width:90px;
+	width:92px;
 }
 
 #secondary .container .btn:active {
@@ -110,4 +111,17 @@
 
 #secondary .container .list a:hover {
 	text-decoration:underline;
+}
+
+
+
+
+
+/* EVENT PAGE */
+.single-event .header-image-container, .single-event .issue, .single-event .logo {
+	display:none;
+}
+
+.single-event .event-wrapper {
+	min-height:500px;
 }
