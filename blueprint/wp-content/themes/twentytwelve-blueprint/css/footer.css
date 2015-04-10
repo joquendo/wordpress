@@ -1,0 +1,57 @@
+footer[role="contentinfo"] {
+	background: #ebebeb;
+	max-width: 1280px;
+	overflow: auto;
+}
+
+#colophon h6 {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+#colophon a,
+#colophon p,
+.legal {
+	color: #686868;
+}
+
+#colophon a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+#colophon a:hover {
+	color: #a6a6a6;
+}
+
+#colophon .content {
+	margin-bottom: 20px;
+}
+
+#colophon .siteinfo {
+	overflow: auto;
+}
+
+#colophon .column {
+	box-sizing: border-box;
+	float: left;
+	width: 33%;
+}
+
+#colophon .first {
+	padding-right: 50px;
+}
+
+#colophon .middle {
+	border-left: solid 1px #ccc;
+	border-right: solid 1px #ccc;
+	padding: 0 50px;
+}
+
+#colophon .last {
+	padding-left: 50px;
+}
+
+.legal {
+	margin-top: 25px;
+}
