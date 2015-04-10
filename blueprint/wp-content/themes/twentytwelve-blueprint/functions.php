@@ -17,6 +17,8 @@ add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 function add_my_post_types_to_query( $query ) {
 	if ( is_home() && $query->is_main_query() )
 		$query->set( 'post_type', array( 'feature', 'sketch' ) );
+		$query->set( 'orderby', 'menu_order');
+		$query->set( 'order', 'ASC');
 	return $query;
 }
 
@@ -95,7 +97,7 @@ function twentytwelve_entry_meta() {
 	$categories_list = get_the_category_list( __( ' ', 'twentytwelve' ) );
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
+	$tag_list = get_the_tag_list( '', __( ' ', 'twentytwelve' ) );
 
 	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
 		esc_url( get_permalink() ),
@@ -112,7 +114,7 @@ function twentytwelve_entry_meta() {
 
 	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 	if ( $tag_list ) {
-		$utility_text = __( '%1$s and tagged %2$s', 'twentytwelve' );
+		$utility_text = __( '%1$s <div> %2$s </div>', 'twentytwelve' );
 	} elseif ( $categories_list ) {
 		$utility_text = __( '%1$s', 'twentytwelve' );
 	} else {

@@ -36,8 +36,10 @@
 				<header class="entry-header">
 					<?php if ( get_field('thumbnail') ) : ?>
 					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
+					<?php elseif ( 'sketch' == get_post_type() ) : ?>
+					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-editors-note.png" alt="" /></a></div>
 					<?php endif; ?>
-					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print '' : print 'no-image' ?>">
+					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print '' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
 						<?php if ( get_field('article_type') ) : ?>
 						<span class="article-type"><?php echo get_field('article_type'); ?></span>
 						<?php endif; ?>	
@@ -47,6 +49,7 @@
 						<?php the_excerpt(); ?>
 						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
 					</div><!-- .entry-summary -->
+
 				</header>
 
 			<?php endif; ?>
