@@ -28,7 +28,7 @@ $about_us_id = get_id_by_slug('about');
 			<p><a href="https://twitter.com/<?php echo get_field('twitter_username', $about_us_id); ?>">Twitter</a></a>
 
 			<h3>Stay Informed</h3>
-			<?php echo do_shortcode('[contact-form-7 id="193" title="Stay Informed"]');?>
+			<?php echo do_shortcode('[contact-form-7 id="194" title="Stay Informed"]');?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
