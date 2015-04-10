@@ -17,7 +17,7 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 			<div class="column first">
 				<div class="content">
 					<h6>About Us</h6>
-					<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 20, '...');?> <a href="/about">MORE</a></p>
+					<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 50, '...');?> <a href="/about">MORE</a></p>
 				</div>
 				<div class="content">
 					<p><a href="/staff-and-contributors">Staff and Contributors</a></p>
@@ -45,10 +45,12 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 			<div class="column last">
 				<div class="content">
 					<h6>Stay Informed</h6>
+					<p>Subscribe and receive updates every time we publish a new issue. lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					<?php echo do_shortcode('[contact-form-7 id="194" title="Stay Informed"]');?>
 				</div>
 				<div class="content">
-					<p><a href="https://twitter.com/<?php echo get_field('twitter_username', $about_us_id); ?>">Twitter</a></a>
+					<p><a href="https://twitter.com/<?php echo get_field('twitter_username', $about_us_id); ?>">Receive Updates on Twitter</a></p>
+					<p><a href="<?php bloginfo('rss2_url'); ?>">Receive Updates via RSS</a></p>
 				</div>
 			</div>
 		</div><!-- .site-info -->
