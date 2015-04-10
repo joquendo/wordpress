@@ -266,6 +266,11 @@ span.post-type {
 
 /* Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
+	.site-content {
+		border-top: 1px solid #ccc;
+  		padding-top: 20px;
+  		width:74%;
+	}
 	.logo {
 		margin-top:90px;
 		margin-left:6.7rem;
