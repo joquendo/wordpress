@@ -1,3 +1,19 @@
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+
+
+
+
 /* SIDEBAR */
 #main {
 	position:relative;
@@ -178,7 +194,6 @@
 }
 
 .event-wrapper p {
-	font-family: Helvetica, Arial, sans-serif;
 	color:#676767;
 	font-size:20px;
 	font-weight:100;
@@ -192,6 +207,53 @@
 
 .event-wrapper .btn {
 	color:#FFF;
-	width:118px;
+	width:120px;
 	padding:17px 55px 17px 55px;
+}
+
+.event-wrapper .description {
+	margin-bottom:60px;
+}
+
+.event-wrapper .col-1, .event-wrapper .col-2 {
+	float:left;
+	position:relative;
+}
+
+.event-wrapper .col-1 {
+	width:15%;
+}
+
+.event-wrapper .col-2 {
+	width:80%;
+	padding-left:5%;
+}
+
+.event-wrapper .moderator, .event-wrapper .panelist {
+	border-top:1px solid #E4E4E4;
+	margin-top:30px;
+	padding-top:20px;
+}
+
+.event-wrapper .moderator .label, .event-wrapper .panelist .label {
+	display:block;
+	text-transform:uppercase;
+	font-weight:100;
+	font-size:12px;
+	margin-bottom:8px;
+}
+
+.event-wrapper .moderator .name, .event-wrapper .panelist .name {
+	display:block;
+	text-transform:uppercase;
+	font-weight:800;
+	font-size:18px;
+	margin-bottom:16px;
+}
+
+.event-wrapper .moderator .title, .event-wrapper .panelist .title {
+	font-style:italic;
+	font-weight:100;
+	font-size:18px;
+	line-height:24px;
 }

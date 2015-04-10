@@ -42,7 +42,89 @@ $description  = get_field('description',$event_id);
 		
 		<a class="btn" href="<?php echo $register_url ?>">Register Now</a>
 		
-		<p><?php echo $description ?></p>
+		<p class="description"><?php echo $description ?></p>
+		
+		
+		
+		
+
+		<?php if ( have_rows('moderator') ) : ?>
+		
+			<?php while ( have_rows('moderator') ) : the_row(); ?>
+			
+				<?php
+				$profile = get_sub_field('profile_image');
+				$name = get_sub_field('name');
+				$title = get_sub_field('title');
+				$blurb = get_sub_field('blurb');
+				?>
+				
+				<div class="moderator clearfix">
+				
+					<div class="container">
+						<div class="col-1">
+							<img src="<?php echo $profile['url'] ?>" />
+						</div>
+						
+						<div class="col-2">
+							
+							<span class="label">Moderator</span>
+							
+							<span class="name"><?php echo $name ?></span>
+							
+							<span class="title"><?php echo $title ?></span>
+							
+							<p><?php echo $blurb ?></p>
+							
+						</div>
+					</div>
+					
+				</div>
+			
+			<?php endwhile; ?>
+			
+		<?php endif; ?>
+		
+		
+		
+		
+		
+		<?php if ( have_rows('panelist') ) : ?>
+		
+			<?php while ( have_rows('panelist') ) : the_row(); ?>
+			
+				<?php
+				$profile = get_sub_field('profile_image');
+				$name = get_sub_field('name');
+				$title = get_sub_field('title');
+				$blurb = get_sub_field('blurb');
+				?>
+				
+				<div class="panelist clearfix">
+				
+					<div class="container">
+						<div class="col-1">
+							<img src="<?php echo $profile['url'] ?>" />
+						</div>
+						
+						<div class="col-2">
+							
+							<span class="label">Panelist</span>
+							
+							<span class="name"><?php echo $name ?></span>
+							
+							<span class="title"><?php echo $title ?></span>
+							
+							<p><?php echo $blurb ?></p>
+							
+						</div>
+					</div>
+					
+				</div>
+			
+			<?php endwhile; ?>
+			
+		<?php endif; ?>
 		
 	</div>
 	
