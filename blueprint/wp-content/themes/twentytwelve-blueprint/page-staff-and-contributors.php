@@ -96,7 +96,7 @@ get_header(); ?>
 				<?php endif; ?>
 
 				<!-- SPECIAL NOTE -->
-				<?php if( have_rows('ucla_administration') ): ?>
+				<?php if( the_field('special_note') ): ?>
 					<p class="special-note"><?php the_field('special_note'); ?></p>
 				<?php endif; ?>
 
