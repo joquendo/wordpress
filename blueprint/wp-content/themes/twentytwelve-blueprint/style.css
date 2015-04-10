@@ -12,8 +12,11 @@
  Text Domain:  twenty-twelve-child
 */
 
-html {
+@import url('css/fonts.css');
+
+body {
 	font-size:16px;
+	font-family: ProximaNova;
 }
 
 /* Chat Posts */

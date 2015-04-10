@@ -11,6 +11,12 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('parent-style') );
 }
 
+// Remove custom font enabled in twentytwelve theme
+function remove_open_sans() {
+   wp_dequeue_style( 'twentytwelve-fonts' );
+}
+add_action('wp_print_styles','remove_open_sans');
+
 // Displaying custom post types on the front page
 add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
