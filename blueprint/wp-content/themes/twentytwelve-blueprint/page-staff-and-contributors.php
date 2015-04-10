@@ -23,7 +23,7 @@ get_header(); ?>
 				<!-- BLUE PRINT STAFF MEMBERS -->
 				<?php if( have_rows('blue_print_staff') ): ?>
 
-				<h2>Blue Print Staff</h2>
+				<h2>Blueprint Staff</h2>
 
 					<div class="staff-listing">
 
@@ -95,8 +95,8 @@ get_header(); ?>
 
 				<?php endif; ?>
 
-				<!-- SPECIAL NOTE -->
-				<?php if( the_field('special_note') ): ?>
+				<!-- SPECIAL NOTE x-->
+				<?php if( get_field('special_note') ): ?>
 					<p class="special-note"><?php the_field('special_note'); ?></p>
 				<?php endif; ?>
 
