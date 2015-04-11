@@ -14,6 +14,63 @@
 
 get_header(); ?>
 
+<style type="text/css">
+.special-note{
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 300;
+}
+.staff-bio {
+	font-size: 1.3em;
+	font-weight: 300;
+	overflow: hidden;
+}
+
+.staff-image {
+	float: left;
+	height: 100px;
+	margin-right: 20px;
+	width: 100px;
+}
+
+.staff-listing {
+	margin-bottom: 50px;
+}
+
+.staff-name {
+	color: #000;
+	font-size: 1.3em;
+	font-weight: 600;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.staff-title {
+	font-size: .9em;
+	font-weight: 300;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+span.staff-title {
+	font-size: .7em;
+	margin-left: 10px;
+}
+
+ul.staff-members li {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	display: block;
+	padding: 20px 0;
+	overflow: auto;
+}
+
+ul.staff-members li:first-child {
+	border-bottom: none;
+}
+
+</style>
+
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
@@ -26,24 +83,28 @@ get_header(); ?>
 				<h2>Blueprint Staff</h2>
 
 					<div class="staff-listing">
+						<ul class="staff-members">
 
-					<?php while( have_rows('blue_print_staff') ): the_row(); 
-						// vars
-						$staff_image = get_sub_field('staff_image');
-						$staff_name = get_sub_field('staff_name');
-						$staff_title = get_sub_field('staff_title');
-						$staff_bio = get_sub_field('staff_bio');
-					?>
+							<?php while( have_rows('blue_print_staff') ): the_row(); 
+								// vars
+								$staff_image = get_sub_field('staff_image');
+								$staff_name = get_sub_field('staff_name');
+								$staff_title = get_sub_field('staff_title');
+								$staff_bio = get_sub_field('staff_bio');
+							?>
 
-						<div class="staff-bio">
-							<img src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_image['alt'] ?>" />
-							<h3><?php echo $staff_name; ?></h3>
-							<h4><?php echo $staff_title; ?></h4>
-							<p><?php echo $staff_bio; ?></p>
-						</div>
+							<li>	
+								
+									<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_image['alt'] ?>" />
+									<p class="staff-name"><?php echo $staff_name; ?></p>
+									<p class="staff-title"><?php echo $staff_title; ?></p>
+									<p class="staff-bio"><?php echo $staff_bio; ?></p>
+								
+							</li>
+								
+							<?php endwhile; ?>
 
-					<?php endwhile; ?>
-
+						</ul>
 					</div>
 
 				<?php endif; ?>
@@ -53,7 +114,7 @@ get_header(); ?>
 
 				<h2>Contributors</h2>
 
-					<ul class="contributor-listing">
+					<ul>
 
 					<?php while( have_rows('contributors') ): the_row(); 
 						// vars
@@ -61,8 +122,8 @@ get_header(); ?>
 						$contributor_title = get_sub_field('contributor_title');
 					?>
 
-						<li class="contributor">
-							<?php echo $contributor_name; ?> <span class="title"><?php echo $contributor_title; ?></span>
+						<li>
+							<p class="staff-name"><?php echo $contributor_name; ?> <span class="staff-title"><?php echo $contributor_title; ?></p>
 						</li>
 
 					<?php endwhile; ?>
@@ -77,7 +138,7 @@ get_header(); ?>
 
 				<h2>UCLA Administration</h2>
 
-					<ul class="ucla-administration-listing">
+					<ul>
 
 					<?php while( have_rows('ucla_administration') ): the_row(); 
 						// vars
@@ -85,8 +146,8 @@ get_header(); ?>
 						$administrator_title = get_sub_field('administrator_title');
 					?>
 
-						<li class="ucla-administrator">
-							<?php echo $administrator_name; ?> <span class="title"><?php echo $administrator_title; ?></span>
+						<li>
+							<p class="staff-name"><?php echo $administrator_name; ?> <span class="staff-title"><?php echo $administrator_title; ?></span></p>
 						</li>
 
 					<?php endwhile; ?>
@@ -99,7 +160,6 @@ get_header(); ?>
 				<?php if( get_field('special_note') ): ?>
 					<p class="special-note"><?php the_field('special_note'); ?></p>
 				<?php endif; ?>
-
 
 				<?php //comments_template( '', true ); ?>
 			<?php endwhile; // end of the loop. ?>
