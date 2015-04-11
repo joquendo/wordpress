@@ -49,7 +49,9 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 					<?php echo do_shortcode('[contact-form-7 id="194" title="Stay Informed"]');?>
 				</div>
 				<div class="content">
-					<p><a href="https://twitter.com/<?php echo get_field('twitter_username', $about_us_id); ?>">Receive Updates on Twitter</a></p>
+					<?php if(get_field('twitter_username', $about_us_id)): ?>
+						<p><a href="https://twitter.com/<?php echo the_field('twitter_username', $about_us_id); ?>">Receive Updates on Twitter</a></p>
+					<?php endif; ?>
 					<p><a href="<?php bloginfo('rss2_url'); ?>">Receive Updates via RSS</a></p>
 				</div>
 			</div>
