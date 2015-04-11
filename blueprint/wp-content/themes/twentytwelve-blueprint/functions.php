@@ -51,15 +51,28 @@ function styling_chat_post($table_talk) {
 // Add child theme javascript files
 function register_js_scripts() {
 	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
-	wp_register_script('custom_nav_searchbutton', get_stylesheet_directory_uri() . '/js/navigation.js');
+	wp_register_script('custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js');
 	wp_enqueue_script( 'custom_sidebar', get_stylesheet_directory_uri() . '/js/sidebar.js', array( 'jquery' ) );
 }
 add_action('init', 'register_js_scripts');
 
-function add_js_scripts() {
-	wp_print_scripts('custom_nav_searchbutton');
+// de-queue navigation js
+function dequeue_navigation() {
+	wp_dequeue_script( 'twentytwelve-navigation' );
 }
-add_action('wp_footer', 'add_js_scripts');
+add_action('wp_print_scripts','dequeue_navigation');
+
+// enqueue custom navigation js
+function add_custom_scripts() {
+	wp_print_scripts('custom_navigation');
+}
+add_action('wp_footer', 'add_custom_scripts');
+
+// Add the new menu
+register_nav_menus( array(
+	'primary' => __( 'Top Menu (Above Header)', 'twentytwelve' ),
+	'secondary' => __( 'Secondary (Issues)', 'twentytwelve')
+) );
 
 // Add picturefill js for responsive/adaptive images
 function mytheme_dequeue_scripts() {
