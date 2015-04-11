@@ -11,9 +11,9 @@
 	topicsButton = nav.getElementsByTagName( 'button' )[1];
 	issuesButton = nav.getElementsByTagName( 'button' )[2];
 	searchButton = nav.getElementsByTagName( 'button' )[3];
-	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement; // parentElement to select container
-	issuesMenu	 = nav.getElementsByTagName( 'ul' )[1].parentElement;
-	searchForm   = nav.getElementsByTagName( 'form' )[0].parentElement; 
+	topicsMenu   = nav.getElementsByTagName( 'ul' )[0];
+	issuesMenu	 = nav.getElementsByTagName( 'ul' )[1];
+	searchForm   = nav.getElementsByTagName( 'form' )[0].parentElement; //to show/hide parent div of form element
 
 	if ( ! menuButton && ! topicsButton && ! searchButton && ! searchButton ) {
 		return;

@@ -103,13 +103,9 @@ img.header-image {
 	color:#00a5e5;
 	background-color: rgba(255,255,255,0.9);
 }
-.main-navigation ul.nav-menu,
-.main-navigation div.nav-menu > ul {
-	display:block !important;
-}
-.menu-topics-container.toggled-on,
-.menu-issues-container.toggled-on {
-	display:block !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
+.main-navigation ul.nav-menu.toggled-on,
+.main-navigation div.nav-menu.toggled-on > ul {
+	display:inline-block !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
 	width:100%;
 }
 .main-navigation li {
@@ -119,13 +115,13 @@ img.header-image {
 }
 .menu-topics-container,
 .menu-issues-container {
-	display:none;
 	position:absolute;
 	left:0;
 	right:162px;
 	background-color:rgba(255,255,255,0.9);
 	text-align:left;
 	width:100%;
+	margin-top:20px;
 }
 .main-navigation div.searchform {
 	display:none;
@@ -133,9 +129,8 @@ img.header-image {
 	padding:1%;
 	width:98%;
 	background-color:rgba(255,255,255,0.9);
+	margin-top:20px;
 }
-.menu-topics-container.toggled-on,
-.menu-issues-container.toggled-on, 
 .main-navigation div.searchform.toggled-on {
 	display:block;
 }
@@ -301,10 +296,12 @@ span.post-type {
 	.main-navigation div.nav-menu > ul {
 		border-bottom: 1px solid #ededed;
 		border-top: 1px solid #ededed;
+		display: none !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
 		text-align: left;
 		width: initial;
 	}
-	.menu-topics-container.toggled-on {
+	.main-navigation ul.nav-menu.toggled-on,
+	.main-navigation div.nav-menu.toggled-on > ul {
 		width:initial;
 	}
 	.main-navigation ul.nav-menu li.menu-item {
@@ -314,25 +311,17 @@ span.post-type {
 	.menu-topics-container {
 		left:inherit;
 		max-width:175px;
-	}
-	.menu-issues-container:before {
-		content:"";
-		display:block;
-		height:1px;
-	    background-image: -o-linear-gradient(left , rgb(255,255,255), rgb(77,201,235) );
-	    background-image: -moz-linear-gradient(left , rgb(255,255,255), rgb(77,201,235) );
-	    background-image: -webkit-linear-gradient(left , rgb(255,255,255), rgb(77,201,235) );
-	    background-image: linear-gradient(left , rgb(255,255,255), rgb(77,201,235) );
+		margin-top:19px;
 	}
 	.menu-issues-container {
 		text-align:center;
+		margin-top:19px;
 	}
 	.menu-issues-container ul.nav-menu,
 	.menu-issues-container div.nav-menu > ul {
 		padding:48px 0;
 		border-top:0;
 		border-bottom:0;
-		text-align:center;
 	}
 	.menu-issues-container ul.nav-menu li.menu-item {
 		width:initial;
@@ -347,6 +336,7 @@ span.post-type {
 	.main-navigation div.searchform {
 		max-width:330px;
 		right:0;
+		margin-top:19px;
 	}
 	.issue {
 		position:absolute;
