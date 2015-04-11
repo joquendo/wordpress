@@ -1,4 +1,5 @@
 .DS_Store
+.htaccess
 
 blueprint/wp-includes/
 blueprint/wp-admin/

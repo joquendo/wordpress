@@ -36,13 +36,20 @@
 				<header class="entry-header">
 					<?php if ( get_field('thumbnail') ) : ?>
 					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
+					<?php elseif ( 'sketch' == get_post_type() ) : ?>
+					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-editors-note.png" alt="" /></a></div>
 					<?php endif; ?>
-					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print '' : print 'no-image' ?>">	
+					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print '' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
+						<?php if ( get_field('article_type') ) : ?>
+						<span class="article-type"><?php echo get_field('article_type'); ?></span>
+						<?php endif; ?>	
 						<h1 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h1>
-						<?php the_excerpt(); ?>	
+						<?php the_excerpt(); ?>
+						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
 					</div><!-- .entry-summary -->
+
 				</header>
 
 			<?php endif; ?>
@@ -50,7 +57,6 @@
 		<?php endif; ?>
 
 		<footer class="entry-meta">
-			<?php twentytwelve_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
 			<?php if ( is_singular() && get_the_author_meta( 'description' ) && is_multi_author() ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries. ?>
 				<div class="author-info">
