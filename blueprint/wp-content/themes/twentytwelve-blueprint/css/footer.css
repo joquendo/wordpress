@@ -58,3 +58,37 @@ footer[role="contentinfo"] {
 .legal {
 	margin-top: 25px;
 }
+
+/*SUBSCRIBE FORM STYLING*/
+#colophon form.wpcf7-form {
+	margin: 30px 0;
+}
+
+#colophon form.wpcf7-form input {
+	border: none;
+	height: 20px;
+	padding: 15px;
+	-moz-box-sizing: content-box; /* or `border-box` */
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#colophon form.wpcf7-form input[type="email"] {
+	border-radius: 0;
+	display:inline-block;
+	font-size: 1em;
+	vertical-align: top;
+	width: 50%;
+}
+
+#colophon form.wpcf7-form input[type="submit"] {
+  background-color: #686868;
+  background-image: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
