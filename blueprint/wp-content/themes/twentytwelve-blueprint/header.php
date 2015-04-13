@@ -48,6 +48,32 @@
 
 			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+			<?php 
+
+				$menu_name = 'secondary';
+
+				if ( ($locations = get_nav_menu_locations() ) && isset ( $locations[ $menu_name ] ) ) {
+					$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+					$menu_items = wp_get_nav_menu_items($menu->term_id);
+					$menu_list  = '<div class="menu-issues-container">';
+					$menu_list .= '<ul id="menu-' . $menu->slug . '" class="nav-menu">';
+					
+					foreach ( (array) $menu_items as $key => $menu_item ) {
+						$cover_image_url = get_field('cover_image', $menu_item->object_id);
+						$issue_date = get_field('issue_date', $menu_item->object_id);
+						$url = $menu_item->url;
+						$menu_list .= '<li class="menu-item"><a href="' . $url . '"><img src="' . $cover_image_url . '" /><span>' . $issue_date . '</span></a></li>';
+					}
+					$menu_list .='</ul>';
+					$menu_list .='</div>';
+				} else {
+					$menu_list = '<div class="menu-issues-container"><ul><li>Menu "' . $menu_name . '" not defined.</li></ul></div>';
+
+				}
+
+				echo $menu_list;
+
+			 ?>
 			<div class="searchform">
 				<?php get_search_form(); ?>
 			</div>
@@ -91,8 +117,8 @@
 			$featured_article = get_field('featured_article');
 		?>
 			<div class="issue">
-				<span><?php echo the_title(); ?> Issue</span>
-				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo $featured_article->post_title; ?></span></a>
+				<span><?php echo get_field('issue_date'); ?> Issue</span>
+				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo the_title(); ?></span></a>
 			</div>
 			<div class="event">
 				<span>Next Event</span>
