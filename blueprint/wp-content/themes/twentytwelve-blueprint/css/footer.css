@@ -94,6 +94,10 @@ footer[role="contentinfo"] {
   text-transform: uppercase;
 }
 
+#colophon span.wpcf7-form-control-wrap {
+  position: inherit;
+}
+
 #colophon label.float {
   left: 14px;
   position: absolute;

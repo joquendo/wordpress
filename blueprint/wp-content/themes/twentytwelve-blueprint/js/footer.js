@@ -2,21 +2,21 @@ jQuery(document).ready(function ($) {
 	
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 		CONTACT FORM
+		SELECTING SPECIFICALLY FOR FOOTER SUBSCRIBE FORM
 	:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-	var textInputs = $('input[type="email"]');
-	var textLabels = textInputs.prev('label');
+	var textInputs = $('#colophon input[type="email"]');
+	var textLabels = textInputs.closest('p').find('label');
 
 	textLabels.addClass('float');
 
 
 	// Fade on focus, hide on keydown
 	textInputs.each(function() {
-
 		// If field has value
 		if ( $(this).val() ) {
-			$(this).prev('label').hide();
+			$(this).closest('p').find('label').hide();
 		} else {
-			$(this).prev('label').show();
+			$(this).closest('p').find('label').show();
 		}
 
 		// On focus
@@ -25,9 +25,9 @@ jQuery(document).ready(function ($) {
 
 			// If field has value
 			if ( $(this).val() ) {
-				$(this).prev().hide();
+				$(this).closest('p').find('label').hide();
 			} else {
-				$(this).prev().show();
+				$(this).closest('p').find('label').show();
 			}
 		});
 
@@ -37,15 +37,15 @@ jQuery(document).ready(function ($) {
 
 			// If field has value
 			if ( $(this).val() ) {
-				$(this).prev().hide();
+				$(this).closest('p').find('label').hide();
 			} else {
-				$(this).prev().show();
+				$(this).closest('p').find('label').show();
 			}
 		});
 
 		// On keydown
 		$(this).keydown(function() {
-			$(this).prev().hide();
+			$(this).closest('p').find('label').hide();
 		});
 	});
 	
