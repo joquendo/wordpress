@@ -53,6 +53,7 @@ function styling_chat_post($table_talk) {
 // Add child theme javascript files
 function register_js_scripts() {
 	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
+	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_register_script('custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js');
 	wp_enqueue_script( 'custom_sidebar', get_stylesheet_directory_uri() . '/js/sidebar.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
@@ -151,3 +152,14 @@ function twentytwelve_entry_meta() {
 		$author
 	);
 }
+
+/*  GOOGLE CUSTOM SEARCH BOX
+	SEE /JS/SEARCH.JS FOR IMPLEMENTATION
+*/
+function my_search_form( $form ) {
+	$form = '<gcse:searchbox-only></gcse:searchbox-only>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'my_search_form' );
