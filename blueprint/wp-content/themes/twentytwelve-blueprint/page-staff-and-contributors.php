@@ -13,64 +13,6 @@
  */
 
 get_header(); ?>
-
-<style type="text/css">
-.special-note{
-  font-size: 1.1em;
-  font-style: italic;
-  font-weight: 300;
-}
-.staff-bio {
-	font-size: 1.3em;
-	font-weight: 300;
-	overflow: hidden;
-}
-
-.staff-image {
-	float: left;
-	height: 100px;
-	margin-right: 20px;
-	width: 100px;
-}
-
-.staff-listing {
-	margin-bottom: 50px;
-}
-
-.staff-name {
-	color: #000;
-	font-size: 1.3em;
-	font-weight: 600;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-}
-
-.staff-title {
-	font-size: .9em;
-	font-weight: 300;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-}
-
-span.staff-title {
-	font-size: .7em;
-	margin-left: 10px;
-}
-
-ul.staff-members li {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	display: block;
-	padding: 20px 0;
-	overflow: auto;
-}
-
-ul.staff-members li:first-child {
-	border-bottom: none;
-}
-
-</style>
-
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
