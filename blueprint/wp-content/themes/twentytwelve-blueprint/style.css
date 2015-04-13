@@ -53,7 +53,7 @@ img.header-image {
 	max-width:95px;
 	height:auto;
 	width:30%;
-	z-index:20;
+	z-index:10;
 }
 
 .logo img {
@@ -87,7 +87,7 @@ img.header-image {
 
 .main-navigation {
 	position:relative;
-	z-index:10;
+	z-index:20;
 	text-align:right;
 	text-transform:uppercase;
 	height:66px;
@@ -113,13 +113,15 @@ img.header-image {
 	line-height:4em;
 	border-bottom:1px solid #ccc;
 }
-.menu-topics-container {
+.menu-topics-container,
+.menu-issues-container {
 	position:absolute;
 	left:0;
 	right:162px;
 	background-color:rgba(255,255,255,0.9);
 	text-align:left;
 	width:100%;
+	margin-top:20px;
 }
 .main-navigation div.searchform {
 	display:none;
@@ -127,6 +129,7 @@ img.header-image {
 	padding:1%;
 	width:98%;
 	background-color:rgba(255,255,255,0.9);
+	margin-top:20px;
 }
 .main-navigation div.searchform.toggled-on {
 	display:block;
@@ -295,7 +298,11 @@ span.post-type {
 		border-top: 1px solid #ededed;
 		display: none !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
 		text-align: left;
-		width: 100%;
+		width: initial;
+	}
+	.main-navigation ul.nav-menu.toggled-on,
+	.main-navigation div.nav-menu.toggled-on > ul {
+		width:initial;
 	}
 	.main-navigation ul.nav-menu li.menu-item {
 		width:100%;
@@ -304,10 +311,32 @@ span.post-type {
 	.menu-topics-container {
 		left:inherit;
 		max-width:175px;
+		margin-top:19px;
+	}
+	.menu-issues-container {
+		text-align:center;
+		margin-top:19px;
+	}
+	.menu-issues-container ul.nav-menu,
+	.menu-issues-container div.nav-menu > ul {
+		padding:48px 0;
+		border-top:0;
+		border-bottom:0;
+	}
+	.menu-issues-container ul.nav-menu li.menu-item {
+		width:initial;
+	}
+	.menu-issues-container ul.nav-menu li.menu-item a {
+		line-height:1.2em;
+	}
+	.menu-issues-container ul.nav-menu li.menu-item a span {
+		display:block;
+		text-align:center;
 	}
 	.main-navigation div.searchform {
 		max-width:330px;
 		right:0;
+		margin-top:19px;
 	}
 	.issue {
 		position:absolute;
@@ -421,6 +450,11 @@ span.post-type {
 	}
 	.entry-summary p {
 		font-size: 1.125rem;
+	}
+}
+@media only screen and (min-width : 960px) {
+	.site-header {
+		margin:0 -2.857142857rem;
 	}
 }
 
