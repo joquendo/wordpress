@@ -62,6 +62,7 @@ footer[role="contentinfo"] {
 /*SUBSCRIBE FORM STYLING*/
 #colophon form.wpcf7-form {
 	margin: 30px 0;
+	position: relative;
 }
 
 #colophon form.wpcf7-form input {
@@ -90,5 +91,19 @@ footer[role="contentinfo"] {
   font-size: 1em;
   font-weight: 600;
   margin: 0;
+  text-transform: uppercase;
+}
+
+#colophon label.float {
+  left: 14px;
+  position: absolute;
+  top: 12px;
+}
+
+#colophon label {
+  color: #a6a6a6;
+  display: block;
+  font-weight: 300;
+  margin: 0 0 2px;
   text-transform: uppercase;
 }
