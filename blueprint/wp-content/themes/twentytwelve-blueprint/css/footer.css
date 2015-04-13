@@ -94,8 +94,12 @@ footer[role="contentinfo"] {
   text-transform: uppercase;
 }
 
-#colophon span.wpcf7-form-control-wrap {
-  position: inherit;
+#colophon label {
+  color: #a6a6a6;
+  display: block;
+  font-weight: 300;
+  margin: 0 0 2px;
+  text-transform: uppercase;
 }
 
 #colophon label.float {
@@ -104,10 +108,29 @@ footer[role="contentinfo"] {
   top: 12px;
 }
 
-#colophon label {
-  color: #a6a6a6;
-  display: block;
-  font-weight: 300;
-  margin: 0 0 2px;
-  text-transform: uppercase;
+#colophon span.wpcf7-form-control-wrap {
+  position: inherit;
+}
+
+#colophon span.wpcf7-not-valid-tip {
+  display: none;
+}
+
+div.wpcf7-mail-sent-ok,
+div.wpcf7-validation-errors {
+	border: 1px solid #ccc;
+}
+
+div.wpcf7-mail-sent-ok {
+	color: #00a5e5;
+}
+
+div.wpcf7-response-output {
+  margin: 2em 0em 0em 0em;
+  padding: 0.2em 1em;
+  width: 78%;
+}
+
+div.wpcf7-validation-errors {
+	color: #ff0000;
 }
