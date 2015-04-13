@@ -1,3 +1,12 @@
+.additional-links img {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.additional-links p {
+	margin-bottom: 20px;
+}
+
 .special-note{
   font-size: 1.1em;
   font-style: italic;

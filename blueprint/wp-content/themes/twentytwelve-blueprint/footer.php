@@ -48,11 +48,11 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 					<p>Subscribe and receive updates every time we publish a new issue. lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					<?php echo do_shortcode('[contact-form-7 id="194" title="Stay Informed"]');?>
 				</div>
-				<div class="content">
+				<div class="content additional-links">
 					<?php if(get_field('twitter_username', $about_us_id)): ?>
-						<p><a href="https://twitter.com/<?php echo the_field('twitter_username', $about_us_id); ?>">Receive Updates on Twitter</a></p>
+						<p><a href="https://twitter.com/<?php echo the_field('twitter_username', $about_us_id); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png">Receive Updates on Twitter</a></p>
 					<?php endif; ?>
-					<p><a href="<?php bloginfo('rss2_url'); ?>">Receive Updates via RSS</a></p>
+					<p><a href="<?php bloginfo('rss2_url'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png">Receive Updates via RSS</a></p>
 				</div>
 			</div>
 		</div><!-- .site-info -->
