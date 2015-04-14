@@ -28,8 +28,8 @@ body .site {
 	margin: 0 auto;
 }
 /* Header */
-header.site-header {
-	margin:0 -1.714285714rem;
+.header-image-container {
+	margin:0 -15px;	
 }
 img.header-image {
 	display:block;
@@ -123,26 +123,24 @@ img.header-image {
 .main-navigation div#searchform {
 	display:none;
 	position:absolute;
-	padding:1%;
+	padding:0;
 	width:98%;
-	background-color:rgba(255,255,255,0.9);
-	margin-top:20px;
 }
 .menu-topics-container.toggled-on,
 .main-navigation div#searchform.toggled-on {
 	display:block;
 }
-.issue,
-.event {
-	position:relative;
-	height:59px;
-}
+
 .issue {
+	position:relative;
 	background-color: #00a5e5;
+	height:59px;
 }
 
 .event {
+	position:relative;
 	background-color:#0054a6;
+	height:59px;
 }
 .issue span,
 .event span {
@@ -245,6 +243,63 @@ span.article-type {
 }
 span.post-type {
 	display:none;
+}
+
+/*SEARCH BOX*/
+#searchform,
+.main-navigation div#searchform {
+	background-color: none;
+	position: absolute;
+	top: 67px;
+}
+
+#search-query, 
+#submit-search-query {
+	background-color: #fff;
+	background-image: none;
+	border: none;
+	border-radius: 0;
+	display:inline-block;
+	height: 20px;
+	margin: 0;
+	vertical-align: top;
+	-moz-box-sizing: content-box; /* or `border-box` */
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#search-query {
+	font-size: 1em;
+	margin-right: 1px;
+	padding: 25px;
+	width: 70%;	
+}
+
+#submit-search-query {
+	box-shadow: none;
+	color: #030303;
+	font-size: 1.4em;
+	font-weight: 800;
+	padding: 25px 15px;	
+	text-transform: uppercase;	
+}
+
+#searchform label {
+	color: #ccc;
+	display: block;
+	font-weight: 300;
+	margin: 0 0 2px;
+	position: absolute;
+	text-transform: uppercase;
+	top: 30px;
+	left: 56px;
+}
+
+#search-query label.float {
+	left: 14px;
+	position: absolute;
+	top: 12px;
+
 }
 
 /* Moving assistive text out of view */
@@ -367,9 +422,8 @@ span.post-type {
 		background-color:#000;
 	}
 	.main-navigation div#searchform {
-		max-width:330px;
+		max-width:480px;
 		right:0;
-		margin-top:19px;
 	}
 	.issue {
 		position:absolute;
