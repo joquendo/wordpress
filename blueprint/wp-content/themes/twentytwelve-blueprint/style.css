@@ -28,8 +28,8 @@ body .site {
 	margin: 0 auto;
 }
 /* Header */
-.header-image-container {
-	margin:0 -15px;	
+header.site-header {
+	margin:0 -1.714285714rem;
 }
 img.header-image {
 	display:block;
@@ -132,17 +132,17 @@ img.header-image {
 .main-navigation div#searchform.toggled-on {
 	display:block;
 }
-
-.issue {
+.issue,
+.event {
 	position:relative;
-	background-color: #00a5e5;
 	height:59px;
+}
+.issue {
+	background-color: #00a5e5;
 }
 
 .event {
-	position:relative;
 	background-color:#0054a6;
-	height:59px;
 }
 .issue span,
 .event span {
