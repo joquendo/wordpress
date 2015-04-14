@@ -120,10 +120,20 @@
 				<span><?php echo get_field('issue_date'); ?> Issue</span>
 				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo the_title(); ?></span></a>
 			</div>
-			<div class="event">
-				<span>Next Event</span>
-				<a href=""><span class="title">An Evening with Eric Garcetti</span></a>
-			</div>
+			
+			<?php if ( $event_id = getLatestEventID() ) : ?>
+			
+				<?php
+				$title = get_the_title( $event_id );
+				$premalink = get_permalink($event_id);
+				?>
+				
+				<div class="event">
+					<span>Next Event</span>
+					<a href="<?php echo $premalink ?>"><span class="title"><?php echo $title ?></span></a>
+				</div>
+			<?php endif; ?>
+			
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
