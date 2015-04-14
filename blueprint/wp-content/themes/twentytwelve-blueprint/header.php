@@ -85,8 +85,8 @@
 
 			 ?>
 			<div id="searchform">
-				<input type="text" name="search-query" />
-				<button type="button">Go</button>
+				<input type="text" id="search-query" name="search-query" />
+				<button type="button" id="submit-search-query">Go</button>
 			</div>
 		</nav><!-- #site-navigation -->
 
