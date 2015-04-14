@@ -13,7 +13,7 @@
 	searchButton = nav.getElementsByTagName( 'button' )[3];
 	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement;
 	issuesMenu	 = document.getElementById( 'menu-issues' ).parentElement; // Show/hide container element
-	searchForm   = nav.getElementsByTagName( 'form' )[0].parentElement; 
+	searchForm   = document.getElementById( 'searchform' ); 
 
 	if ( ! menuButton && ! topicsButton && ! searchButton && ! searchButton ) {
 		return;
@@ -22,7 +22,6 @@
 	// Hide button if search form is missing.
 	if ( ! searchForm ) {
 		searchButton.style.display = 'none';
-		return;
 	}
 
 	menuButton.onclick = function(e) {

@@ -84,8 +84,9 @@
 				echo $menu_list;
 
 			 ?>
-			<div class="searchform">
-				<?php get_search_form(); ?>
+			<div id="searchform">
+				<input type="text" name="search-query" />
+				<button type="button">Go</button>
 			</div>
 		</nav><!-- #site-navigation -->
 

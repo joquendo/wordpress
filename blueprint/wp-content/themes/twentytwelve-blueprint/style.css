@@ -124,7 +124,7 @@ img.header-image {
 	margin-top:20px;
 	display:none;
 }
-.main-navigation div.searchform {
+.main-navigation div#searchform {
 	display:none;
 	position:absolute;
 	padding:1%;
@@ -133,7 +133,7 @@ img.header-image {
 	margin-top:20px;
 }
 .menu-topics-container.toggled-on,
-.main-navigation div.searchform.toggled-on {
+.main-navigation div#searchform.toggled-on {
 	display:block;
 }
 
@@ -376,7 +376,7 @@ span.post-type {
 	.menu-issues-container .nav-menu .menu-item .hover a:hover {
 		background-color:#000;
 	}
-	.main-navigation div.searchform {
+	.main-navigation div#searchform {
 		max-width:330px;
 		right:0;
 		margin-top:19px;
