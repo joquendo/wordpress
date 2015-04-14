@@ -56,17 +56,27 @@
 					$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 					$menu_items = wp_get_nav_menu_items($menu->term_id);
 					$menu_list  = '<div class="menu-issues-container">';
-					$menu_list .= '<ul id="menu-' . $menu->slug . '" class="nav-menu">';
-					
-					foreach ( (array) $menu_items as $key => $menu_item ) {
-						$cover_image_url = get_field('cover_image', $menu_item->object_id);
-						$issue_date = get_field('issue_date', $menu_item->object_id);
-						$url = $menu_item->url;
-						$menu_list .= '<li class="menu-item"><a href="' . $url . '"><img src="' . $cover_image_url . '" /><span>' . $issue_date . '</span></a></li>';
-					}
-					$menu_list .='</ul>';
-					$menu_list .='</div>';
+
+						$menu_list .='<div id="menu-' . $menu->slug . '" class="nav-menu">';
+						
+							foreach ( (array) $menu_items as $key => $menu_item ) {
+								$cover_image_url = get_field('cover_image', $menu_item->object_id);
+								$issue_date = get_field('issue_date', $menu_item->object_id);
+								$pdf = get_field('pdf_download', $menu_item->object_id);
+								$url = $menu_item->url;
+								$menu_list .= '<div class="menu-item">';
+									$menu_list .= '<img src="' . $cover_image_url . '" />';
+									$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
+									$menu_list .= '<span>' . $issue_date . '</span>';
+								$menu_list .= '</div>'; // End menu item
+							}
+
+						$menu_list .='</div>'; // End menu-{menu->slug}
+
+					$menu_list .='</div>'; // End menu-issues-container
+
 				} else {
+
 					$menu_list = '<div class="menu-issues-container"><ul><li>Menu "' . $menu_name . '" not defined.</li></ul></div>';
 
 				}

@@ -11,9 +11,9 @@
 	topicsButton = nav.getElementsByTagName( 'button' )[1];
 	issuesButton = nav.getElementsByTagName( 'button' )[2];
 	searchButton = nav.getElementsByTagName( 'button' )[3];
-	topicsMenu   = nav.getElementsByTagName( 'ul' )[0];
-	issuesMenu	 = nav.getElementsByTagName( 'ul' )[1];
-	searchForm   = nav.getElementsByTagName( 'form' )[0].parentElement; //to show/hide parent div of form element
+	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement;
+	issuesMenu	 = document.getElementById( 'menu-issues' ).parentElement; // Show/hide container element
+	searchForm   = nav.getElementsByTagName( 'form' )[0].parentElement; 
 
 	if ( ! menuButton && ! topicsButton && ! searchButton && ! searchButton ) {
 		return;
@@ -96,5 +96,15 @@
 			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
 		}
 	};
+
+	/* Hover effect on issue dropdown menu */
+	jQuery(issuesMenu).find('div.menu-item').hover(
+		function() {
+			jQuery('div.hover', this).css('display', 'inline-block');
+		},
+		function() {
+			jQuery('div.hover', this).css('display', 'none');
+		}
+	);
 
 } )();

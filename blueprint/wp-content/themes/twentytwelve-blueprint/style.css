@@ -103,9 +103,9 @@ img.header-image {
 	color:#00a5e5;
 	background-color: rgba(255,255,255,0.9);
 }
-.main-navigation ul.nav-menu.toggled-on,
-.main-navigation div.nav-menu.toggled-on > ul {
-	display:inline-block !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
+.main-navigation ul.nav-menu,
+.main-navigation div.nav-menu > ul {
+	display:inline-block; /* Twentytwelve parent theme uses !important so have override css by using !important */
 	width:100%;
 }
 .main-navigation li {
@@ -122,6 +122,7 @@ img.header-image {
 	text-align:left;
 	width:100%;
 	margin-top:20px;
+	display:none;
 }
 .main-navigation div.searchform {
 	display:none;
@@ -131,6 +132,7 @@ img.header-image {
 	background-color:rgba(255,255,255,0.9);
 	margin-top:20px;
 }
+.menu-topics-container.toggled-on,
 .main-navigation div.searchform.toggled-on {
 	display:block;
 }
@@ -296,7 +298,6 @@ span.post-type {
 	.main-navigation div.nav-menu > ul {
 		border-bottom: 1px solid #ededed;
 		border-top: 1px solid #ededed;
-		display: none !important; /* Twentytwelve parent theme uses !important so have override css by using !important */
 		text-align: left;
 		width: initial;
 	}
@@ -316,6 +317,10 @@ span.post-type {
 	.menu-issues-container {
 		text-align:center;
 		margin-top:19px;
+		padding:50px 0;
+	}
+	.menu-issues-container.toggled-on {
+		display:block;
 	}
 	.menu-issues-container ul.nav-menu,
 	.menu-issues-container div.nav-menu > ul {
@@ -329,9 +334,47 @@ span.post-type {
 	.menu-issues-container ul.nav-menu li.menu-item a {
 		line-height:1.2em;
 	}
+	/* temp menu item for issues in nav */
 	.menu-issues-container ul.nav-menu li.menu-item a span {
 		display:block;
 		text-align:center;
+	}
+	.menu-issues-container .nav-menu .menu-item {
+		position:relative;
+		display:inline-block;
+		margin:0 30px;
+	}
+	.menu-issues-container .nav-menu .menu-item span {
+		display:block;
+		text-align:center;
+		font-size: 0.75rem;
+		color: #686868;
+	}
+	.menu-issues-container .nav-menu .menu-item .hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 110px;
+		background-color: rgba(255,255,255,0.5);
+		padding-top:50px;
+		display:none;
+	}
+	.menu-issues-container .nav-menu .menu-item .hover a {
+		width:100px;
+		height:28px;
+		display:inline-block;
+  		text-transform:uppercase;
+  		text-decoration:none;
+  		color:#fff;
+  		font-size:0.75rem;
+  		letter-spacing:0.03rem;
+  		line-height:2.1rem;
+		margin-bottom:12px;
+		background-color:#00a5e5;
+	}
+	.menu-issues-container .nav-menu .menu-item .hover a:hover {
+		background-color:#000;
 	}
 	.main-navigation div.searchform {
 		max-width:330px;
