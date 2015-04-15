@@ -6,11 +6,10 @@ include_once(__DIR__.'/func/func-sidebar.php');
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 function theme_enqueue_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'child-style',  get_stylesheet_directory_uri() . '/style.css', array('parent-style') );
-	wp_enqueue_style( 'staff-and-contributors-style',  get_stylesheet_directory_uri() . '/css/staff-and-contributors.css', array('parent-style') );
-	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('parent-style') );
-	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('parent-style') );
+	wp_enqueue_style( 'child-style',  get_stylesheet_directory_uri() . '/style.css');
+	wp_enqueue_style( 'staff-and-contributors-style',  get_stylesheet_directory_uri() . '/css/staff-and-contributors.css', array('child-style') );
+	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('child-style') );
+	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style') );
 }
 
 // Remove custom font enabled in twentytwelve theme
