@@ -171,20 +171,17 @@
 	display:none;
 }
 
-.event-wrapper .content {
+.event-wrapper .content, .infographic-wrapper .content {
 	max-width:710px;
 	width:100%;
 	margin:auto;
 }
 
-.event-wrapper h1 {
-	font-size:20px;
-	text-transform:uppercase;
-	font-size:46px;
-	font-weight:800;
+.event-wrapper h1, .infographic-wrapper h1 {
+	margin-bottom:0;
 }
 
-.event-wrapper h3 {
+.event-wrapper h3, .infographic-wrapper h3 {
 	color:#c3c3c3;
 	text-transform:uppercase;
 	font-size:16px;
@@ -198,7 +195,7 @@
 	color:#000;
 }
 
-.event-wrapper .header {
+.event-wrapper .header, .infographic-wrapper .header {
 	max-width:700px;
 	width:100%;
 	margin-top:25px;
@@ -267,6 +264,60 @@
 	font-weight:100;
 	font-size:18px;
 	line-height:24px;
+}
+
+
+
+
+
+/*================================ INFOGRAPHICS PAGE ================================*/
+.single-infographic .header-image-container, .single-infographic .issue {
+	display:none;
+}
+
+.single-infographic .infographic-wrapper {
+	min-height:500px;
+}
+
+.single-infographic .logo img {
+	width:180px;
+}
+
+.single-infographic .logo {
+	margin-top:0;
+}
+
+.single-infographic .site-header {
+	height:135px;
+}
+
+.single-infographic #masthead .event {
+	display:none;
+}
+
+.infographic-wrapper .icon-container {
+	position:relative;
+	top:-40px;
+	right:10px;
+}
+
+.infographic-wrapper .icon-download {
+	display:block;
+	width:37px;
+	height:37px;
+	background: url('../images/icon-download.png') no-repeat 0 0;
+	float:right;
+	margin-right:1px;
+	cursor:pointer;
+}
+
+.infographic-wrapper .icon-expand {
+	display:block;
+	width:37px;
+	height:37px;
+	background: url('../images/icon-expand.png') no-repeat 0 0;
+	float:right;
+	cursor:pointer;
 }
 
 
@@ -367,16 +418,10 @@
 	}
 }
 
-@media screen and (max-width:575px) {
-	
-	.event-wrapper .col-1 {
-		width:100%;
-		padding-left:0;
-	}
-	
-	.event-wrapper .col-2 {
-		width:100%;
-		padding-left:0;
+@media screen and (max-width:748px) {
+
+	.infographic-wrapper .icon-container {
+		right:0;
 	}
 }
 
@@ -388,5 +433,18 @@
 	
 	.infographic-lightbox {
 		display:none;
+	}
+}
+
+@media screen and (max-width:575px) {
+	
+	.event-wrapper .col-1 {
+		width:100%;
+		padding-left:0;
+	}
+	
+	.event-wrapper .col-2 {
+		width:100%;
+		padding-left:0;
 	}
 }
