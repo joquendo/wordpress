@@ -8,7 +8,6 @@
  */
 
 get_header(); ?>
-
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
@@ -18,8 +17,34 @@ get_header(); ?>
 
 				<nav class="nav-single">
 					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
+					<?php
+						$post_object = get_field('related_article');
+
+						if( $post_object ): 
+							// override $post
+							$post = $post_object;
+							setup_postdata( $post ); 
+					?>
+					<div id="related-article">
+						<h2 class="post-type">Related</h2>
+						<?php if ( get_field('thumbnail') ) : ?>
+							<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
+						<?php elseif ( 'sketch' == get_post_type() ) : ?>
+							<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-editors-note.png" alt="" /></a></div>
+						<?php endif; ?>
+						<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print '' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
+							<?php if ( get_field('article_type') ) : ?>
+								<span class="article-type"><?php echo get_field('article_type'); ?></span>
+							<?php endif; ?>	
+							<h2 class="entry-title">
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+							</h2>
+							<?php the_excerpt(); ?>
+							<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
+						</div>
+					</div>
+						<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+						<?php endif; ?>
 				</nav><!-- .nav-single -->
 
 				<?php comments_template( '', true ); ?>
