@@ -8,7 +8,11 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?><!DOCTYPE html>
+ 
+global $issueID;
+?>
+
+<!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
@@ -104,7 +108,7 @@
 				while( $latest_post->have_posts() ) : $latest_post->the_post();
 					// Get hero image from latest issue post
 					$hero_image = get_field('hero_image');
-					
+					$issueID = get_the_ID();
 			 	endwhile;
 
 			endif; 
@@ -135,12 +139,22 @@
 				<span><?php echo get_field('issue_date'); ?> Issue</span>
 				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo the_title(); ?></span></a>
 			</div>
-			<div class="event">
-				<span>Next Event</span>
-				<a href=""><span class="title">An Evening with Eric Garcetti</span></a>
-			</div>
+			
+			<?php if ( $event_id = getLatestEventID() ) : ?>
+			
+				<?php
+				$title = get_the_title( $event_id );
+				$premalink = get_permalink($event_id);
+				?>
+				
+				<div class="event">
+					<span>Next Event</span>
+					<a href="<?php echo $premalink ?>"><span class="title"><?php echo $title ?></span></a>
+				</div>
+			<?php endif; ?>
+			
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
-
+	
 	<div id="main" class="wrapper">

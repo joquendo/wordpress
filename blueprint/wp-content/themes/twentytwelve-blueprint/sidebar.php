@@ -4,6 +4,8 @@
  *
  *
  */
+ 
+global $issueID;
 ?>
 
 <div id="secondary" class="widget-area" role="complementary">
@@ -40,19 +42,23 @@
 	
 	
 	
-	<?php if ( $infographic_id = getInfographicID() ) : ?>
+	<?php if ( $infographic_id = getInfographicID($issueID) ) : ?>
+	
+		<?php
+		$thumb   = get_field('thumbnails', $infographic_id);
+		$image   = get_field('infographic', $infographic_id);
+		$issue   = get_field('issue', $infographic_id);
+		$summary = get_field('summary', $infographic_id );
+		$title   = get_the_title($infographic_id);
+		$premalink = get_permalink($infographic_id);
+		?>
+	
 		<div class="container">
 			
 			<!-- INFOGRAPHIC CONTAINER START-->
-			<div class="widget infographic">
+			<a href="<?php echo $premalink ?>" class="widget infographic lightbox-open">
 				
 				<h3>Visually Speaking</h3>
-				
-				<?php
-				$thumb = get_field('thumbnails', $infographic_id);
-				$summary = get_field('summary', $infographic_id );
-				$title = get_the_title($infographic_id);
-				?>
 				
 				<img class="thumbnail" src="<?php echo $thumb['url']?>" />
 				
@@ -60,7 +66,11 @@
 				
 				<p><?php echo $summary ?></p>
 				
-			</div> <!-- INFOGRAPHIC CONTAINER END -->
+				<input type="hidden" name="infographic" value="<?php echo $image['url'] ?>" />
+				<input type="hidden" name="title" value="<?php echo $title ?>" />
+				<input type="hidden" name="issue" value="<?php echo $issue->post_title ?>" />
+				
+			</a> <!-- INFOGRAPHIC CONTAINER END -->
 			
 		</div>
 	<?php endif; ?>
