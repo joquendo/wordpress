@@ -54,8 +54,11 @@ function styling_chat_post($table_talk) {
 function register_js_scripts() {
 	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
 	wp_register_script('custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js');
+<<<<<<< Updated upstream
 	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_sidebar', get_stylesheet_directory_uri() . '/js/sidebar.js', array( 'jquery' ) );
+=======
+>>>>>>> Stashed changes
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
 }
 add_action('init', 'register_js_scripts');

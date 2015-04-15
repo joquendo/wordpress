@@ -104,6 +104,7 @@
 				while( $latest_post->have_posts() ) : $latest_post->the_post();
 					// Get hero image from latest issue post
 					$hero_image = get_field('hero_image');
+					
 			 	endwhile;
 
 			endif; 
@@ -112,7 +113,9 @@
 
 				<picture>
 					<source media="(min-width:36em)" <?php echo tevkori_get_srcset_string( $hero_image['id'], 'full' ); ?> />
-					<source <?php echo tevkori_get_srcset_string( $hero_image['id'], 'hero_small' ); ?> />
+					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
+					<source srcset="<?php echo $mobile_hero_image['url']; ?>" />
+					<?php endif; ?>
 					<img src="<?php echo $hero_image['url']; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
 
