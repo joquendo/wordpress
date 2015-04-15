@@ -1,14 +1,14 @@
 jQuery(document).ready(function ($) {
 	
 	//set a default
-	$('#secondary').css({'position':'relative'});
+	/*$('#secondary').css({'position':'relative'});
 	
 	//Adjust sidebar height
 	var pheight = $('#primary').height();
 	var sheight = $('#secondary').height();
 	
 	if(pheight > sheight)
-		$('#secondary').css({'position':'absolute'});
+		$('#secondary').css({'position':'absolute'});*/
 		
 		
 		
@@ -46,7 +46,7 @@ var Infographic = {
 		Infographic.initResize();
 		
 		//if the window is desktop Initialize the Open Event
-		if( $window.width() > 600 ) {
+		if( $window.width() > 668 ) {
 			Infographic.initOpen();
 		}
 	},
@@ -124,7 +124,11 @@ var Infographic = {
 	/*--------------------------------------------------------
 	definition: Set Lightbox View
 	--------------------------------------------------------*/
-	generateView: function() {
+	generateView: function($lightbox) {
+		
+		var url   = $lightbox.find('input[name="infographic"]').attr('value');
+		var title = $lightbox.find('input[name="title"]').attr('value');
+		var issue = $lightbox.find('input[name="issue"]').attr('value');
 		
 		var html = '';
 		
@@ -133,13 +137,13 @@ var Infographic = {
 		
 		html += '  <div class="infographic-container">';
 		
-		html += '    <span class="image"><img src="http://loc.blueprint.luskin.ucla.edu/wp-content/uploads/2015/04/infographic.jpg" /></span>';
+		html += '    <span class="image"><img src="' + url + '" /></span>';
 		
 		html += '    <div class="close-container"><span class="icon-close"></span></div>';
 		
-		html += '    <span class="title">FPO Infographic Title: Crime, Organized</span>';
+		html += '    <span class="title">' + title + '</span>';
 		
-		html += '    <span class="issue-info">Spring 2016</span>';
+		html += '    <span class="issue-info">' + issue + '</span>';
 		
 		html += '  </div>';
 		html += '</div>';
@@ -169,7 +173,7 @@ var Infographic = {
 			this.resizeTimer = setTimeout(function() {
 				
 				//if the window is desktop
-				if( $window.width() > 600 ) {
+				if( $window.width() > 668 ) {
 					
 					//open lightbox and set the size position
 					Infographic.destroyOpen();
@@ -207,7 +211,7 @@ var Infographic = {
 		$widget.bind('click', function() {
 		
 			//generate the html markup
-			var html = Infographic.generateView();
+			var html = Infographic.generateView( $widget );
 			$body.append(html);
 			
 			//Store the New Lightbox DOM
@@ -221,6 +225,8 @@ var Infographic = {
 				Infographic.setSizePosition();
 				Infographic.initClose();
 			});
+			
+			return false;
 		});
 	},
 	

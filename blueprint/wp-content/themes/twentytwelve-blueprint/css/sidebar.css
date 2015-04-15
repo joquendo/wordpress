@@ -38,14 +38,13 @@
 }
 
 /* Minimum width of 600 pixels. */
-@media screen and (min-width: 600px) {
-	#secondary {
-		position:absolute;
-		height:100%;
-		right:0px;
-		border-left: 1px solid #CCC;
-	}
+#secondary {
+	position:absolute;
+	height:100%;
+	right:0px;
+	border-left: 1px solid #CCC;
 }
+
 #secondary .container {
 	padding-left:39px;
 	border-top:1px solid #CCC;
@@ -65,6 +64,8 @@
 
 #secondary .container .widget.infographic {
 	cursor:pointer;
+	display:block;
+	text-decoration:none;
 }
 
 #secondary .container img {
@@ -379,7 +380,11 @@
 	}
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:668px) {
+	
+	#secondary {
+		position:relative;
+	}
 	
 	.infographic-lightbox {
 		display:none;
