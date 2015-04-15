@@ -37,6 +37,7 @@
 	top:2px;
 }
 
+<<<<<<< Updated upstream
 /* Minimum width of 600 pixels. */
 #secondary {
 	position:absolute;
@@ -45,8 +46,9 @@
 	border-left: 1px solid #CCC;
 }
 
+=======
+>>>>>>> Stashed changes
 #secondary .container {
-	padding-left:39px;
 	border-top:1px solid #CCC;
 }
 
@@ -269,6 +271,7 @@
 	line-height:24px;
 }
 
+<<<<<<< Updated upstream
 
 
 
@@ -382,11 +385,18 @@
 
 @media screen and (max-width:668px) {
 	
-	#secondary {
-		position:relative;
-	}
-	
 	.infographic-lightbox {
 		display:none;
+	}
+
+	#secondary {
+		position:absolute;
+		height:100%;
+		right:0px;
+		border-left: 1px solid #CCC;
+	}
+	
+	#secondary .container {
+		padding-left:39px;
 	}
 }
