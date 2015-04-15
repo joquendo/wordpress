@@ -22,6 +22,16 @@
 
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
+				
+				<?php if ( get_field('introduction') ) {
+						echo '<p class="introduction">'.get_field('introduction').'</p>';
+					  }
+					
+					  if( get_the_author() ) {
+						echo '<p class="author">By '.get_the_author().'</p>';
+					  }
+				?>
+			
 			</header>
 
 			<div class="entry-content">
