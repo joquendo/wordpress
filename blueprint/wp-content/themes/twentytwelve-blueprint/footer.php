@@ -65,5 +65,30 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+<?php
+/*
+<div class="infographic-lightbox">
+	
+	<div class="infographic-background"></div>
+	
+	<div class="infographic-container">
+		
+		<span class="image"><img src="http://loc.blueprint.luskin.ucla.edu/wp-content/uploads/2015/04/infographic.jpg" /></span>
+		
+		<div class="close-container"><span class="icon-close"></span></div>
+		
+		<span class="title">FPO Infographic Title: Crime, Organized</span>
+		
+		<span class="issue-info">Spring 2016</span>
+		
+	</div>
+	
+</div>
+*/
+?>
+
+
 </body>
 </html>
