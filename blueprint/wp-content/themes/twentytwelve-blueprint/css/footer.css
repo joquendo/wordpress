@@ -1,13 +1,12 @@
 footer[role="contentinfo"] {
-  	position: absolute;
-  	margin: 0 -2.857142857rem;
-  	width: 100%;
-  	max-width: 100%;
+  	position: relative;
+  	margin: 0 -1.714285714rem;
 	background: #ebebeb;
 	font-size: .9rem;
 }
 footer .wrapper {
-	padding:0 2.857142857rem;
+	padding: 0 24px;
+	padding: 0 1.714285714rem;
 }
 #colophon h6 {
 	color: #000;
@@ -32,6 +31,8 @@ footer .wrapper {
 }
 
 #colophon .content {
+	padding-top: 21px;
+	padding-top: 1.3125rem;
 	margin-bottom: 20px;
 }
 
@@ -41,22 +42,16 @@ footer .wrapper {
 
 #colophon .column {
 	box-sizing: border-box;
-	float: left;
-	width: 33%;
 }
 
-#colophon .first {
-	padding-right: 50px;
-}
-
-#colophon .middle {
-	border-left: solid 1px #ccc;
-	border-right: solid 1px #ccc;
-	padding: 0 50px;
-}
-
-#colophon .last {
-	padding-left: 50px;
+#colophon .column:not(.first):before {
+  display: inline-block;
+  border-top: 1px solid #fff;
+  content: "";
+  width: 100%;
+  margin: 0 -24px;  
+  margin: 0 -1.714285714rem;
+  position: absolute;
 }
 
 .legal {
@@ -137,4 +132,36 @@ div.wpcf7-response-output {
 
 div.wpcf7-validation-errors {
 	color: #ff0000;
+}
+@media only screen and (min-width: 668px) {
+	#colophon .column {
+		box-sizing: border-box;
+		float: left;
+		width: 33%;
+	}
+
+	#colophon .column:before {
+		display:none;
+	}
+	#colophon .content {
+		padding-top: 0;
+	}
+	#colophon .first {
+		padding-right: 50px;
+	}
+
+	#colophon .middle {
+		border-left: solid 1px #ccc;
+		border-right: solid 1px #ccc;
+		padding: 0 50px;
+	}
+
+	#colophon .last {
+		padding-left: 50px;
+	}
+}
+@media only screen and (min-width: 960px) {
+	footer[role="contentinfo"] {
+		margin: 0 -2.857142857rem;
+	}
 }
