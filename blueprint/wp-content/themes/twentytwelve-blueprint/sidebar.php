@@ -4,6 +4,8 @@
  *
  *
  */
+ 
+global $issueID;
 ?>
 
 <div id="secondary" class="widget-area" role="complementary">
@@ -40,7 +42,7 @@
 	
 	
 	
-	<?php if ( $infographic_id = getInfographicID() ) : ?>
+	<?php if ( $infographic_id = getInfographicID($issueID) ) : ?>
 	
 		<?php
 		$thumb   = get_field('thumbnails', $infographic_id);

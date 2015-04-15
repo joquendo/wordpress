@@ -8,7 +8,11 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?><!DOCTYPE html>
+ 
+global $issueID;
+?>
+
+<!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
@@ -104,7 +108,7 @@
 				while( $latest_post->have_posts() ) : $latest_post->the_post();
 					// Get hero image from latest issue post
 					$hero_image = get_field('hero_image');
-					
+					$issueID = get_the_ID();
 			 	endwhile;
 
 			endif; 
@@ -152,5 +156,5 @@
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
-
+	
 	<div id="main" class="wrapper">
