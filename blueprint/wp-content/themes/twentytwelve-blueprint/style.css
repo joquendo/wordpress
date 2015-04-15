@@ -967,12 +967,30 @@ footer.entry-meta {
 	line-height: 1.846153846;
 	color: #757575;
 }
+.author {
+	color: #000;
+	font-size: 1.1em;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.introduction {
+	color: #282828;
+	font-size: 1.8em;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.3em;
+	margin-bottom: 25px;
+}
 .single-author .entry-meta .by-author {
 	display: none;
 }
 .mu_register h2 {
 	color: #757575;
 	font-weight: normal;
+}
+
+#page .entry-header {
+	margin-bottom: 40px;
 }
 
 
