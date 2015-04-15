@@ -67,7 +67,8 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 <?php wp_footer(); ?>
 
 
-
+<?php
+/*
 <div class="infographic-lightbox">
 	
 	<div class="infographic-background"></div>
@@ -85,6 +86,8 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 	</div>
 	
 </div>
+*/
+?>
 
 
 </body>

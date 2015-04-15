@@ -44,7 +44,7 @@
 		<div class="container">
 			
 			<!-- INFOGRAPHIC CONTAINER START-->
-			<div class="widget infographic">
+			<div class="widget infographic lightbox-open">
 				
 				<h3>Visually Speaking</h3>
 				
