@@ -988,7 +988,20 @@ footer.entry-meta {
 	color: #757575;
 	font-weight: normal;
 }
-
+#in-topics {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 40px;
+	padding-bottom: 1.4375rem;
+}
+#in-topics p {
+	color: #a6a6a6;
+	font-size: .8em;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+#in-topics .title {
+	margin-right: 10px;	
+}
 #page .entry-header {
 	margin-bottom: 40px;
 }
@@ -1861,7 +1874,7 @@ span.post-type {
 	}
 	.widget-area {
 		float: right;
-		width: 26%;
+		width: 26.041666667%;
 	}
 	.site-header h1,
 	.site-header h2 {
