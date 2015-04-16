@@ -2023,6 +2023,8 @@ span.post-type {
 		border-top: 1px solid #ccc;
   		padding-top: 20px;
   		width:74%;
+  		border-right:1px solid #ccc;
+  		margin-right:-1px;
 	}
 	.menu-toggle {
 		display: inline-block;
