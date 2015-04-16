@@ -37,19 +37,6 @@
 	top:2px;
 }
 
-/* Minimum width of 600 pixels. */
-#secondary {
-	position:absolute;
-	height:100%;
-	right:0px;
-	border-left: 1px solid #CCC;
-}
-
-#secondary .container {
-	padding-left:39px;
-	border-top:1px solid #CCC;
-}
-
 #secondary .container .widget {
 	padding-top:11px;
 	padding-bottom:55px;
@@ -269,6 +256,7 @@
 
 
 
+<<<<<<< HEAD
 
 /*================================ INFOGRAPHICS PAGE ================================*/
 .single-infographic .header-image-container, .single-infographic .issue {
@@ -324,6 +312,8 @@
 
 
 
+=======
+>>>>>>> develop
 /*================================ LIGHTBOX INFOGRAPHICS ================================*/
 .infographic-lightbox {
 	display:none;
@@ -425,11 +415,8 @@
 	}
 }
 
-@media screen and (max-width:668px) {
-	
-	#secondary {
-		position:relative;
-	}
+/* For viewport that is mobile and smaller */
+@media screen and (max-width:667px) {
 	
 	.infographic-lightbox {
 		display:none;
@@ -446,5 +433,23 @@
 	.event-wrapper .col-2 {
 		width:100%;
 		padding-left:0;
+	}
+}
+
+/* For viewport larger than mobile */
+@media screen and (min-width:668px) {
+
+	#secondary {
+		position:relative;
+		height:100%;
+		right:0px;
+		border-left: 1px solid #CCC;
+		float:left;
+		width:25%;
+	}
+
+	#secondary .container {
+		border-top:1px solid #CCC;
+		padding-left:39px;
 	}
 }
