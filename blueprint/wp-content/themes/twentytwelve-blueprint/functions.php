@@ -22,7 +22,7 @@ add_action('wp_print_styles','remove_open_sans');
 add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
 function add_my_post_types_to_query( $query ) {
-	if ( is_home() && $query->is_main_query() )
+	if ( ( is_home() || is_category() || is_tag() ) && $query->is_main_query() && empty( $query->query_vars['suppress_filters'] ) )
 		$query->set( 'post_type', array( 'feature', 'sketch' ) );
 		$query->set( 'orderby', 'menu_order');
 		$query->set( 'order', 'ASC');

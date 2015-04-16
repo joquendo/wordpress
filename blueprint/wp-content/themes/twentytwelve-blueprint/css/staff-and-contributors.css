@@ -2,11 +2,9 @@
 	vertical-align: middle;
 	margin-right: 10px;
 }
-
 .additional-links p {
 	margin-bottom: 20px;
 }
-
 .special-note{
   font-size: 1.1em;
   font-style: italic;
@@ -15,40 +13,41 @@
 .staff-bio {
 	font-size: 1.3em;
 	font-weight: 300;
+	line-height: 1.3em;
 	overflow: hidden;
 }
-
 .staff-image {
 	float: left;
 	height: 100px;
 	margin-right: 20px;
 	width: 100px;
 }
-
 .staff-listing {
 	margin-bottom: 50px;
 }
-
 .staff-name {
 	color: #000;
 	font-size: 1.3em;
-	font-weight: 600;
+	font-weight: 800;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
-
 .staff-title {
 	font-size: .9em;
 	font-weight: 300;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
-
+h2.section-title {
+	color: #282828;
+	font-size: 2em;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
 span.staff-title {
 	font-size: .7em;
 	margin-left: 10px;
 }
-
 ul.staff-members li {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
@@ -56,7 +55,6 @@ ul.staff-members li {
 	padding: 20px 0;
 	overflow: auto;
 }
-
 ul.staff-members li:first-child {
 	border-bottom: none;
 }

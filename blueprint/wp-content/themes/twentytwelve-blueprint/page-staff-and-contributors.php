@@ -12,6 +12,11 @@
  * @since Twenty Twelve 1.0
  */
 
+/**
+ * BLUEPRINT_STAFF AND CONTRIBUTORS ARE REPEATING FIELDS WITH AN OBJECT THAT IS LOADED FROM THE 'USER' TYPE WITHIN WORDPRESS ADMIN
+ * THE 'USER' OBJECT HAS DISPLAY_NAME, USER_DESCRIPTION, WHILE STAFF_TITLE AND STAFF_IMAGE ARE CUSTOM FIELDS ADDED TO THE 'USER' TYPE
+ * UCLA ADMINISTRATORS ARE ENTERED ON THE 'STAFF AND CONTRIBUTORS' PAGE VIA A REPEATING FIELD
+ */
 get_header(); ?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
@@ -22,26 +27,22 @@ get_header(); ?>
 				<!-- BLUE PRINT STAFF MEMBERS -->
 				<?php if( have_rows('blue_print_staff') ): ?>
 
-				<h2>Blueprint Staff</h2>
+				<h2 class="section-title">Blueprint Staff</h2>
 
 					<div class="staff-listing">
 						<ul class="staff-members">
 
-							<?php while( have_rows('blue_print_staff') ): the_row(); 
+							<?php while( have_rows('blueprint_staff') ): the_row(); 
 								// vars
-								$staff_image = get_sub_field('staff_image');
-								$staff_name = get_sub_field('staff_name');
-								$staff_title = get_sub_field('staff_title');
-								$staff_bio = get_sub_field('staff_bio');
+								$staff_member = get_sub_field('staff_member');
+								$staff_image = get_field('staff_image', 'user_'.$staff_member['ID']);
 							?>
 
 							<li>	
-								
-									<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_image['alt'] ?>" />
-									<p class="staff-name"><?php echo $staff_name; ?></p>
-									<p class="staff-title"><?php echo $staff_title; ?></p>
-									<p class="staff-bio"><?php echo $staff_bio; ?></p>
-								
+								<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_member['display_name']; ?>" />
+								<p class="staff-name"><?php echo $staff_member['display_name']; ?></p>
+								<p class="staff-title"><?php echo the_field('staff_title', 'user_'.$staff_member['ID']); ?></p>
+								<p class="staff-bio"><?php echo $staff_member['user_description']; ?></p>
 							</li>
 								
 							<?php endwhile; ?>
@@ -54,18 +55,21 @@ get_header(); ?>
 				<!-- BLUE PRINT CONTRIBUTORS -->
 				<?php if( have_rows('contributors') ): ?>
 
-				<h2>Contributors</h2>
+				<h2 class="section-title">Contributors</h2>
 
-					<ul>
+					<ul class="staff-listing">
 
 					<?php while( have_rows('contributors') ): the_row(); 
 						// vars
-						$contributor_name = get_sub_field('contributor_name');
-						$contributor_title = get_sub_field('contributor_title');
+						$contributor_member = get_sub_field('contributor_member');
 					?>
 
 						<li>
-							<p class="staff-name"><?php echo $contributor_name; ?> <span class="staff-title"><?php echo $contributor_title; ?></p>
+							<p class="staff-name"><?php echo $contributor_member['display_name']; ?>
+							<?php if(get_field('staff_title', 'user_'.$contributor_member['ID'])): ?>
+							 <span class="staff-title"><?php echo the_field('staff_title', 'user_'.$contributor_member['ID']); ?></span>
+							<?php endif; ?>
+							</p>
 						</li>
 
 					<?php endwhile; ?>
@@ -78,9 +82,9 @@ get_header(); ?>
 				<!-- UCLA ADMINISTRATION -->
 				<?php if( have_rows('ucla_administration') ): ?>
 
-				<h2>UCLA Administration</h2>
+				<h2 class="section-title">UCLA Administration</h2>
 
-					<ul>
+					<ul class="staff-listing">
 
 					<?php while( have_rows('ucla_administration') ): the_row(); 
 						// vars
