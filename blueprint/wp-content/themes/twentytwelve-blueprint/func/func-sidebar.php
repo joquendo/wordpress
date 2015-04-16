@@ -35,18 +35,20 @@ function getLatestEventID () {
 
 
 //get the infographic for the current issue
-function getInfographicID () {
+function getInfographicID ($issue_id = '') {
 	
 	global $wpdb;
 	
-	//get latest issue
-	$sql = "SELECT *
-	        FROM wp_posts a
-	        WHERE a.post_type='issue' AND a.post_status = 'publish'
-	        ORDER BY a.post_date DESC
-	        LIMIT 1";
-	$result_issue = $wpdb->get_results($sql);
-	$issue_id = $result_issue[0]->ID;
+	if($issue_id === '' or $issue_id === NULL) {
+		//get latest issue
+		$sql = "SELECT *
+		        FROM wp_posts a
+		        WHERE a.post_type='issue' AND a.post_status = 'publish'
+		        ORDER BY a.post_date DESC
+		        LIMIT 1";
+		$result_issue = $wpdb->get_results($sql);	
+		$issue_id = $result_issue[0]->ID;
+	}
 	
 	//get issue infographic
 	$sql = "SELECT a.ID,

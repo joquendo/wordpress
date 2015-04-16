@@ -1,10 +1,13 @@
 footer[role="contentinfo"] {
+  	position: relative;
+  	margin: 0 -1.714285714rem;
 	background: #ebebeb;
-	font-size: .9em;
-	max-width: 1280px;
-	overflow: auto;
+	font-size: .9rem;
 }
-
+footer .wrapper {
+	padding: 0 24px;
+	padding: 0 1.714285714rem;
+}
 #colophon h6 {
 	color: #000;
 	margin-bottom: 5px;
@@ -28,6 +31,8 @@ footer[role="contentinfo"] {
 }
 
 #colophon .content {
+	padding-top: 21px;
+	padding-top: 1.3125rem;
 	margin-bottom: 20px;
 }
 
@@ -37,24 +42,126 @@ footer[role="contentinfo"] {
 
 #colophon .column {
 	box-sizing: border-box;
-	float: left;
-	width: 33%;
 }
 
-#colophon .first {
-	padding-right: 50px;
-}
-
-#colophon .middle {
-	border-left: solid 1px #ccc;
-	border-right: solid 1px #ccc;
-	padding: 0 50px;
-}
-
-#colophon .last {
-	padding-left: 50px;
+#colophon .column:not(.first):before {
+  display: inline-block;
+  border-top: 1px solid #fff;
+  content: "";
+  width: 100%;
+  margin: 0 -24px;  
+  margin: 0 -1.714285714rem;
+  position: absolute;
 }
 
 .legal {
 	margin-top: 25px;
+}
+
+/*SUBSCRIBE FORM STYLING*/
+#colophon form.wpcf7-form {
+	margin: 30px 0;
+	position: relative;
+}
+
+#colophon form.wpcf7-form input {
+	border: none;
+	height: 20px;
+	padding: 15px;
+	-moz-box-sizing: content-box; /* or `border-box` */
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#colophon form.wpcf7-form input[type="email"] {
+	border-radius: 0;
+	display:inline-block;
+	font-size: 1em;
+	vertical-align: top;
+	width: 50%;
+}
+
+#colophon form.wpcf7-form input[type="submit"] {
+  background-color: #686868;
+  background-image: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#colophon label {
+  color: #a6a6a6;
+  display: block;
+  font-weight: 300;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+}
+
+#colophon label.float {
+  left: 14px;
+  position: absolute;
+  top: 12px;
+}
+
+#colophon span.wpcf7-form-control-wrap {
+  position: inherit;
+}
+
+#colophon span.wpcf7-not-valid-tip {
+  display: none;
+}
+
+div.wpcf7-mail-sent-ok,
+div.wpcf7-validation-errors {
+	border: 1px solid #ccc;
+}
+
+div.wpcf7-mail-sent-ok {
+	color: #00a5e5;
+}
+
+div.wpcf7-response-output {
+  margin: 2em 0em 0em 0em;
+  padding: 0.2em 1em;
+  width: 78%;
+}
+
+div.wpcf7-validation-errors {
+	color: #ff0000;
+}
+@media only screen and (min-width: 668px) {
+	#colophon .column {
+		box-sizing: border-box;
+		float: left;
+		width: 33%;
+	}
+
+	#colophon .column:before {
+		display:none;
+	}
+	#colophon .content {
+		padding-top: 0;
+	}
+	#colophon .first {
+		padding-right: 50px;
+	}
+
+	#colophon .middle {
+		border-left: solid 1px #ccc;
+		border-right: solid 1px #ccc;
+		padding: 0 50px;
+	}
+
+	#colophon .last {
+		padding-left: 50px;
+	}
+}
+@media only screen and (min-width: 960px) {
+	footer[role="contentinfo"] {
+		margin: 0 -2.857142857rem;
+	}
 }

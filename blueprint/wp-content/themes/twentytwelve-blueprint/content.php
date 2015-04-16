@@ -22,6 +22,16 @@
 
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
+				
+				<?php if ( get_field('introduction') ) {
+						echo '<p class="introduction">'.get_field('introduction').'</p>';
+					  }
+					
+					  if( get_the_author() ) {
+						echo '<p class="author">By '.get_the_author().'</p>';
+					  }
+				?>
+			
 			</header>
 
 			<div class="entry-content">
@@ -43,9 +53,9 @@
 						<?php if ( get_field('article_type') ) : ?>
 						<span class="article-type"><?php echo get_field('article_type'); ?></span>
 						<?php endif; ?>	
-						<h1 class="entry-title">
+						<h2 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-						</h1>
+						</h2>
 						<?php the_excerpt(); ?>
 						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
 					</div><!-- .entry-summary -->

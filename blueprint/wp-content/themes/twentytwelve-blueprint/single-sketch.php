@@ -25,9 +25,9 @@ get_header(); ?>
 					<p class="staff-title"><?php echo the_field('staff_title', 'user_'.get_the_author_meta('ID')); ?></p>
 					<p class="staff-bio"><?php echo get_the_author_meta('description'); ?></p>
 				</div>
-				
-				<?php comments_template( '', true ); ?>
 
+				<?php comments_template( '', true ); ?>
+			
 				<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
 				<?php
 				$post_object = get_field('related_article');
@@ -63,4 +63,5 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

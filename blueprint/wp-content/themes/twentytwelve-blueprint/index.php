@@ -77,8 +77,6 @@ get_header(); ?>
 
 			</div> <!-- End sketches div -->
 
-			<?php twentytwelve_content_nav( 'nav-below' ); ?>
-
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">
