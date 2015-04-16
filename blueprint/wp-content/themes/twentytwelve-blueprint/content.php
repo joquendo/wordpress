@@ -41,7 +41,7 @@
 
 		<?php else : ?>
 
-			<?php if ( is_search() || is_home() ) : // Only display Excerpts for Search or home page ?>
+			<?php if ( is_home() || is_category() || is_search() ) : // Only display Excerpts for Search or home page ?>
 				
 				<header class="entry-header">
 					<?php if ( get_field('thumbnail') ) : ?>
