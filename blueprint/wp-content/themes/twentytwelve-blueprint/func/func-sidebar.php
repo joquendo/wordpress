@@ -106,3 +106,30 @@ function getNewsworthy () {
 		return false;
 	}
 }
+
+
+
+
+
+//get all the archive for the infographic
+function getInfographic ($currentID) {
+	
+	global $wpdb;
+
+	//get the archives
+	$sql = "SELECT *
+	        FROM wp_posts a
+	        WHERE a.post_type='infographic' AND a.post_status = 'publish' AND a.ID <> '$currentID'
+	        ORDER BY a.post_date DESC";
+	$result = $wpdb->get_results($sql);
+	
+	if ( count($result) > 0 ) {
+		
+		return $result;
+		
+	} else {
+		return false;
+	}
+	
+	echo $sql;
+}
