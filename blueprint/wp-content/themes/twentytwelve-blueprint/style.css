@@ -1799,53 +1799,6 @@ span.post-type {
 	float:none;
 }
 
-/* iPads  ----------- */
-@media only screen and (min-width : 768px) {
-	.issue span.title {
-	  font-size: 1.7rem;
-	  line-height: 1.7rem;
-	  width: 70%;
-	}
-	.issue span.title:after,
-	.event span.title:after {
-  		border-width: 12px;
-  		margin-bottom:-2px;
-	}
-	.entry-header h1.entry-title {
-		font-size:1.5rem;
-	}
-	.entry-summary p {
-		font-size: 1.125rem;
-	}
-}
-
-/* Desktops and Laptops -----*/
-@media only screen and (min-width : 1200px) {
-
-	.issue {
-		margin-top:-165px;
-	}
-	.issue span {
-		font-size:1.2rem;
-	}
-	.issue span.title {
-		margin-top:1rem;
-		font-size:3rem;
-		line-height:3rem;
-		width:80%;
-	}
-	.issue span.title:after {
-		border-width: 20px;
-  		margin-left: 9px;
-	}
-	.entry-header h1.entry-title {
-		font-size:1.5rem;
-	}
-	.entry-summary p {
-		font-size: 1.125rem;
-	}
-}
-
 
 /* =Media queries
 -------------------------------------------------------------- */
@@ -2169,7 +2122,7 @@ span.post-type {
 		color:#00a5e5;
 		font-size:1rem;
 		line-height:22px;
-		padding-left:6.7rem;
+		padding-left:40px;
 		padding-top:0;
 		display:inline-block;
 		margin-top:0;
@@ -2282,6 +2235,26 @@ span.post-type {
 	}
 }
 
+/* iPads  ----------- */
+@media only screen and (min-width : 768px) {
+	.issue span.title {
+	  font-size: 1.7rem;
+	  line-height: 1.7rem;
+	  width: 70%;
+	}
+	.issue span.title:after,
+	.event span.title:after {
+  		border-width: 12px;
+  		margin-bottom:-2px;
+	}
+	.entry-header h1.entry-title {
+		font-size:1.5rem;
+	}
+	.entry-summary p {
+		font-size: 1.125rem;
+	}
+}
+
 /* Minimum width of 960 pixels. */
 @media screen and (min-width: 960px) {
 	body {
@@ -2306,11 +2279,32 @@ span.post-type {
 	}
 }
 
-/* Minimum width of 1280 pixels. */
-@media screen and (min-width: 1281px) {
+/* Desktops and Laptops -----*/
+@media only screen and (min-width : 1200px) {
 
+	.issue {
+		margin-top:-165px;
+	}
+	.issue span {
+		font-size:1.2rem;
+	}
+	.issue span.title {
+		margin-top:1rem;
+		font-size:3rem;
+		line-height:3rem;
+		width:80%;
+	}
+	.issue span.title:after {
+		border-width: 20px;
+  		margin-left: 9px;
+	}
+	.entry-header h1.entry-title {
+		font-size:1.5rem;
+	}
+	.entry-summary p {
+		font-size: 1.125rem;
+	}
 }
-
 
 /* =Print
 ----------------------------------------------- */

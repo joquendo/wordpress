@@ -133,9 +133,9 @@ global $issueID;
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
-		<?php if (get_field('featured_article')) :
-			$featured_article = get_field('featured_article');
-		?>
+		<?php if ( $featured_article = get_field('featured_article') ) : ?>
+
+		<div class="wrapper">
 			<div class="issue">
 				<span><?php echo get_field('issue_date'); ?> Issue</span>
 				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo the_title(); ?></span></a>
@@ -153,7 +153,8 @@ global $issueID;
 					<a href="<?php echo $premalink ?>"><span class="title"><?php echo $title ?></span></a>
 				</div>
 			<?php endif; ?>
-			
+		</div>
+
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
