@@ -12,6 +12,11 @@
  * @since Twenty Twelve 1.0
  */
 
+/**
+ * BLUEPRINT_STAFF AND CONTRIBUTORS ARE REPEATING FIELDS WITH AN OBJECT THAT IS LOADED FROM THE 'USER' TYPE WITHIN WORDPRESS ADMIN
+ * THE 'USER' OBJECT HAS DISPLAY_NAME, USER_DESCRIPTION, WHILE STAFF_TITLE AND STAFF_IMAGE ARE CUSTOM FIELDS ADDED TO THE 'USER' TYPE
+ * UCLA ADMINISTRATORS ARE ENTERED ON THE 'STAFF AND CONTRIBUTORS' PAGE VIA A REPEATING FIELD
+ */
 get_header(); ?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
@@ -22,7 +27,7 @@ get_header(); ?>
 				<!-- BLUE PRINT STAFF MEMBERS -->
 				<?php if( have_rows('blue_print_staff') ): ?>
 
-				<h2>Blueprint Staff</h2>
+				<h2 class="section-title">Blueprint Staff</h2>
 
 					<div class="staff-listing">
 						<ul class="staff-members">
@@ -50,9 +55,9 @@ get_header(); ?>
 				<!-- BLUE PRINT CONTRIBUTORS -->
 				<?php if( have_rows('contributors') ): ?>
 
-				<h2>Contributors</h2>
+				<h2 class="section-title">Contributors</h2>
 
-					<ul>
+					<ul class="staff-listing">
 
 					<?php while( have_rows('contributors') ): the_row(); 
 						// vars
@@ -77,9 +82,9 @@ get_header(); ?>
 				<!-- UCLA ADMINISTRATION -->
 				<?php if( have_rows('ucla_administration') ): ?>
 
-				<h2>UCLA Administration</h2>
+				<h2 class="section-title">UCLA Administration</h2>
 
-					<ul>
+					<ul class="staff-listing">
 
 					<?php while( have_rows('ucla_administration') ): the_row(); 
 						// vars
