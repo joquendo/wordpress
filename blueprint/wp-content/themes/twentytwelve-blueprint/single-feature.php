@@ -14,11 +14,20 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
-
 				<div id="in-topics">
 					<p class="entry-meta"><span class="title">In topics:</span><?php twentytwelve_entry_meta(); ?></p>
 				</div>
+
+				<div id="author-bio">
+					<?php $staff_image = get_field('staff_image', 'user_'.get_the_author_meta('ID')); ?>
+					<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo get_the_author_meta('display_name'); ?>" />
+					<p class="staff-name"><?php echo get_the_author_meta('display_name'); ?></p>
+					<p class="staff-title"><?php echo the_field('staff_title', 'user_'.get_the_author_meta('ID')); ?></p>
+					<p class="staff-bio"><?php echo get_the_author_meta('description'); ?></p>
+				</div>
 				
+				<?php comments_template( '', true ); ?>
+
 				<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
 				<?php
 				$post_object = get_field('related_article');
@@ -48,14 +57,10 @@ get_header(); ?>
 				</div>
 				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 				<?php endif; ?>
-				
-
-				<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
