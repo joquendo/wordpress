@@ -27,21 +27,17 @@ get_header(); ?>
 					<div class="staff-listing">
 						<ul class="staff-members">
 
-							<?php while( have_rows('blue_print_staff') ): the_row(); 
+							<?php while( have_rows('blueprint_staff') ): the_row(); 
 								// vars
-								$staff_image = get_sub_field('staff_image');
-								$staff_name = get_sub_field('staff_name');
-								$staff_title = get_sub_field('staff_title');
-								$staff_bio = get_sub_field('staff_bio');
+								$staff_member = get_sub_field('staff_member');
+								$staff_image = get_field('staff_image', 'user_'.$staff_member['ID']);
 							?>
 
 							<li>	
-								
-									<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_image['alt'] ?>" />
-									<p class="staff-name"><?php echo $staff_name; ?></p>
-									<p class="staff-title"><?php echo $staff_title; ?></p>
-									<p class="staff-bio"><?php echo $staff_bio; ?></p>
-								
+								<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_member['display_name']; ?>" />
+								<p class="staff-name"><?php echo $staff_member['display_name']; ?></p>
+								<p class="staff-title"><?php echo the_field('staff_title', 'user_'.$staff_member['ID']); ?></p>
+								<p class="staff-bio"><?php echo $staff_member['user_description']; ?></p>
 							</li>
 								
 							<?php endwhile; ?>
@@ -60,12 +56,15 @@ get_header(); ?>
 
 					<?php while( have_rows('contributors') ): the_row(); 
 						// vars
-						$contributor_name = get_sub_field('contributor_name');
-						$contributor_title = get_sub_field('contributor_title');
+						$contributor_member = get_sub_field('contributor_member');
 					?>
 
 						<li>
-							<p class="staff-name"><?php echo $contributor_name; ?> <span class="staff-title"><?php echo $contributor_title; ?></p>
+							<p class="staff-name"><?php echo $contributor_member['display_name']; ?>
+							<?php if(get_field('staff_title', 'user_'.$contributor_member['ID'])): ?>
+							 <span class="staff-title"><?php echo the_field('staff_title', 'user_'.$contributor_member['ID']); ?></span>
+							<?php endif; ?>
+							</p>
 						</li>
 
 					<?php endwhile; ?>
@@ -108,5 +107,6 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
+
 
 <?php get_footer(); ?>
