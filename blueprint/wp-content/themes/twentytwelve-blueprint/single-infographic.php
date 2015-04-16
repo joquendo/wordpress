@@ -15,9 +15,6 @@ $tags           = wp_get_post_terms($infographic_id);
 $categories     = get_the_category($infographic_id);
 
 $archives = getInfographic($infographic_id);
-echo '<pre>';
-print_r($categories);
-echo '</pre>';
 ?>
 
 
