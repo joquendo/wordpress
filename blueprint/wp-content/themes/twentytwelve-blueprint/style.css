@@ -1008,8 +1008,9 @@ footer.entry-meta {
 }
 #in-topics {
 	border-bottom: 1px solid #ccc;
-	margin-bottom: 40px;
-	padding-bottom: 1.4375rem;
+	border-top: 1px solid #ccc;
+	margin: 40px 0;
+	padding: .8em 0 1em 0;
 }
 #in-topics p {
 	color: #a6a6a6;
