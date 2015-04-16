@@ -37,21 +37,6 @@
 	top:2px;
 }
 
-<<<<<<< Updated upstream
-/* Minimum width of 600 pixels. */
-#secondary {
-	position:absolute;
-	height:100%;
-	right:0px;
-	border-left: 1px solid #CCC;
-}
-
-=======
->>>>>>> Stashed changes
-#secondary .container {
-	border-top:1px solid #CCC;
-}
-
 #secondary .container .widget {
 	padding-top:11px;
 	padding-bottom:55px;
@@ -271,8 +256,6 @@
 	line-height:24px;
 }
 
-<<<<<<< Updated upstream
-
 
 
 
@@ -383,11 +366,17 @@
 	}
 }
 
-@media screen and (max-width:668px) {
+/* For viewport that is mobile and smaller */
+@media screen and (max-width:667px) {
 	
 	.infographic-lightbox {
 		display:none;
 	}
+
+}
+
+/* For viewport larger than mobile */
+@media screen and (min-width:668px) {
 
 	#secondary {
 		position:absolute;
@@ -395,8 +384,9 @@
 		right:0px;
 		border-left: 1px solid #CCC;
 	}
-	
+
 	#secondary .container {
+		border-top:1px solid #CCC;
 		padding-left:39px;
 	}
 }
