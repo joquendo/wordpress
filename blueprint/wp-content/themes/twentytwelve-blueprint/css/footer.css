@@ -139,7 +139,9 @@ div.wpcf7-validation-errors {
 		float: left;
 		width: 33%;
 	}
-
+	#colophon .column:not(.first):before {
+		display: none;
+	}
 	#colophon .column:before {
 		display:none;
 	}

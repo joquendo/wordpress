@@ -36,7 +36,6 @@ get_header(); ?>
 					<?php $staff_image = get_field('staff_image', 'user_'.get_the_author_meta('ID')); ?>
 					<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo get_the_author_meta('display_name'); ?>" />
 					<p class="staff-name"><?php echo get_the_author_meta('display_name'); ?></p>
-					<p class="staff-title"><?php echo the_field('staff_title', 'user_'.get_the_author_meta('ID')); ?></p>
 					<p class="staff-bio"><?php echo get_the_author_meta('description'); ?></p>
 				</div>
 				
