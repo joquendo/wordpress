@@ -15,7 +15,21 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				<div id="in-topics">
-					<p class="entry-meta"><span class="title">In topics:</span><?php twentytwelve_entry_meta(); ?></p>
+					<p class="entry-meta"><span class="title">In topics:</span>
+					<?php 
+						$categories = get_the_category();
+						$separator = ' ';
+						$output = '';
+						if($categories){
+							foreach($categories as $category) {
+								$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
+							}
+							$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
+							echo $topics_list;
+						} 
+					?>
+					</p>
+					<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>
 				</div>
 
 				<div id="author-bio">
@@ -52,7 +66,7 @@ get_header(); ?>
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h2>
 						<?php the_excerpt(); ?>
-						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
+						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
 					</div>
 				</div>
 				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
@@ -63,5 +77,4 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

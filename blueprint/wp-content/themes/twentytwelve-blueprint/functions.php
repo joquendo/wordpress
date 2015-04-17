@@ -10,6 +10,7 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'staff-and-contributors-style',  get_stylesheet_directory_uri() . '/css/staff-and-contributors.css', array('child-style') );
 	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('child-style') );
 	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style') );
+	wp_enqueue_style( 'issue-style',  get_stylesheet_directory_uri() . '/css/issue.css', array('child-style') );
 }
 
 // Remove custom font enabled in twentytwelve theme
@@ -139,7 +140,7 @@ function twentytwelve_entry_meta() {
 
 	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 	if ( $tag_list ) {
-		$utility_text = __( '%1$s <div> %2$s </div>', 'twentytwelve' );
+		$utility_text = '';
 	} elseif ( $categories_list ) {
 		$utility_text = __( '%1$s', 'twentytwelve' );
 	} else {

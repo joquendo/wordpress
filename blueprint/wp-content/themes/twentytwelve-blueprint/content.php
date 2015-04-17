@@ -8,9 +8,17 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+global $post_type;
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+		<?php if ( get_field('article_type') ) :
+			$field = get_field_object('article_type');
+			$value = get_field('article_type');
+			$label = $field['choices'][$value];
+		?>
+
 		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 		<div class="featured-post">
 			<?php _e( 'Featured post', 'twentytwelve' ); ?>
@@ -18,9 +26,9 @@
 		<?php endif; ?>
 
 
-		<?php if ( is_single() ) : ?>
+		<?php if ( is_single() and $post_type !== 'issue' ) : ?>
 
-			<header class="entry-header">
+			<header class="entry-header <?php echo $value; ?>">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				
 				<?php if ( get_field('introduction') ) {
@@ -41,22 +49,25 @@
 
 		<?php else : ?>
 
-			<?php if ( is_home() || is_category() || is_search() ) : // Only display Excerpts for Search or home page ?>
+
+			<?php if ( is_home() || is_category() || is_search() || $post_type === 'issue' ) : // Only display Excerpts for Search or home page ?>
 				
-				<header class="entry-header">
+				<header class="entry-header <?php echo $value; ?>">
+
 					<?php if ( get_field('thumbnail') ) : ?>
 					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
 					<?php elseif ( 'sketch' == get_post_type() ) : ?>
-					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-editors-note.png" alt="" /></a></div>
+					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"></a></div>
 					<?php endif; ?>
 					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print '' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
-						<?php if ( get_field('article_type') ) : ?>
-						<span class="article-type"><?php echo get_field('article_type'); ?></span>
+						<span class="article-type"><?php echo $label; ?></span>
 						<?php endif; ?>	
 						<h2 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h2>
-						<?php the_excerpt(); ?>
+						<?php if ( 'sketch' != get_post_type() ) // If not a sketch, then display to excerpt
+							the_excerpt();
+						?>
 						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
 					</div><!-- .entry-summary -->
 

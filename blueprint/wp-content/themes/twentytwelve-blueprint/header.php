@@ -8,8 +8,13 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
- 
-global $issueID;
+
+//grab the issueID; 
+global $issueID, $post_type;
+
+//if the post type is issue store the issueID
+$post_type = get_post_type();
+if($post_type === 'issue') $issueID = get_the_ID();
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +105,7 @@ global $issueID;
 		<div class="header-image-container">
 
 			<?php $hero_image = get_field('hero_image');
-
+			
 			if ( is_home() || ( is_single() && empty($hero_image) ) ) :
 
 				// New WP_Query loop for a single post

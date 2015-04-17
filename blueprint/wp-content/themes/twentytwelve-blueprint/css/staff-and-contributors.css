@@ -6,9 +6,11 @@
 	margin-bottom: 20px;
 }
 .special-note{
+  border-top: 1px solid #ccc;
   font-size: 1.1em;
   font-style: italic;
   font-weight: 300;
+  padding-top: 20px;
 }
 .staff-bio {
 	font-size: 1.3em;
