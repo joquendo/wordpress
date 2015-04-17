@@ -24,7 +24,8 @@ get_header(); ?>
 							foreach($categories as $category) {
 								$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
 							}
-							echo trim($output, $separator);
+							$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
+							echo $topics_list;
 						} 
 					?>
 					</p>
@@ -65,7 +66,7 @@ get_header(); ?>
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h2>
 						<?php the_excerpt(); ?>
-						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
+						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
 					</div>
 				</div>
 				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
@@ -76,5 +77,4 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

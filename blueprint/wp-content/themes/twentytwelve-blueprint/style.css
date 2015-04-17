@@ -1063,6 +1063,12 @@ footer.entry-meta {
 #page .entry-header {
 	margin-bottom: 40px;
 }
+#related-article .post-type {
+	color: #c3c3c3;
+	font-size: 1.1em;
+	margin-bottom: 25px;
+	text-transform: uppercase;
+}
 
 
 /* =Archives
