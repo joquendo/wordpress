@@ -15,7 +15,20 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				<div id="in-topics">
-					<p class="entry-meta"><span class="title">In topics:</span><?php twentytwelve_entry_meta(); ?></p>
+					<p class="entry-meta"><span class="title">In topics:</span>
+					<?php 
+						$categories = get_the_category();
+						$separator = ' ';
+						$output = '';
+						if($categories){
+							foreach($categories as $category) {
+								$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
+							}
+							echo trim($output, $separator);
+						} 
+					?>
+					</p>
+					<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>
 				</div>
 
 				<div id="author-bio">

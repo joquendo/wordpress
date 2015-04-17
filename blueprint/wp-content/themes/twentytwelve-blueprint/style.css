@@ -1039,16 +1039,25 @@ footer.entry-meta {
 #in-topics {
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;
-	margin: 40px 0;
-	padding: .8em 0 1em 0;
-}
-#in-topics p {
 	color: #a6a6a6;
 	font-size: .8em;
-	text-transform: uppercase;
 	font-weight: 300;
+	margin: 40px 0;
+	padding-top: .8em;
+	text-transform: uppercase;
+}
+#in-topics .entry-meta {
+	margin-bottom: 20px;
+}
+#in-topics .entry-meta.tags a {
+	color: #000;
+	text-decoration: none;
+}
+#in-topics .entry-meta.tags a:hover {
+	text-decoration: underline;
 }
 #in-topics .title {
+	font-weight: 600;
 	margin-right: 10px;	
 }
 #page .entry-header {
