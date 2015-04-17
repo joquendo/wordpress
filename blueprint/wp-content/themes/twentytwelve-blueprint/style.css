@@ -1025,6 +1025,10 @@ footer.entry-meta {
 	color: #757575;
 	font-weight: normal;
 }
+#author-bio {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
 #author-bio .staff-bio {
 	font-size: 1.2em;
 	line-height: 1.3em;
@@ -1046,7 +1050,7 @@ footer.entry-meta {
 	color: #a6a6a6;
 	font-size: .8em;
 	font-weight: 300;
-	margin: 40px 0;
+	margin: 40px 0 20px;
 	padding-top: .8em;
 	text-transform: uppercase;
 }

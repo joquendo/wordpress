@@ -36,7 +36,6 @@ get_header(); ?>
 					<?php $staff_image = get_field('staff_image', 'user_'.get_the_author_meta('ID')); ?>
 					<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo get_the_author_meta('display_name'); ?>" />
 					<p class="staff-name"><?php echo get_the_author_meta('display_name'); ?></p>
-					<p class="staff-title"><?php echo the_field('staff_title', 'user_'.get_the_author_meta('ID')); ?></p>
 					<p class="staff-bio"><?php echo get_the_author_meta('description'); ?></p>
 				</div>
 				
@@ -62,6 +61,9 @@ get_header(); ?>
 						<?php if ( get_field('article_type') ) : ?>
 							<span class="article-type"><?php echo get_field('article_type'); ?></span>
 						<?php endif; ?>	
+						<h2 class="entry-title">
+							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+						</h2>
 						<?php the_excerpt(); ?>
 						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
 					</div>
