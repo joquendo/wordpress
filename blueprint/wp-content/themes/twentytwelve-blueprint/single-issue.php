@@ -51,14 +51,17 @@ get_header();
 			
 			<div id="featured">
 
-			<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
-				// Save the post ID to $do_not_duplicate
-				$do_not_duplicate[] = $post->ID;
-			?>
+				<span class="post-type">Features</span>
+			
+				<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
+					
+					// Save the post ID to $do_not_duplicate
+					$do_not_duplicate[] = $post->ID;
+					?>
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
+					<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php
+				<?php
 				// Featured loop ends
 				endwhile;
 
