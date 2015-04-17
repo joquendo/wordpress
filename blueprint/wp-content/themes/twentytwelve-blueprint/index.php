@@ -37,6 +37,9 @@ get_header(); ?>
 		<?php if ( $featured_query->have_posts() ) : ?>
 			
 			<div id="featured">
+			<?php $obj = get_post_type_object( 'feature' ); ?>
+
+				<span class="post-type"><?php echo $obj->labels->name; ?></span>
 
 			<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
 				// Save the post ID to $do_not_duplicate
