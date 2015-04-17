@@ -155,3 +155,10 @@ function twentytwelve_entry_meta() {
 		$author
 	);
 }
+
+function blueprint_get_categories () {
+	$categories_list = get_the_category_list( __( ' ', 'twentytwelve' ) );
+	if ( $categories_list != 'Uncategorized') {
+		printf( $categories_list );
+	}
+}

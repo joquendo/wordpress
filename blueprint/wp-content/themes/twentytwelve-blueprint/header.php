@@ -122,7 +122,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 			if ( !empty($hero_image) ) : ?>
 
 				<picture>
-					<source media="(min-width:36em)" <?php echo tevkori_get_srcset_string( $hero_image['id'], 'full' ); ?> />
+					<source media="(min-width:737px)" <?php echo tevkori_get_srcset_string( $hero_image['id'], 'full' ); ?> />
 					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
 					<source srcset="<?php echo $mobile_hero_image['url']; ?>" />
 					<?php endif; ?>
