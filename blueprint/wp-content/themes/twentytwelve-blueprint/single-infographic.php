@@ -95,7 +95,7 @@ $archives = getInfographic($infographic_id);
 		
 		
 		
-		<?php if( count($archives) > 0 ) : ?>
+		<?php if( $archives ) : ?>
 		
 			<!--ARCHIVE OF INFOGRAPHIC-->
 			<div class="infographic-archive clearfix">
