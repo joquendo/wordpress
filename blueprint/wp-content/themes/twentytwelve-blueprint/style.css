@@ -977,7 +977,7 @@ img.aligncenter,
 	border-top: 1px solid #ededed;
 	padding: 6px 10px 6px 0;
 }
-.home .site-content article {
+.home .site-content article, .single-issue .site-content article {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
@@ -2019,7 +2019,7 @@ span.post-type {
 		width:16%;
 	}
 	
-	.home .site-content {
+	.home .site-content, .single-issue .site-content {
 		border-top: 1px solid #ccc;
   		padding-top: 20px;
   		width:74%;

@@ -8,6 +8,7 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+global $post_type;
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -18,7 +19,7 @@
 		<?php endif; ?>
 
 
-		<?php if ( is_single() ) : ?>
+		<?php if ( is_single() and $post_type !== 'issue' ) : ?>
 
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -41,7 +42,7 @@
 
 		<?php else : ?>
 
-			<?php if ( is_home() || is_category() || is_search() ) : // Only display Excerpts for Search or home page ?>
+			<?php if ( is_home() || is_category() || is_search() || $post_type === 'issue' ) : // Only display Excerpts for Search or home page ?>
 				
 				<header class="entry-header">
 					<?php if ( get_field('thumbnail') ) : ?>
