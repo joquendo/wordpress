@@ -62,9 +62,6 @@ get_header(); ?>
 						<?php if ( get_field('article_type') ) : ?>
 							<span class="article-type"><?php echo get_field('article_type'); ?></span>
 						<?php endif; ?>	
-						<h2 class="entry-title">
-							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-						</h2>
 						<?php the_excerpt(); ?>
 						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
 					</div>
