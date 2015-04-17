@@ -459,6 +459,7 @@
 
 .infographic-container .image img {
 	width:auto;
+	max-width:100%;
 }
 
 .infographic-container .title {
@@ -489,6 +490,17 @@
 	height:41px;
 	background: url('../images/icon-close.png') no-repeat 0 0;
 	cursor:pointer;
+}
+
+.lightbox-img-container { position:relative; display:inline-block; }
+.lightbox-img-container .icon-expand {
+	display:block;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	width:37px;
+	height:37px;
+	background:#000;
 }
 
 

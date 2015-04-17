@@ -13,41 +13,55 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+global $issueID;
 
-get_header(); ?>
+get_header(); 
+?>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
-			
+
+
+
+
+<div id="primary" class="site-content">
+	
+	<div id="content" role="main">
+		
 		<?php /* Loop through featured custom post type */
 
-			// Setting a temporary value to avoid errors
-			$do_not_duplicate = null;
-			// Loop arguments
-			$args = array(
-				'post_type' => 'feature',
-				'orderby' => 'menu_order',
-				'order' => 'ASC'
-			);
-			// Our featured query and loop
-			$featured_query = new WP_Query( $args );
+		// Setting a temporary value to avoid errors
+		$do_not_duplicate = null;
+		// Loop arguments
+		$args = array(
+			'post_type'  => 'feature',
+			'orderby'    => 'menu_order',
+			'order'      => 'ASC',
+			'meta_query' => array(
+				array (
+					'key'   => 'issue',
+					'value' => $issueID
+				)
+			)
+		);
+		
+		// Our featured query and loop
+		$featured_query = new WP_Query( $args );
 		?>
-
+		
 		<?php if ( $featured_query->have_posts() ) : ?>
 			
 			<div id="featured">
-			<?php $obj = get_post_type_object( 'feature' ); ?>
 
-				<span class="post-type"><?php echo $obj->labels->name; ?></span>
+				<span class="post-type">Features</span>
+			
+				<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
+					
+					// Save the post ID to $do_not_duplicate
+					$do_not_duplicate[] = $post->ID;
+					?>
 
-			<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
-				// Save the post ID to $do_not_duplicate
-				$do_not_duplicate[] = $post->ID;
-			?>
+					<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
-
-			<?php
+				<?php
 				// Featured loop ends
 				endwhile;
 
@@ -58,22 +72,42 @@ get_header(); ?>
 			</div><!-- End featured div -->
 		
 		<?php endif; ?>
-
+		
+		
+		
+		
+		
 		<?php /* Loop through sketch post type */ ?>	
+		
+		<?php
+		// Loop arguments
+		$args = array(
+			'post_type'  => 'sketch',
+			'orderby'    => 'menu_order',
+			'order'      => 'ASC',
+			'meta_query' => array(
+				array (
+					'key'   => 'issue',
+					'value' => $issueID
+				)
+			)
+		);
+		
+		// Our featured query and loop
+		$sketches_query = new WP_Query( $args );
+		?>
 
-
-	
-		<?php if ( have_posts() ) : ?>
+		<?php if ( $sketches_query->have_posts() ) : ?>
 
 			<div id="sketches">
 			
-				<?php $obj = get_post_type_object( get_post_type() ); ?>
+				<?php $obj = get_post_type_object( 'sketch' ); ?>
 				<span class="post-type"><?php echo $obj->labels->name; ?></span>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php // Start the Loop ?>
+			<?php while ( $sketches_query->have_posts() ) : $sketches_query->the_post(); ?>
 				<?php if ( 'sketch' == get_post_type() ) :
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'content', 'sketch' );
 				endif; ?>
 			<?php endwhile; ?>
 
@@ -103,16 +137,21 @@ get_header(); ?>
 
 				<div class="entry-content">
 					<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'twentytwelve' ); ?></p>
-					<?php get_search_form(); ?>
+					<?php //get_search_form(); ?>
 				</div><!-- .entry-content -->
 			<?php endif; // end current_user_can() check ?>
 
 			</article><!-- #post-0 -->
 
-		<?php endif; // end have_posts() check ?>
+		<?php endif; // end have_posts() check   ?>
+		
+		
+	</div>
+</div>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+
+
+
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

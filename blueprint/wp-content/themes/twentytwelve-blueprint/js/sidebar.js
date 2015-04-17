@@ -4,16 +4,17 @@ jQuery(document).ready(function ($) {
 			
 	//Infographic Lightbox Start
 	Infographic.init();
+	
+	//initialize the lightbox for images
+	//$('.header-image-container img').lightboxInit();
+	$('.article img').lightboxInit();
 });
 
 
 
 
 
-
-
-
-
+var mobileBreakpoint = 668;
 
 /*------------------------------------------------------------
 Description: Functionality for the Infographics
@@ -34,7 +35,7 @@ var Infographic = {
 		Infographic.initResize();
 		
 		//if the window is desktop Initialize the Open Event
-		if( $window.width() > 668 ) {
+		if( $window.width() > mobileBreakpoint ) {
 			Infographic.initOpen();
 		}
 	},
@@ -112,11 +113,7 @@ var Infographic = {
 	/*--------------------------------------------------------
 	definition: Set Lightbox View
 	--------------------------------------------------------*/
-	generateView: function($lightbox) {
-		
-		var url   = $lightbox.find('input[name="infographic"]').attr('value');
-		var title = $lightbox.find('input[name="title"]').attr('value');
-		var issue = $lightbox.find('input[name="issue"]').attr('value');
+	generateView: function(meta) {
 		
 		var html = '';
 		
@@ -125,13 +122,13 @@ var Infographic = {
 		
 		html += '  <div class="infographic-container">';
 		
-		html += '    <span class="image"><img src="' + url + '" /></span>';
+		html += '    <span class="image"><img src="' + meta.url + '" /></span>';
 		
 		html += '    <div class="close-container"><span class="icon-close"></span></div>';
 		
-		html += '    <span class="title">' + title + '</span>';
+		html += '    <span class="title">' + meta.title + '</span>';
 		
-		html += '    <span class="issue-info">' + issue + '</span>';
+		html += '    <span class="issue-info">' + meta.issue + '</span>';
 		
 		html += '  </div>';
 		html += '</div>';
@@ -161,7 +158,7 @@ var Infographic = {
 			this.resizeTimer = setTimeout(function() {
 				
 				//if the window is desktop
-				if( $window.width() > 668 ) {
+				if( $window.width() > mobileBreakpoint ) {
 					
 					//open lightbox and set the size position
 					Infographic.destroyOpen();
@@ -195,26 +192,49 @@ var Infographic = {
 		var $widget   = jQuery('.lightbox-open');
 		var $body     = jQuery('body');
 		
+		var meta = {
+			url: $widget.find('input[name="infographic"]').attr('value'),
+			title: $widget.find('input[name="title"]').attr('value'),
+			issue: $widget.find('input[name="issue"]').attr('value')
+		};
+		
+		//initialize the image lightbox
+		jQuery('.lightbox-img').lightboxInit();
+		
 		//Bind a click event to any element with the class lightbox-open
 		$widget.bind('click', function() {
-		
-			//generate the html markup
-			var html = Infographic.generateView( $widget );
-			$body.append(html);
 			
-			//Store the New Lightbox DOM
-			var $lightbox = jQuery('.infographic-lightbox');
-		
-			//if the image in the lightbox is done
-			$lightbox.imagesLoaded().done( function(instance) {
-				
-				//display lightbox
-				$lightbox.css({display: 'block'});
-				Infographic.setSizePosition();
-				Infographic.initClose();
-			});
+			Infographic.createLightbox(meta);
 			
 			return false;
+		});
+	},
+	
+	
+	
+	
+	
+	/*--------------------------------------------------------
+	definition: Create the Lightbox
+	--------------------------------------------------------*/
+	createLightbox: function(meta) {
+		
+		var $body = jQuery('body');
+		
+		//generate the html markup
+		var html = Infographic.generateView( meta );
+		$body.append(html);
+		
+		//Store the New Lightbox DOM
+		var $lightbox = jQuery('.infographic-lightbox');
+	
+		//if the image in the lightbox is done
+		$lightbox.imagesLoaded().done( function(instance) {
+			
+			//display lightbox
+			$lightbox.css({display: 'block'});
+			Infographic.setSizePosition();
+			Infographic.initClose();
 		});
 	},
 	
@@ -228,7 +248,7 @@ var Infographic = {
 	--------------------------------------------------------*/
 	destroyOpen: function() {
 		
-		var $widget   = jQuery('.lightbox-open');
+		var $widget = jQuery('.lightbox-open, .lightbox-img');
 		$widget.unbind('click');
 	},
 	
@@ -254,3 +274,55 @@ var Infographic = {
 		});
 	}
 };
+
+
+
+
+
+/*------------------------------------------------------------
+Description: Extend JQuery to allow the same infographic
+             lightbox functionality
+------------------------------------------------------------*/
+jQuery.fn.extend({
+	
+	lightboxInit: function() {
+		
+		//Store Dom Elements
+		var $window   = jQuery(window);
+		
+		return this.each( function() {
+			
+			//if the dom element is not an image exit
+			if( jQuery(this).attr('src') === undefined )
+				return;
+			
+			//store important meta values
+			var meta = {
+				url: jQuery(this).attr('src'),
+				title: '&nbsp;',
+				issue: '&nbsp;'
+			};
+			
+			//tag each dom element with lightbox-img
+			jQuery(this).addClass('lightbox-img');
+			
+			//add icon
+			//jQuery(this).wrap('<span class="lightbox-img-container"></span>')
+			//jQuery(this).after('<span class="icon-expand"></span>');
+			
+			//bind click event to image if it is desktop view
+			if( $window.width() > mobileBreakpoint ) {
+				
+				jQuery(this).bind('click', function() {
+				
+					Infographic.createLightbox(meta);
+					
+					return false;
+				})
+			}
+			
+			
+		});
+	}
+	
+});
