@@ -29,7 +29,16 @@ global $post_type;
 
 		<?php if ( is_single() and $post_type !== 'issue' ) : ?>
 
-			<span class="article-type"><?php echo $label; ?> | <?php echo 'Static Spring 2015'; ?> Issue</span>
+			<span class="article-type"><?php echo $label; ?> | 
+			<?php 
+				$issue_obj = get_field('issue');
+				$post = $issue_obj;
+				$issue_date = the_field('issue_date'); 
+				wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly 
+
+				echo $issue_date." Issue"; //DISPLAY ISSUE ARTICLE IS IN 
+			?>
+			</span>
 
 			<header class="entry-header <?php echo $value; ?>">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
