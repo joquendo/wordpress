@@ -314,7 +314,7 @@ jQuery.fn.extend({
 			jQuery(this).addClass('lightbox-img');
 			
 			//disable link
-			jQuery(this).parent('a').bind('click', function() {
+			jQuery(this).parent('.lightbox-img-container').parent('a').bind('click', function() {
 				return false;
 			});
 			
@@ -334,6 +334,13 @@ jQuery.fn.extend({
 			if( $window.width() > mobileBreakpoint ) {
 				
 				jQuery(this).bind('click', function() {
+				
+					Infographic.createLightbox(meta);
+					
+					return false;
+				})
+				
+				jQuery(this).next('.icon-expand').bind('click', function() {
 				
 					Infographic.createLightbox(meta);
 					
