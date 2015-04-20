@@ -249,7 +249,7 @@ var Infographic = {
 	--------------------------------------------------------*/
 	destroyOpen: function() {
 		
-		var $widget = jQuery('.lightbox-open, .lightbox-img');
+		var $widget = jQuery('.lightbox-open, .lightbox-img, .icon-expand');
 		$widget.unbind('click');
 	},
 	
@@ -319,7 +319,8 @@ jQuery.fn.extend({
 			});
 			
 			//add zoom icon
-			jQuery(this).parent('.lightbox-img-container').append('<span class="icon-expand"></span>');
+			if( jQuery(this).parent('.lightbox-img-container').find('.icon-expand').length === 0 )
+				jQuery(this).parent('.lightbox-img-container').append('<span class="icon-expand"></span>');
 			
 			//add align
 			if( jQuery(this).parent('.lightbox-img-container').find('.alignleft').length > 0 ) {
