@@ -9,7 +9,7 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'child-style',  get_stylesheet_directory_uri() . '/style.css');
 	wp_enqueue_style( 'staff-and-contributors-style',  get_stylesheet_directory_uri() . '/css/staff-and-contributors.css', array('child-style') );
 	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('child-style') );
-	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style') );
+	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style','twentytwelve-style') );
 	wp_enqueue_style( 'issue-style',  get_stylesheet_directory_uri() . '/css/issue.css', array('child-style') );
 }
 

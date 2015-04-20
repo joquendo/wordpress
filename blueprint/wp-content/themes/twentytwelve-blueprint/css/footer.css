@@ -167,3 +167,27 @@ div.wpcf7-validation-errors {
 		margin: 0 -2.857142857rem;
 	}
 }
+
+
+
+
+
+@media only screen and (max-width: 667px) {
+	footer[role="contentinfo"] { padding-top:0; }
+	footer .wrapper { padding:0 5%; }
+	
+	#colophon h6 { margin-top:10px; }
+	#colophon a, #colophon p, .legal { line-height:20px; font-size:13px; }
+	#colophon .content { padding-top:0; margin-bottom:15px; }
+	#colophon .column { padding-top:1px; }
+	
+	#colophon form.wpcf7-form { margin:15px 0; }
+	#colophon form.wpcf7-form input[type="email"] { width:90%; border:1px solid #ababab; }
+	#colophon form.wpcf7-form input[type="submit"] { display:block; width:90%; margin-top:10px; }
+	
+	#colophon label.float { position:relative; height:0px; display:block; left:inherit; top:14px; margin:0 auto; max-width:118px; }
+	
+	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:90%; }
+	
+	.legal { margin-top:0px; margin-bottom:10px; }
+}
