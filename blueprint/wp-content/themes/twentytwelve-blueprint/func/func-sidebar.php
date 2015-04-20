@@ -133,3 +133,14 @@ function getInfographic ($currentID) {
 	
 	echo $sql;
 }
+
+
+
+
+
+function get_image_tag_function ( $html, $id, $alt, $title, $align, $size ) {
+	
+	return '<span class="lightbox-img-container '. $align .'">'.$html.'</span>';
+}
+
+add_filter('get_image_tag', 'get_image_tag_function', 10, 6);
