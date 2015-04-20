@@ -502,6 +502,9 @@
 }
 
 .lightbox-img-container { position:relative; display:inline-block; }
+.lightbox-img-container.alignleft { margin:0.857142857rem 1.714285714rem 0.857142857rem 0; }
+.lightbox-img-container.alignright { margin:0.857142857rem 0 0.857142857rem 1.714285714rem; }
+.lightbox-img-container .lightbox-img { display:block; margin:0; }
 .lightbox-img-container .icon-expand {
 	display:block;
 	position:absolute;
@@ -509,7 +512,7 @@
 	right:0px;
 	width:37px;
 	height:37px;
-	background:#000;
+	background:url('../images/icon-expand.png') no-repeat 0 0;
 }
 
 

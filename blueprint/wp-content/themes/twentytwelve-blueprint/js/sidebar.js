@@ -128,7 +128,7 @@ var Infographic = {
 		
 		html += '    <span class="title">' + meta.title + '</span>';
 		
-		html += '    <span class="issue-info">' + meta.issue + ', issue #' + meta.issue_number + '</span>';
+		html += '    <span class="issue-info">' + meta.issue + meta.issue_number + '</span>';
 		
 		html += '  </div>';
 		html += '</div>';
@@ -196,7 +196,7 @@ var Infographic = {
 			url: $widget.find('input[name="infographic"]').attr('value'),
 			title: $widget.find('input[name="title"]').attr('value'),
 			issue: $widget.find('input[name="issue"]').attr('value'),
-			issue_number: $widget.find('input[name="issue_number"]').attr('value')
+			issue_number: ', issue #' + $widget.find('input[name="issue_number"]').attr('value')
 		};
 		
 		//initialize the image lightbox
@@ -294,12 +294,17 @@ jQuery.fn.extend({
 		return this.each( function() {
 			
 			//if the dom element is not an image exit
-			if( jQuery(this).attr('src') === undefined )
+			if( jQuery(this).attr('src') === undefined || jQuery(this).attr('srcset') === undefined )
 				return;
+			
+			//original image
+			var srcset = String( jQuery(this).attr('srcset') ).split(',');
+			var tmp = String( srcset[srcset.length-1] ).trim().split(' '); 
+			var original = tmp[0];
 			
 			//store important meta values
 			var meta = {
-				url: jQuery(this).attr('src'),
+				url: original,
 				title: '&nbsp;',
 				issue: '&nbsp;',
 				issue_number: '&nbsp;'
@@ -310,9 +315,20 @@ jQuery.fn.extend({
 			
 			//disable link
 			jQuery(this).parent('a').bind('click', function() {
-				alert('reached');
 				return false;
 			});
+			
+			//add zoom icon
+			jQuery(this).parent('.lightbox-img-container').append('<span class="icon-expand"></span>');
+			
+			//add align
+			if( jQuery(this).parent('.lightbox-img-container').find('.alignleft').length > 0 ) {
+				
+				jQuery(this).parent('.lightbox-img-container').addClass('alignleft');
+			} else if( jQuery(this).parent('.lightbox-img-container').find('.alignright').length > 0 ) {
+				
+				jQuery(this).parent('.lightbox-img-container').addClass('alignright');
+			}
 			
 			//bind click event to image if it is desktop view
 			if( $window.width() > mobileBreakpoint ) {
