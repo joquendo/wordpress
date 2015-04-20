@@ -55,6 +55,15 @@
 	text-decoration:none;
 }
 
+#secondary .container .widget.infographic a {
+	text-decoration:none;
+}
+
+#secondary .container .widget.infographic a[rel*="category"] {
+	color:#FFF;
+	line-height:21px;
+}
+
 #secondary .container img {
 	border-radius:0px;
 	box-shadow: 0 0 0;

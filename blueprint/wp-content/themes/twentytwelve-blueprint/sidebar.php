@@ -45,32 +45,48 @@ global $issueID;
 	<?php if ( $infographic_id = getInfographicID($issueID) ) : ?>
 	
 		<?php
-		$thumb   = get_field('thumbnails', $infographic_id);
-		$image   = get_field('infographic', $infographic_id);
-		$issue   = get_field('issue', $infographic_id);
-		$summary = get_field('summary', $infographic_id );
-		$title   = get_the_title($infographic_id);
-		$premalink = get_permalink($infographic_id);
+		$thumb        = get_field('thumbnails', $infographic_id);
+		$image        = get_field('infographic', $infographic_id);
+		$issue        = get_field('issue', $infographic_id);
+		$issue_number = get_field('issue_number', $issue->ID);
+		$summary      = get_field('summary', $infographic_id );
+		$title        = get_the_title($infographic_id);
+		$premalink    = get_permalink($infographic_id);
+		$categories   = get_the_category($infographic_id);
 		?>
 	
 		<div class="container">
 			
-			<!-- INFOGRAPHIC CONTAINER START-->
-			<a href="<?php echo $premalink ?>" class="widget infographic lightbox-open">
+			<div class="widget infographic">
 				
-				<h3>Visually Speaking</h3>
+				<!-- INFOGRAPHIC CONTAINER START-->
+				<a href="<?php echo $premalink ?>" class="lightbox-open">
+					
+					<h3>Visually Speaking</h3>
+					
+					<img class="thumbnail" src="<?php echo $thumb['url']?>" />
+					
+					<h4><?php echo $title ?></h4>
+					
+					<p><?php echo $summary ?></p>
+					
+					<input type="hidden" name="infographic" value="<?php echo $image['url'] ?>" />
+					<input type="hidden" name="title" value="<?php echo $title ?>" />
+					<input type="hidden" name="issue" value="<?php echo $issue->post_title ?>" />
+					<input type="hidden" name="issue_number" value="<?php echo $issue_number ?>" />
+					
+				</a> <!-- INFOGRAPHIC CONTAINER END -->
 				
-				<img class="thumbnail" src="<?php echo $thumb['url']?>" />
+				<?php if( count($categories) > 0 ) : ?>
+					<p class="entry-meta">
+						
+						<?php foreach($categories as $category) : ?>
+							<a href="<?php echo get_category_link($category->term_id) ?>" rel="category tag"><?php echo $category->cat_name ?></a>
+						<?php endforeach; ?>
+					</p>
+				<?php endif; ?>
 				
-				<h4><?php echo $title ?></h4>
-				
-				<p><?php echo $summary ?></p>
-				
-				<input type="hidden" name="infographic" value="<?php echo $image['url'] ?>" />
-				<input type="hidden" name="title" value="<?php echo $title ?>" />
-				<input type="hidden" name="issue" value="<?php echo $issue->post_title ?>" />
-				
-			</a> <!-- INFOGRAPHIC CONTAINER END -->
+			</div>
 			
 		</div>
 	<?php endif; ?>

@@ -128,7 +128,7 @@ var Infographic = {
 		
 		html += '    <span class="title">' + meta.title + '</span>';
 		
-		html += '    <span class="issue-info">' + meta.issue + '</span>';
+		html += '    <span class="issue-info">' + meta.issue + ', issue #' + meta.issue_number + '</span>';
 		
 		html += '  </div>';
 		html += '</div>';
@@ -195,7 +195,8 @@ var Infographic = {
 		var meta = {
 			url: $widget.find('input[name="infographic"]').attr('value'),
 			title: $widget.find('input[name="title"]').attr('value'),
-			issue: $widget.find('input[name="issue"]').attr('value')
+			issue: $widget.find('input[name="issue"]').attr('value'),
+			issue_number: $widget.find('input[name="issue_number"]').attr('value')
 		};
 		
 		//initialize the image lightbox
@@ -300,7 +301,8 @@ jQuery.fn.extend({
 			var meta = {
 				url: jQuery(this).attr('src'),
 				title: '&nbsp;',
-				issue: '&nbsp;'
+				issue: '&nbsp;',
+				issue_number: '&nbsp;'
 			};
 			
 			//tag each dom element with lightbox-img
