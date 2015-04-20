@@ -585,6 +585,10 @@
 	.infographic-wrapper .icon-download {
 		margin-right:0;
 	}
+	
+	.lightbox-img-container .icon-expand {
+		display:none;
+	}
 }
 
 @media screen and (max-width:575px) {
