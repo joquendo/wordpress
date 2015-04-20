@@ -8,7 +8,9 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+
 global $post_type;
+
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,8 +27,18 @@ global $post_type;
 		</div>
 		<?php endif; ?>
 
-
 		<?php if ( is_single() and $post_type !== 'issue' ) : ?>
+
+			<span class="article-type"><?php echo $label; ?> | 
+			<?php 
+				$issue_obj = get_field('issue');
+				$post = $issue_obj;
+				$issue_date = the_field('issue_date'); 
+				wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly 
+
+				echo $issue_date." Issue"; //DISPLAY ISSUE ARTICLE IS IN 
+			?>
+			</span>
 
 			<header class="entry-header <?php echo $value; ?>">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -42,7 +54,7 @@ global $post_type;
 			
 			</header>
 
-			<div class="entry-content">
+			<div class="entry-content <?php echo $value; ?>">
 				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
@@ -68,7 +80,7 @@ global $post_type;
 						<?php if ( 'sketch' != get_post_type() ) // If not a sketch, then display to excerpt
 							the_excerpt();
 						?>
-						<p class="entry-meta"><?php twentytwelve_entry_meta(); ?></p>
+						<p class="entry-meta"><?php blueprint_get_categories(); ?></p>
 					</div><!-- .entry-summary -->
 
 				</header>

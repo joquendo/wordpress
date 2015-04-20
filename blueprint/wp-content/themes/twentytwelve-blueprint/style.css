@@ -653,6 +653,7 @@ footer[role="contentinfo"] {
 	line-height: 2;
 	margin-top: 24px;
 	margin-top: 1.714285714rem;
+	padding-top: 55px;
 }
 footer[role="contentinfo"] a {
 	color: #686868;
@@ -1025,6 +1026,10 @@ footer.entry-meta {
 	color: #757575;
 	font-weight: normal;
 }
+#author-bio {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
 #author-bio .staff-bio {
 	font-size: 1.2em;
 	line-height: 1.3em;
@@ -1046,7 +1051,7 @@ footer.entry-meta {
 	color: #a6a6a6;
 	font-size: .8em;
 	font-weight: 300;
-	margin: 40px 0;
+	margin: 40px 0 20px;
 	padding-top: .8em;
 	text-transform: uppercase;
 }
@@ -1762,27 +1767,39 @@ span.article-type {
 	font-weight:600;
 	text-transform:uppercase;
 }
+.research h2,
+.research span.article-type {
+	color:#00a5e5;
+}
+.profile h2,
 .profile span.article-type {
 	color:#6658a6;
 }
+.table-talk h2,
 .table-talk span.article-type {
 	color:#ed008c;
 }
+.editors-note h2,
 .editors-note span.article-type {
 	color:#0054a6;
 }
+.first-person h2,
 .first-person span.article-type {
 	color:#00b7b3;
 }
+.exclusively-online h2,
 .exclusively-online span.article-type {
 	color:#ff6c00;
 }
+.side-notes h2,
 .side-notes span.article-type {
 	color:#9be000;
 }
+.landscape h2,
 .landscape span.article-type {
 	color:#37bd5c;
 }
+.takeaway h2,
 .takeaway span.article-type {
 	color:#ffbb00;
 }
@@ -1859,6 +1876,36 @@ span.article-type {
 	float:none;
 }
 
+/* Pullquoutes Blockquotes */
+aside.pullquote {
+	color:#fff !important;
+	font-size:26px;
+	font-size:1.625rem;
+	font-weight:300;
+}
+aside.pullquote p {
+	border:none;
+	padding:28px;
+	padding:1.75rem;
+}
+aside.pqRight:after {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 70px 100px 0 0px;
+	border-color: #00a4e5 transparent transparent transparent;
+}
+.research aside.pullquote {
+	background-color: #00a5e5;
+}
+.profile aside.pullquote {
+	background-color: #00a5e5;
+}
+.table-talk aside.pullquote {
+	background-color: #00a5e5;
+}
+
+
 
 /* =Media queries
 -------------------------------------------------------------- */
@@ -1875,8 +1922,8 @@ span.article-type {
 	width: device-width;
 }
 
-/* Minimum width of 600 pixels. */
-@media screen and (min-width: 668px) {
+/* Minimum width of 737 pixels. */
+@media screen and (min-width: 737px) {
 	.author-avatar {
 		float: left;
 		margin-top: 8px;

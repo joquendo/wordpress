@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
 	
 	//initialize the lightbox for images
 	//$('.header-image-container img').lightboxInit();
-	$('.article img').lightboxInit();
+	$('article img').lightboxInit();
 });
 
 
@@ -306,9 +306,11 @@ jQuery.fn.extend({
 			//tag each dom element with lightbox-img
 			jQuery(this).addClass('lightbox-img');
 			
-			//add icon
-			//jQuery(this).wrap('<span class="lightbox-img-container"></span>')
-			//jQuery(this).after('<span class="icon-expand"></span>');
+			//disable link
+			jQuery(this).parent('a').bind('click', function() {
+				alert('reached');
+				return false;
+			});
 			
 			//bind click event to image if it is desktop view
 			if( $window.width() > mobileBreakpoint ) {
