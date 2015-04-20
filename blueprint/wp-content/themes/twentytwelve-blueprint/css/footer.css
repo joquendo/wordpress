@@ -192,6 +192,7 @@ div.wpcf7-validation-errors {
 	.legal { margin-top:0px; margin-bottom:10px; }
 	
 	#colophon .mobile-footer-nav .menu-topics-container a { color:#FFF; text-transform:uppercase; display:block; padding:15px 5%; }
+	#colophon .mobile-footer-nav .menu-topics-container a:after { display:inline; content:'>'; padding-left:10px }
 	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; }
 	#colophon .mobile-footer-nav .menu-topics-container li { border-top:1px solid #868686; }
 	#colophon .mobile-footer-nav .menu-topics-container li:first-child { border-top:none; }
