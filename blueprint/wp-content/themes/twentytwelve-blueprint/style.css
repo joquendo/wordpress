@@ -1831,7 +1831,7 @@ span.article-type {
 	font-size: 1em;
 	margin-right: 1px;
 	padding: 25px;
-	width: 70%;	
+	width: 67%;	
 }
 
 #submit-search-query {
@@ -1851,7 +1851,7 @@ span.article-type {
 	position: absolute;
 	text-transform: uppercase;
 	top: 30px;
-	left: 56px;
+	left: 10%;
 }
 
 #search-query label.float {
@@ -1920,6 +1920,13 @@ aside.pqRight:after {
 }
 @viewport {
 	width: device-width;
+}
+
+/* Minimum width of 737 pixels. */
+@media screen and (min-width: 411px) {
+	#searchform label {
+		left: 20%;
+	}
 }
 
 /* Minimum width of 737 pixels. */
@@ -2383,6 +2390,9 @@ aside.pqRight:after {
 	}
 	.entry-summary p {
 		font-size: 1.125rem;
+	}
+	#searchform label {
+		left: 15%;
 	}
 }
 
