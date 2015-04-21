@@ -75,7 +75,11 @@ if($post_type === 'issue') $issueID = get_the_ID();
 									$pdf = get_field('pdf_download', $menu_item->object_id);
 									$url = $menu_item->url;
 									$menu_list .= '<div class="menu-item">';
-										$menu_list .= '<img src="' . $cover_image_url . '" />';
+										if ( !empty($cover_image_url) ) :
+											$menu_list .= '<img src="' . $cover_image_url . '" />';
+										else :
+											$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
+										endif;
 										$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
 										$menu_list .= '<span>' . $issue_date . '</span>';
 									$menu_list .= '</div>'; // End menu item
@@ -106,7 +110,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 			<?php $hero_image = get_field('hero_image');
 			
-			if ( is_home() || ( is_single() && empty($hero_image) ) ) :
+			if ( is_home() ) :
 
 				// New WP_Query loop for a single post
 				$latest_post = new WP_Query( 'post_type=issue&posts_per_page=1' );
@@ -129,8 +133,18 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					<img src="<?php echo $hero_image['url']; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
 
+			<?php elseif ( empty($hero_image) && 'sketch' != get_post_type() ): ?>
+				
+				<picture>
+					<source media="(min-width:737px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero.png" />
+					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
+					<source srcset="<?php echo $mobile_hero_image['url']; ?>" />
+					<?php else: ?>
+					<source srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero-mobile.png" />
+					<?php endif; ?>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero.png" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
+				</picture>
 			<?php endif; ?>
-
 		</div>
 
 		<hgroup>
