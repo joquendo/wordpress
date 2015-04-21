@@ -174,3 +174,9 @@ function comment_form_defaults_function ($defaults) {
 	
 	return $defaults;
 }
+
+add_filter( 'comment_reply_link_args', 'comment_reply_link_args_function', 10, 1 );
+function comment_reply_link_args_function($args) {
+	$args['after'] = ' <span>&gt;</span>';
+	return $args;
+}
