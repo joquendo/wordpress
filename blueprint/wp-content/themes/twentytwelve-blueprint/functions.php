@@ -52,8 +52,7 @@ function styling_chat_post($table_talk) {
 
 // Add child theme javascript files
 function register_js_scripts() {
-	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
-	wp_register_script('custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js');
+	wp_register_script( 'custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js' );
 	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
 	
@@ -81,16 +80,11 @@ register_nav_menus( array(
 	'secondary' => __( 'Secondary (Issues)', 'twentytwelve')
 ) );
 
-// Add picturefill js for responsive/adaptive images
-function mytheme_dequeue_scripts() {
-	wp_dequeue_script('picturefill', plugins_url( '/js/picturefill.js', __FILE__ ));
-}
-add_action('wp_enqueue_scripts', 'mytheme_dequeue_scripts');
-
 // Image sizes
 function add_image_sizes() {
-	add_image_size('hero_small', 320, 205, array( 'right', 'bottom') );
-	add_image_size('hero_small_2x', 640, 410, array( 'right', 'bottom') );
+	add_image_size( 'mobile', 736, 460 );
+	add_image_size( 'mobile_2x', 1472, 920 );  
+	add_image_size( 'large_1280', 1280, 416 );
 }
 add_action('after_setup_theme', 'add_image_sizes');
 
