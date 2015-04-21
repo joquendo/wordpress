@@ -139,7 +139,8 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				$mobile_hero_image = get_field('mobile_hero_image');
 
 				if ( !empty( $mobile_hero_image ) ) :
-					$mobile_hero_image_url = get_field('mobile_hero_image')['url'];
+					$mobile_hero_image = get_field('mobile_hero_image');
+					$mobile_hero_image_url = $mobile_hero_image['url'];
 				else:
 					$mobile_hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero-mobile.png';
 				endif;
