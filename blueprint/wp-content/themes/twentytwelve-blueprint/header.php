@@ -108,43 +108,59 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 		<div class="header-image-container">
 
-			<?php $hero_image = get_field('hero_image');
-			
-			if ( is_home() ) :
+			<?php
 
-				// New WP_Query loop for a single post
-				$latest_post = new WP_Query( 'post_type=issue&posts_per_page=1' );
+				/* Homepage/front page only - Load hero image from latest issue */
+				if ( is_home() ) :
+					// New WP_Query loop for a single post
+					$latest_post = new WP_Query( 'post_type=issue&posts_per_page=1' );
 
-				while( $latest_post->have_posts() ) : $latest_post->the_post();
 					// Get hero image from latest issue post
-					$hero_image = get_field('hero_image');
-					$issueID = get_the_ID();
-			 	endwhile;
+					while( $latest_post->have_posts() ) : $latest_post->the_post();
+						$hero_image = get_field('hero_image');
+						$issueID = get_the_ID();
+				 	endwhile;
 
-			endif; 
+				endif; 
 
-			if ( !empty($hero_image) ) : ?>
+			?>
+			<?php
+				// Hero image
+				$hero_image = get_field('hero_image');
 
-				<picture>
-					<source media="(min-width:737px)" <?php echo tevkori_get_srcset_string( $hero_image['id'], 'full' ); ?> />
-					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
-					<source srcset="<?php echo $mobile_hero_image['url']; ?>" />
-					<?php endif; ?>
-					<img src="<?php echo $hero_image['url']; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
-				</picture>
+				if ( !empty($hero_image) ) : 
+					$hero_image_id = $hero_image['id'];
+					$hero_image_url = $hero_image['url'];
+				else :
+					$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero.png';
+				endif;
 
-			<?php elseif ( empty($hero_image) && 'sketch' != get_post_type() ): ?>
+				// Mobile hero image
+				$mobile_hero_image = get_field('mobile_hero_image');
+
+				if ( !empty( $mobile_hero_image ) ) :
+					$mobile_hero_image_url = get_field('mobile_hero_image')['url'];
+				else:
+					$mobile_hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero-mobile.png';
+				endif;
+			?>
 				
+			<?php /*Issue or feature page (with hero image) */
+
+			if ( 'issue' == get_post_type() || 'feature' == get_post_type() ) : ?>
+
 				<picture>
-					<source media="(min-width:737px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero.png" />
-					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
-					<source srcset="<?php echo $mobile_hero_image['url']; ?>" />
-					<?php else: ?>
-					<source srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero-mobile.png" />
+					<?php if (!empty($hero_image)) : ?>
+					<source media="(min-width:737px)" <?php echo tevkori_get_srcset_string( $hero_image_id, 'full' ); ?> />
+					<?php else : ?>
+					<source media="(min-width:737px)" <?php echo $hero_image_url; ?> />
 					<?php endif; ?>
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero.png" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
+					<source srcset="<?php echo $mobile_hero_image_url; ?>" />
+					<img src="<?php echo $hero_image_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
+
 			<?php endif; ?>
+				
 		</div>
 
 		<hgroup>
