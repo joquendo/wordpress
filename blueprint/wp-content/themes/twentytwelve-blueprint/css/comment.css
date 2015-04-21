@@ -26,3 +26,14 @@
 
 .comment-form-container.logout .col-1 { display:none; }
 .comment-form-container.logout .col-2 { width:100%; }
+
+.comments-area article header img { width:50px; height:auto; position:absolute; }
+.comments-area article header { min-height:50px; margin-bottom:-30px; }
+.comments-area article header cite { margin-left:73px; display:inline; }
+.comments-area article header time { margin-left:10px; display:inline; }
+.comments-area .comment-content { margin-left:73px; }
+.comments-area .comment-content p { margin-bottom:0; line-height:inherit; }
+.comments-area .reply { margin-left:73px; }
+.comments-area .edit-link { line-height:inherit; font-size:14px; display:none; }
+
+a.comment-reply-link, a.comment-edit-link { line-height:inherit; }
