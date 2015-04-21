@@ -133,7 +133,8 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					<img src="<?php echo $hero_image['url']; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
 
-			<?php else: ?>
+			<?php elseif ( empty($hero_image) && 'sketch' != get_post_type() ): ?>
+				
 				<picture>
 					<source media="(min-width:737px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-issue-hero.png" />
 					<?php if ( $mobile_hero_image = get_field('mobile_hero_image') ): ?>
