@@ -546,7 +546,7 @@
 }
 
 /* For viewport that is mobile and smaller */
-@media screen and (max-width:667px) {
+@media screen and (max-width:736px) {
 	
 	.infographic-lightbox {
 		display:none;
@@ -605,7 +605,7 @@
 }
 
 /* For viewport larger than mobile */
-@media screen and (min-width:668px) {
+@media screen and (min-width:737px) {
 
 	#secondary {
 		position:relative;

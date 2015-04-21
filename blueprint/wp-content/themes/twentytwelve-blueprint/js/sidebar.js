@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
 
 
 
-var mobileBreakpoint = 668;
+var mobileBreakpoint = 736;
 
 /*------------------------------------------------------------
 Description: Functionality for the Infographics

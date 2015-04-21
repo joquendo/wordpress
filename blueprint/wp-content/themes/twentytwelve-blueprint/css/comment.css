@@ -1,5 +1,5 @@
 .comments-area { margin-top:45px; margin-bottom:70px; }
-.comments-title { text-transform:uppercase; font-weight:800; color:#c0c0c0; margin-bottom:10px; }
+.comments-title { text-transform:uppercase; font-weight:800; color:#c0c0c0; margin-bottom:10px; letter-spacing:1px; }
 
 #comments .grey-wrapper { background:#F5F5F5; padding:34px 40px; }
 
