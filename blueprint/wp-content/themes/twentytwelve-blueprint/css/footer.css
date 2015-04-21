@@ -167,3 +167,46 @@ div.wpcf7-validation-errors {
 		margin: 0 -2.857142857rem;
 	}
 }
+
+
+
+
+
+@media only screen and (max-width: 667px) {
+	footer[role="contentinfo"] { padding-top:0; }
+	footer .wrapper { padding:0 5%; padding-top:10px; }
+	
+	#colophon h6 { margin-top:10px; }
+	#colophon a, #colophon p, .legal { line-height:20px; font-size:13px; }
+	#colophon .content { padding-top:0; margin-bottom:15px; }
+	#colophon .column { padding-top:1px; }
+	
+	#colophon form.wpcf7-form { margin:15px 0; }
+	#colophon form.wpcf7-form input[type="email"] { width:90%; border:1px solid #ababab; }
+	#colophon form.wpcf7-form input[type="submit"] { display:block; width:90%; margin-top:10px; }
+	
+	#colophon label.float { position:relative; height:0px; display:block; left:inherit; top:14px; margin:0 auto; max-width:118px; }
+	
+	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:90%; }
+	
+	.legal { margin-top:15px; margin-bottom:10px; }
+	
+	#colophon .mobile-footer-nav .menu-topics-container a { color:#FFF; text-transform:uppercase; display:block; padding:15px 5%; }
+	#colophon .mobile-footer-nav .menu-topics-container a:after { 
+		display:inline-block; 
+		content:' '; 
+		padding-left:10px; 
+		border:solid transparent; 
+		border-color:rgba(255, 255, 255, 0); 
+		border-left-color:#FFF; 
+		border-width:7px; 
+		height:0; 
+		width:0; 
+		margin-left:10px; 
+		margin-bottom:-2px; 
+	}
+	
+	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; }
+	#colophon .mobile-footer-nav .menu-topics-container li { border-top:1px solid #868686; }
+	#colophon .mobile-footer-nav .menu-topics-container li:first-child { border-top:none; }
+}

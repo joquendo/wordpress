@@ -12,7 +12,18 @@
 $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - FUNCTIONS.PHP
 ?>
 	</div><!-- #main .wrapper -->
+	
+	
 	<footer id="colophon" role="contentinfo">
+		
+		<div class="mobile-footer-nav">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+		</div>
+		
+		
+		
+		
+		
 		<div class="wrapper">
 			<div class="siteinfo">
 				<div class="column first">
