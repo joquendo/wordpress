@@ -1,4 +1,3 @@
-
 //on page load
 jQuery(document).ready(function ($) {
 			

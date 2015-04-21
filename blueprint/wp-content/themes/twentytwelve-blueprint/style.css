@@ -1025,7 +1025,7 @@ footer.entry-meta {
 	font-weight: normal;
 }
 #author-bio {
-	border-bottom: 1px solid #ccc;
+	border-bottom: none;
 	padding-bottom: 20px;
 }
 #author-bio .staff-bio {

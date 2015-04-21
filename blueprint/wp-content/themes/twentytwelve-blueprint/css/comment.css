@@ -1,0 +1,28 @@
+.comments-area { margin-top:45px; margin-bottom:70px; }
+.comments-title { text-transform:uppercase; font-weight:800; color:#c0c0c0; margin-bottom:10px; }
+
+#comments .grey-wrapper { background:#F5F5F5; padding:34px 40px; }
+
+#respond { margin-top:0; }
+#respond form p.logged-in-as { display:none; }
+#respond h3#reply-title { display:none; }
+#respond form { margin-top:0px; }
+#respond form label { position:relative; height:0; display:block; top:11px; left:14px; color:#a5a5a5; font-size:16px; font-weight:100; }
+#respond form p.form-allowed-tags { display:none; }
+#respond form p { margin-top:0; }
+#respond .comment-form-url { display:none; }
+#respond .comment-notes { display:none; }
+#respond form input[type="text"], #respond form textarea { border:1px solid #cdcdcd; }
+#respond form input[type="text"] { width:100%; }
+#respond form textarea { height:75px; }
+#respond input[type="submit"] { float:right; color:#FFF; background:#000; border-radius:0; text-transform:uppercase; font-weight:100; letter-spacing:1px; }
+#respond .error { color:#FF0000; padding-bottom:10px; display:block; font-weight:100; font-size:14px; }
+
+.comment-form-container { margin-top:10px; }
+.comment-form-container .avatar { max-width:50px; width:100%; height:auto; }
+.comment-form-container .col-1, .comment-form-container .col-2 { float:left; }
+.comment-form-container .col-1 { width:11%; }
+.comment-form-container .col-2 { width:89% }
+
+.comment-form-container.logout .col-1 { display:none; }
+.comment-form-container.logout .col-2 { width:100%; }
