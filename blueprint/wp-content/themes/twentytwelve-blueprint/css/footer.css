@@ -133,7 +133,7 @@ div.wpcf7-response-output {
 div.wpcf7-validation-errors {
 	color: #ff0000;
 }
-@media only screen and (min-width: 668px) {
+@media only screen and (min-width: 737px) {
 	#colophon .column {
 		box-sizing: border-box;
 		float: left;
@@ -172,7 +172,7 @@ div.wpcf7-validation-errors {
 
 
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 736px) {
 	footer[role="contentinfo"] { padding-top:0; }
 	footer .wrapper { padding:0 5%; padding-top:10px; }
 	
@@ -189,7 +189,7 @@ div.wpcf7-validation-errors {
 	
 	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:90%; }
 	
-	.legal { margin-top:0px; margin-bottom:10px; }
+	.legal { margin-top:15px; margin-bottom:10px; }
 	
 	#colophon .mobile-footer-nav .menu-topics-container a { color:#FFF; text-transform:uppercase; display:block; padding:15px 5%; }
 	#colophon .mobile-footer-nav .menu-topics-container a:after { 

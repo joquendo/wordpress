@@ -1028,7 +1028,7 @@ footer.entry-meta {
 	font-weight: normal;
 }
 #author-bio {
-	border-bottom: 1px solid #ccc;
+	border-bottom: none;
 	padding-bottom: 20px;
 }
 #author-bio .staff-bio {
@@ -1891,6 +1891,7 @@ span.article-type.takeaway {
 .single .site-content {
 	border-top:none;
 	max-width:700px;
+	width:100%;
 	margin:1.714285714rem auto 0;
 	float:none;
 }

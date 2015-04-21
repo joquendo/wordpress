@@ -11,6 +11,7 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'sidebar-style',  get_stylesheet_directory_uri() . '/css/sidebar.css', array('child-style') );
 	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style','twentytwelve-style') );
 	wp_enqueue_style( 'issue-style',  get_stylesheet_directory_uri() . '/css/issue.css', array('child-style') );
+	wp_enqueue_style( 'comment-style',  get_stylesheet_directory_uri() . '/css/comment.css', array('child-style','twentytwelve-style') );
 }
 
 // Remove custom font enabled in twentytwelve theme
@@ -55,6 +56,7 @@ function register_js_scripts() {
 	wp_register_script( 'custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js' );
 	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
+	wp_enqueue_script( 'custom_comment', get_stylesheet_directory_uri() . '/js/comment.js', array( 'jquery' ) );
 	
 	wp_enqueue_script( 'imagesloaded-pkgd', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded/imagesloaded.pkgd.js', array( 'jquery' ) );
 	wp_enqueue_script( 'imagesloaded', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded/imagesloaded.js', array( 'jquery', 'imagesloaded-pkgd' ) );
@@ -155,4 +157,20 @@ function blueprint_get_categories () {
 	if ( $categories_list != 'Uncategorized') {
 		printf( $categories_list );
 	}
+}
+
+//Comment Form Filter
+add_filter( 'comment_form_defaults', 'comment_form_defaults_function', 10 , 1 );
+function comment_form_defaults_function ($defaults) {
+	
+	$defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Your thoughts', 'noun' ) . '</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true"></textarea></p>';
+	$defaults['label_submit'] = __( 'Post' );
+	
+	return $defaults;
+}
+
+add_filter( 'comment_reply_link_args', 'comment_reply_link_args_function', 10, 1 );
+function comment_reply_link_args_function($args) {
+	$args['after'] = ' <span>&gt;</span>';
+	return $args;
 }
