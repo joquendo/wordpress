@@ -18,6 +18,7 @@
 $environments = array(
     'local'             => 'loc.',
     'develop'			=> 'dev.',
+    'stage'			=> 'stage.',
     'production'		=> 'prod.'
 );
 
@@ -53,6 +54,16 @@ switch(ENVIRONMENT){
 		define('WP_DEBUG', true);
 		define('WP_SITEURL', 'http://dev.blueprint.luskin.ucla.edu/');
 		define('WP_HOME', 'http://dev.blueprint.luskin.ucla.edu/');
+	break;
+
+	case 'stage':
+		define('DB_NAME', 'blueprint-stage');
+		define('DB_USER', 'blueprint');
+		define('DB_PASSWORD', 'blueprint5Q!');
+		define('DB_HOST', 'localhost');
+		define('WP_DEBUG', true);
+		define('WP_SITEURL', 'http://stage.blueprint.luskin.ucla.edu/');
+		define('WP_HOME', 'http://stage.blueprint.luskin.ucla.edu/');
 	break;
 	
 	case 'production':
