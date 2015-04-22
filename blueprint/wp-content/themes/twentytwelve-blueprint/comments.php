@@ -24,8 +24,6 @@ if ( post_password_required() )
 <div id="comments" class="comments-area">
 
 	<?php // You can start editing here -- including this comment! ?>
-
-	<?php if ( have_comments() ) : ?>
 	
 		<h2 class="comments-title">
 			Comments
@@ -52,10 +50,12 @@ if ( post_password_required() )
 	
 			
 	
-			<ol class="commentlist">
-				<?php wp_list_comments( array( 'callback' => 'twentytwelve_comment', 'style' => 'ol' ) ); ?>
-			</ol><!-- .commentlist -->
-	
+			<?php if ( have_comments() ) : ?>
+				<ol class="commentlist">
+					<?php wp_list_comments( array( 'callback' => 'twentytwelve_comment', 'style' => 'ol' ) ); ?>
+				</ol><!-- .commentlist -->
+			<?php endif; ?>
+			
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-below" class="navigation" role="navigation">
 				<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'twentytwelve' ); ?></h1>
@@ -70,7 +70,7 @@ if ( post_password_required() )
 			 */
 			if ( ! comments_open() && get_comments_number() ) : ?>
 			<p class="nocomments"><?php _e( 'Comments are closed.' , 'twentytwelve' ); ?></p>
-			<?php endif; ?>
+			
 			
 		</div>
 
