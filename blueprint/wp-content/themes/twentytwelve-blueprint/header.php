@@ -51,10 +51,10 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="UCLA Blueprint" /></a>
 			</div>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle menu-menu"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-menu.png"/><span class="nav-menu"></span></button>			
-				<button class="menu-toggle menu-topics"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-topic.png" /><span class="nav-topic">Topics</span></button>
-				<button class="menu-toggle menu-issues"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-issue.png" /><span class="nav-issue">Issues</span></button>
-				<button class="menu-toggle menu-search"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-search.png" /><span class="nav-search">Search</span></button>
+				<button class="menu-toggle menu-menu"><span class="nav-menu"></span></button>			
+				<button class="menu-toggle menu-topics"><span class="nav-topic">Topics</span></button>
+				<button class="menu-toggle menu-issues"><span class="nav-issue">Issues</span></button>
+				<button class="menu-toggle menu-search"><span class="nav-search">Search</span></button>
 
 				<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
@@ -134,7 +134,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					$hero_image_id = $hero_image['id'];
 					$hero_image_url = $hero_image['url'];
 				else :
-					$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero.png';
+					$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero.png';
 				endif;
 
 				// Mobile hero image
@@ -144,19 +144,19 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					$mobile_hero_image = get_field('mobile_hero_image');
 					$mobile_hero_image_url = $mobile_hero_image['url'];
 				else:
-					$mobile_hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero-mobile.png';
+					$mobile_hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero-mobile.png';
 				endif;
 			?>
 				
 			<?php /*Issue or feature page (with hero image) */
 
-			if ( 'issue' == get_post_type() || 'feature' == get_post_type() ) : ?>
+			if ( 'issue' == get_post_type() || 'feature' == get_post_type() && ! is_category() ) : ?>
 
 				<picture>
-					<?php if (!empty($hero_image)) : ?>
+					<?php if ( !empty($hero_image) ) : ?>
 					<source media="(min-width:737px)" <?php echo tevkori_get_srcset_string( $hero_image_id, 'full' ); ?> />
 					<?php else : ?>
-					<source media="(min-width:737px)" <?php echo $hero_image_url; ?> />
+					<source media="(min-width:737px)" srcset="<?php echo $hero_image_url; ?>" />
 					<?php endif; ?>
 					<source srcset="<?php echo $mobile_hero_image_url; ?>" />
 					<img src="<?php echo $hero_image_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
