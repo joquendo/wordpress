@@ -58,46 +58,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 				<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-				<?php 
-
-					$menu_name = 'secondary';
-
-					if ( ($locations = get_nav_menu_locations() ) && isset ( $locations[ $menu_name ] ) ) {
-						$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-						$menu_items = wp_get_nav_menu_items($menu->term_id);
-						$menu_list  = '<div class="menu-issues-container">';
-
-							$menu_list .='<div id="menu-' . $menu->slug . '" class="nav-menu">';
-							
-								foreach ( (array) $menu_items as $key => $menu_item ) {
-									$cover_image_url = get_field('cover_image', $menu_item->object_id);
-									$issue_date = get_field('issue_date', $menu_item->object_id);
-									$pdf = get_field('pdf_download', $menu_item->object_id);
-									$url = $menu_item->url;
-									$menu_list .= '<div class="menu-item">';
-										if ( !empty($cover_image_url) ) :
-											$menu_list .= '<img src="' . $cover_image_url . '" />';
-										else :
-											$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
-										endif;
-										$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
-										$menu_list .= '<span>' . $issue_date . '</span>';
-									$menu_list .= '</div>'; // End menu item
-								}
-
-							$menu_list .='</div>'; // End menu-{menu->slug}
-
-						$menu_list .='</div>'; // End menu-issues-container
-
-					} else {
-
-						$menu_list = '<div class="menu-issues-container"><ul><li>Menu "' . $menu_name . '" not defined.</li></ul></div>';
-
-					}
-
-					echo $menu_list;
-
-				 ?>
+				
 				<div id="searchform">
 					<label for="search-query">What are you searching for?</label>
 					<input type="text" id="search-query" name="search-query" /><!--
@@ -105,6 +66,47 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				</div>
 			</nav><!-- #site-navigation -->
 		</div>
+
+		<?php 
+
+			$menu_name = 'secondary';
+
+			if ( ($locations = get_nav_menu_locations() ) && isset ( $locations[ $menu_name ] ) ) {
+				$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+				$menu_items = wp_get_nav_menu_items($menu->term_id);
+				$menu_list  = '<div class="menu-issues-container">';
+
+					$menu_list .='<div id="menu-' . $menu->slug . '" class="nav-menu">';
+					
+						foreach ( (array) $menu_items as $key => $menu_item ) {
+							$cover_image_url = get_field('cover_image', $menu_item->object_id);
+							$issue_date = get_field('issue_date', $menu_item->object_id);
+							$pdf = get_field('pdf_download', $menu_item->object_id);
+							$url = $menu_item->url;
+							$menu_list .= '<div class="menu-item">';
+								if ( !empty($cover_image_url) ) :
+									$menu_list .= '<img src="' . $cover_image_url . '" />';
+								else :
+									$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
+								endif;
+								$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
+								$menu_list .= '<span>' . $issue_date . '</span>';
+							$menu_list .= '</div>'; // End menu item
+						}
+
+					$menu_list .='</div>'; // End menu-{menu->slug}
+
+				$menu_list .='</div>'; // End menu-issues-container
+
+			} else {
+
+				$menu_list = '<div class="menu-issues-container"><ul><li>Menu "' . $menu_name . '" not defined.</li></ul></div>';
+
+			}
+
+			echo $menu_list;
+
+		 ?>
 
 		<div class="header-image-container">
 
