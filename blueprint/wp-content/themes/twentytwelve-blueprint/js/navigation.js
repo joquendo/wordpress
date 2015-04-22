@@ -107,8 +107,6 @@
 
 	/* Animation effect on issue click */
 	jQuery(issuesButton).click(function(){
-		console.log('clickity clicked');
-        //jQuery('.menu-issues-container').animate({ height: "175px" }, 1500);
         jQuery('.menu-issues-container').slideToggle();
 	});
 
