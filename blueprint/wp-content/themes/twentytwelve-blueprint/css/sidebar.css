@@ -99,6 +99,10 @@
 	color:#FFF;
 }
 
+#secondary .container .btn:hover {
+	background-color: #a6a6a6;
+}
+
 #secondary .container p {
 	color:#686868;
 	margin-top:12px;
@@ -114,6 +118,10 @@
 	text-decoration:none;
 	margin-top:20px;
 	display:block;
+}
+
+#secondary .container .read-more:hover {
+	color: #a6a6a6;
 }
 
 #secondary .container .list {
@@ -135,7 +143,7 @@
 }
 
 #secondary .container .list a:hover {
-	text-decoration:underline;
+	color: #a6a6a6;
 }
 
 
