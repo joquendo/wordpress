@@ -73,7 +73,6 @@
 	};
 
 	function resetToggle(buttonElement) {
-		console.log(buttonElement);
 		if ( -1 !== buttonElement.className.indexOf('menu-menu') ) {
 			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
 			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
@@ -105,5 +104,12 @@
 			jQuery('div.hover', this).css('display', 'none');
 		}
 	);
+
+	/* Animation effect on issue click */
+	jQuery(issuesButton).click(function(){
+		console.log('clickity clicked');
+        //jQuery('.menu-issues-container').animate({ height: "175px" }, 1500);
+        jQuery('.menu-issues-container').slideToggle();
+	});
 
 } )();

@@ -1653,7 +1653,7 @@ img.header-image {
 	background-color:rgba(255,255,255,0.9);
 	text-align:left;
 	width:100%;
-	margin-top:20px;
+	margin-top:19px;
 	display:none;
 }
 .main-navigation div#searchform {
@@ -2241,16 +2241,18 @@ aside.pqRight:after {
 	.menu-topics-container {
 		left:inherit;
 		max-width:175px;
-		margin-top:19px;
+		margin-top:15px;
 	}
 	.menu-issues-container {
+		position:relative;
 		text-align:center;
 		margin-top:15px;
 		padding:50px 0;
+		z-index:10;
 	}
-	.menu-issues-container.toggled-on {
+	/*.menu-issues-container.toggled-on {
 		display:block;
-	}
+	}//taken care of with jquery animation in navigation.js */
 	.menu-issues-container ul.nav-menu,
 	.menu-issues-container div.nav-menu > ul {
 		padding:48px 0;
