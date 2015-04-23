@@ -107,9 +107,16 @@
 
 	/* Animation effect on issue click */
 	jQuery(issuesButton).click(function(){
-		console.log('clickity clicked');
-        //jQuery('.menu-issues-container').animate({ height: "175px" }, 1500);
         jQuery('.menu-issues-container').slideToggle();
 	});
+
+	/* Rollover effect on categorie tags */
+	jQuery('.entry-meta a').hover(
+		function() {
+			jQuery(this).addClass('hover');
+		}, function() {
+			jQuery(this).removeClass('hover');
+		}
+	);
 
 } )();
