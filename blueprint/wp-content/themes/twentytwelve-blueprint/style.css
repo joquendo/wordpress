@@ -1605,7 +1605,6 @@ img.header-image {
 	height:33px;
 	background-image: url('images/sprite.png');
 }
-.menu-toggle.menu-menu:hover,
 .menu-toggle.menu-menu.toggled-on {
 	background-position-y:-40px;
 }
@@ -1614,7 +1613,6 @@ img.header-image {
 	background-image: url('images/sprite.png');
 	background-position-y:-254px;	
 }
-.menu-toggle.menu-search:hover,
 .menu-toggle.menu-search.toggled-on {
 	color:#00a5e5;
 	background-position-y:-298px;
@@ -1660,7 +1658,7 @@ img.header-image {
 	background-color:rgba(255,255,255,0.9);
 	text-align:left;
 	width:100%;
-	margin-top:33px;
+	top:67px;
 	display:none;
 }
 .main-navigation div#searchform {
@@ -2264,6 +2262,10 @@ aside.pqRight:after {
 	.menu-toggle.menu-topics {
 		padding-left:47px;
 	}
+	.menu-toggle.menu-search:hover {
+		color:#00a5e5;
+		background-position-y:-298px;
+	}
 	.main-navigation ul.nav-menu.toggled-on,
 	.main-navigation div.nav-menu.toggled-on > ul {
 		width:initial;
@@ -2275,7 +2277,7 @@ aside.pqRight:after {
 	.menu-topics-container {
 		left:inherit;
 		max-width:175px;
-		margin-top:15px;
+		top:48px;
 	}
 	.menu-issues-container {
 		position:relative;
@@ -2283,6 +2285,7 @@ aside.pqRight:after {
 		margin-top:15px;
 		padding:50px 0;
 		z-index:10;
+		top:0;
 	}
 	/*.menu-issues-container.toggled-on {
 		display:block;
