@@ -206,7 +206,7 @@ div.wpcf7-validation-errors {
 		margin-bottom:-2px; 
 	}
 	
-	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; }
+	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; top:0; }
 	#colophon .mobile-footer-nav .menu-topics-container li { border-top:1px solid #868686; }
 	#colophon .mobile-footer-nav .menu-topics-container li:first-child { border-top:none; }
 }
