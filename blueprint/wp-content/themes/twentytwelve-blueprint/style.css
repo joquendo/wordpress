@@ -1656,7 +1656,7 @@ img.header-image {
 .menu-issues-container {
 	position:absolute;
 	left:0;
-	right:162px;
+	right:210px;
 	background-color:rgba(255,255,255,0.9);
 	text-align:left;
 	width:100%;
@@ -2532,6 +2532,9 @@ aside.pqRight:after {
 		border-color: transparent transparent #000 transparent;
 		margin-top: -0.5rem;
 		display:block;
+	}
+	p.entry-meta a[rel*="category"].hover:before {
+		border-color: transparent transparent #a6a6a6 transparent;
 	}
 	.entry-content blockquote,
 	.comment-content blockquote {

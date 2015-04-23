@@ -110,4 +110,13 @@
         jQuery('.menu-issues-container').slideToggle();
 	});
 
+	/* Rollover effect on categorie tags */
+	jQuery('.entry-meta a').hover(
+		function() {
+			jQuery(this).addClass('hover');
+		}, function() {
+			jQuery(this).removeClass('hover');
+		}
+	);
+
 } )();
