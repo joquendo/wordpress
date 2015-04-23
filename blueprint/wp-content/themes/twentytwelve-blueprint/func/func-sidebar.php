@@ -38,8 +38,9 @@ function getLatestEventID () {
 function getInfographicID ($issue_id = '') {
 	
 	global $wpdb;
-	
-	if($issue_id === '' or $issue_id === NULL) {
+
+	//if on homepage and there is no issue set
+	if( ($issue_id === '' or $issue_id === NULL) AND $_SERVER['REQUEST_URI'] === '/' ) {
 		//get latest issue
 		$sql = "SELECT *
 		        FROM wp_posts a

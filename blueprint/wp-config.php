@@ -18,7 +18,7 @@
 $environments = array(
     'local'             => 'loc.',
     'develop'			=> 'dev.',
-    'stage'			=> 'stage.',
+    'stage'			    => 'stage.',
     'production'		=> 'prod.'
 );
 
