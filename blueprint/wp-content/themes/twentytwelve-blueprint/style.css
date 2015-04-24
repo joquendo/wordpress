@@ -977,12 +977,11 @@ img.aligncenter,
 	padding: 6px 10px 6px 0;
 }
 .home .site-content article,
-.single-issue .site-content article {
+.single-issue .site-content article,
+.category .site-content article {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
-	padding-bottom: 23px;
-	padding-bottom: 1.4375rem;
 	word-wrap: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
@@ -993,8 +992,7 @@ img.aligncenter,
 	line-height: 1.714285714;
 }
 footer.entry-meta {
-	margin-top: 24px;
-	margin-top: 1.714285714rem;
+	margin-top:15px;
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
@@ -2311,7 +2309,7 @@ aside.pqRight:after {
 		text-align:center;
 		padding:50px 0;
 		z-index:10;
-		top:-18px;
+		top:-10px;
 	}
 	/*.menu-issues-container.toggled-on {
 		display:block;
