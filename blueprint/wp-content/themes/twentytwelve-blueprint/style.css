@@ -1084,7 +1084,7 @@ footer.entry-meta {
 	margin-bottom: 3.428571429rem;
 	padding-bottom: 22px;
 	padding-bottom: 1.571428571rem;
-	border-bottom: 1px solid #ededed;
+	border-bottom: 1px solid #ccc;
 }
 .archive-meta {
 	color: #757575;
@@ -1623,7 +1623,7 @@ img.header-image {
 }
 .main-navigation {
 	position:relative;
-	margin-top:0;
+	margin-top:5px;
 	text-align:right;
 	text-transform:uppercase;
 	height:66px;
@@ -2030,6 +2030,10 @@ aside.pqRight:after {
 		float: left;
 		width: 65.104166667%;
 	}
+	.archive .site-content,
+	.category .site-content {
+		margin: 10px 0 0;
+	}
 	body.template-front-page .site-content,
 	body.attachment .site-content,
 	body.full-width .site-content {
@@ -2041,6 +2045,14 @@ aside.pqRight:after {
 	.widget-area {
 		float: right;
 		width: 26.041666667%;
+	}
+	.archive .widget-area,
+	.category .widget-area {
+		margin:0;
+	}
+	.archive #secondary.widget-area .container:first-child,
+	.category #secondary.widget-area .container:first-child {
+		border-top:none;
 	}
 	.site-header h1,
 	.site-header h2 {
@@ -2054,13 +2066,22 @@ aside.pqRight:after {
 	}
 	.home .main-navigation,
 	.single .main-navigation {
-		height:47px;
+		height:42px;
+		margin-bottom:5px;
 	}
-	.page .main-navigation {
-		margin-bottom: 54px;
+	.page .main-navigation,
+	.archive .main-navigation,
+	.category .main-navigation {
+		margin-bottom: 49px;
+	}
+	.archive .archive-header {
+		margin-top:54px;
+		margin-bottom:0;
+		padding-bottom:29px;
 	}
 	.main-navigation button.menu-search {
-		margin-right:40px;
+		margin-right:24px;
+  		margin-right:1.714285714rem;
 	}
 	.main-navigation ul.nav-menu,
 	.main-navigation div.nav-menu > ul {
@@ -2205,17 +2226,21 @@ aside.pqRight:after {
 		max-width:220px;
 		width:13.5%;
 	}
-	.page .logo {
+	.page .logo,
+	.archive .logo,
+	.category .logo {
 		margin-top:5px;
-		max-width:180px;
 		width:16%;
+		max-width:180px;
+		margin-left: 24px;
+		margin-left: 1.714285714rem;
 	}
 	
 	.home .site-content,
 	.single-issue .site-content {
 		border-top: 1px solid #ccc;
   		padding-top: 20px;
-  		width:74%;
+  		width:72%;
   		border-right:1px solid #ccc;
   		margin-right:-1px;
 	}
@@ -2231,6 +2256,8 @@ aside.pqRight:after {
 	.menu-toggle.menu-issues,
 	.menu-toggle.menu-search span {
 		display:inline-block;
+		font-size:14px;
+		font-size:0.875rem;
 	}
 	.menu-toggle.menu-search {
 		padding-left:40px;
@@ -2282,10 +2309,9 @@ aside.pqRight:after {
 	.menu-issues-container {
 		position:relative;
 		text-align:center;
-		margin-top:15px;
 		padding:50px 0;
 		z-index:10;
-		top:0;
+		top:-18px;
 	}
 	/*.menu-issues-container.toggled-on {
 		display:block;
@@ -2395,12 +2421,19 @@ aside.pqRight:after {
 		text-transform:uppercase;
 		letter-spacing:0.05rem;
 	}
-	.archive-header h1.archive-title,
+	.archive-header span.post-type {
+		margin-bottom:9px;
+	}
 	.entry-header h1.entry-title {
 		font-size:3.125rem;
 		font-weight:800;
 		margin-bottom: 45px;
 		margin-bottom: 2.8125rem;
+	}
+	.archive-header h1.archive-title {
+		font-size:3.125rem;
+		font-weight:800;
+		margin-bottom: 0;
 	}
 	.archive-header h2.archive-title,
 	.entry-header h2.entry-title,
@@ -2617,6 +2650,12 @@ aside.pqRight:after {
 	}
 	header.site-header {
 		margin:0 -2.857142857rem;
+	}
+	.page .logo,
+	.archive .logo,
+	.category .logo {
+		margin-left: 45px;
+		margin-left: 2.857142857rem;
 	}
 }
 
