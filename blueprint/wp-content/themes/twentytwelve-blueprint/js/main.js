@@ -24,7 +24,11 @@
 		searchButton.style.display = 'none';
 	}
 
+	/* Set toggled styles on navigation buttons and menus */
 	menuButton.onclick = function(e) {
+
+		toggleSlider(this);
+
 		if ( -1 !== topicsMenu.className.indexOf( 'toggled-on' ) ) {
 			menuButton.className = menuButton.className.replace( ' toggled-on', '' );
 			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
@@ -37,6 +41,9 @@
 	};
 
 	topicsButton.onclick = function(e) {
+		
+		toggleSlider(this);
+
 		if ( -1 !== topicsMenu.className.indexOf( 'toggled-on' ) ) {
 			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
 			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
@@ -49,6 +56,9 @@
 	};
 
 	issuesButton.onclick = function(e) {
+
+		toggleSlider(this);
+
 		if ( -1 !== issuesMenu.className.indexOf( 'toggled-on' ) ) {
 			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
 			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
@@ -61,6 +71,9 @@
 	};
 
 	searchButton.onclick = function(e) {
+
+		toggleSlider(this);
+
 		if ( -1 !== searchForm.className.indexOf( 'toggled-on' ) ) {
 			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
 			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
@@ -93,7 +106,54 @@
 			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
 			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
 		}
+		
 	};
+
+	var topicsSliderOpen = false;
+	var issuesSliderOpen = false;
+	var searchSliderOpen = false;
+
+	/* Animation effect on button click */
+	function toggleSlider(button) {
+		if ( -1 !== button.className.indexOf('menu-issues') ) {
+			if (topicsSliderOpen) toggleTopicsSlider();
+			if (searchSliderOpen) toggleSearchSlider();
+			toggleIssuesSlider();
+		} else if ( -1 !== button.className.indexOf('menu-topics') ) {
+			if (issuesSliderOpen) toggleIssuesSlider();
+			if (searchSliderOpen) toggleSearchSlider();
+			toggleTopicsSlider();
+		} else if ( -1 !== button.className.indexOf('menu-search') ) {
+			if (topicsSliderOpen) toggleTopicsSlider();
+			if (issuesSliderOpen) toggleIssuesSlider();
+			toggleSearchSlider();
+		} else if (-1 !== button.className.indexOf('menu-menu') ) {
+			if (issuesSliderOpen) toggleIssuesSlider();
+			if (searchSliderOpen) toggleSearchSlider();
+			toggleTopicsSlider();
+		}
+	}
+
+	function toggleIssuesSlider() {
+		jQuery('.menu-issues-container').slideToggle(
+			function() {
+	        	issuesSliderOpen = !issuesSliderOpen; /* toggle between true/false */
+		});
+	}
+
+	function toggleTopicsSlider() {
+		jQuery('.main-navigation .menu-topics-container').slideToggle(
+			function() {
+		        topicsSliderOpen = !topicsSliderOpen; /* toggle between true/false */
+		});
+	}
+
+	function toggleSearchSlider() {
+		jQuery('#searchform').slideToggle(
+			function() {
+	        	searchSliderOpen = !searchSliderOpen; /* toggle between true/false */
+		});
+	}
 
 	/* Hover effect on issue dropdown menu */
 	jQuery(issuesMenu).find('div.menu-item').hover(
@@ -105,12 +165,7 @@
 		}
 	);
 
-	/* Animation effect on issue click */
-	jQuery(issuesButton).click(function(){
-        jQuery('.menu-issues-container').slideToggle();
-	});
-
-	/* Rollover effect on categorie tags */
+	/* Rollover effect on category tags */
 	jQuery('.entry-meta a').hover(
 		function() {
 			jQuery(this).addClass('hover');

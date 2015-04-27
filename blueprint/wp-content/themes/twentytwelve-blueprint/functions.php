@@ -174,3 +174,10 @@ function comment_reply_link_args_function($args) {
 	$args['after'] = ' <span>&gt;</span>';
 	return $args;
 }
+
+function myfeed_request($qv) {
+	if (isset($qv['feed']) && !isset($qv['post_type']))
+		$qv['post_type'] = array('feature', 'sketch', 'infographic');
+	return $qv;
+}
+add_filter('request', 'myfeed_request');
