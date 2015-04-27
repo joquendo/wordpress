@@ -1771,6 +1771,8 @@ span.article-type {
 	line-height:0.75rem;
 	font-weight:600;
 	text-transform:uppercase;
+	margin-bottom:12px;
+	margin-bottom:0.75rem;
 }
 .research h2,
 .research span.article-type,
@@ -2450,10 +2452,6 @@ aside.pqRight:after {
 		display:block
 	}
 	/* Sketch page article-type icons */
-	span.article-type {
-		margin-bottom:12px;
-		margin-bottom:0.75rem;
-	}
 	.single-sketch span.article-type:before {
 		content: "";
 		display: inline-block;

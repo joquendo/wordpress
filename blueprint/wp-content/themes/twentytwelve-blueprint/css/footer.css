@@ -116,12 +116,16 @@ footer .wrapper {
 }
 
 div.wpcf7-mail-sent-ok,
+div.wpcf7-mail-sent-ng,
 div.wpcf7-validation-errors {
 	border: 1px solid #ccc;
 }
 
 div.wpcf7-mail-sent-ok {
 	color: #00a5e5;
+}
+div.wpcf7-mail-sent-ng {
+	color:#ff0000;
 }
 
 div.wpcf7-response-output {
@@ -182,12 +186,12 @@ div.wpcf7-validation-errors {
 	#colophon .column { padding-top:1px; }
 	
 	#colophon form.wpcf7-form { margin:15px 0; }
-	#colophon form.wpcf7-form input[type="email"] { width:90%; border:1px solid #ababab; }
-	#colophon form.wpcf7-form input[type="submit"] { display:block; width:90%; margin-top:10px; }
+	#colophon form.wpcf7-form input[type="email"] { width:89%; border:1px solid #ababab; }
+	#colophon form.wpcf7-form input[type="submit"] { display:block; width:89%; margin-top:10px; }
 	
 	#colophon label.float { position:relative; height:0px; display:block; left:inherit; top:14px; margin:0 auto; max-width:118px; }
 	
-	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:90%; }
+	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:89%; }
 	
 	.legal { margin-top:15px; margin-bottom:10px; }
 	
