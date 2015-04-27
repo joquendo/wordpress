@@ -2287,9 +2287,9 @@ aside.pqRight:after {
 		z-index:10;
 		top:0;
 	}
-	/*.menu-issues-container.toggled-on {
+	.menu-issues-container.toggled-on {
 		display:block;
-	}//taken care of with jquery animation in navigation.js */
+	}
 	.menu-issues-container ul.nav-menu,
 	.menu-issues-container div.nav-menu > ul {
 		padding:48px 0;

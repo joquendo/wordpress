@@ -1,16 +1,29 @@
 /**
- * Handles toggling the navigation search button for small screens and
+ * Handles toggling the navigation search button and 
  * accessibility for the search form.
  */
 ( function() {
-	var nav = document.getElementById( 'site-navigation' ), searchButton, searchForm;
+	var nav = document.getElementById( 'site-navigation' ),
+	menuButton,
+	topicsButton,
+	issuesButton,
+	searchButton,
+	topicsMenu,
+	issuesMenu,
+	searchForm,
+	topicsSliderOpen = false,
+	issuesSliderOpen = false,
+	searchSliderOpen = false;
+
 	if ( ! nav ) {
 		return;
 	}
+
 	menuButton   = nav.getElementsByTagName( 'button' )[0];
 	topicsButton = nav.getElementsByTagName( 'button' )[1];
 	issuesButton = nav.getElementsByTagName( 'button' )[2];
 	searchButton = nav.getElementsByTagName( 'button' )[3];
+
 	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement;
 	issuesMenu	 = document.getElementById( 'menu-issues' ).parentElement; // Show/hide container element
 	searchForm   = document.getElementById( 'searchform' ); 
@@ -19,99 +32,27 @@
 		return;
 	}
 
-	// Hide button if search form is missing.
-	if ( ! searchForm ) {
-		searchButton.style.display = 'none';
-	}
 
 	/* Set toggled styles on navigation buttons and menus */
-	menuButton.onclick = function(e) {
-
+	/* Slider animation--toggleSlider(this); */
+	/* Toggle classes without animation--toggleClasses(this); */
+	menuButton.onclick = function() {
 		toggleSlider(this);
-
-		if ( -1 !== topicsMenu.className.indexOf( 'toggled-on' ) ) {
-			menuButton.className = menuButton.className.replace( ' toggled-on', '' );
-			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
-		} else {
-			menuButton.className += ' toggled-on';
-			topicsMenu.className += ' toggled-on';
-		}
-
-		resetToggle(e.currentTarget);
-	};
-
-	topicsButton.onclick = function(e) {
+		toggleClasses(this);
 		
-		toggleSlider(this);
-
-		if ( -1 !== topicsMenu.className.indexOf( 'toggled-on' ) ) {
-			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
-			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
-		} else {
-			topicsButton.className += ' toggled-on';
-			topicsMenu.className += ' toggled-on';
-		}
-
-		resetToggle(e.currentTarget);
 	};
-
+	topicsButton.onclick = function() {
+		toggleSlider(this);
+		toggleClasses(this);
+	};
 	issuesButton.onclick = function(e) {
-
 		toggleSlider(this);
-
-		if ( -1 !== issuesMenu.className.indexOf( 'toggled-on' ) ) {
-			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
-			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
-		} else {
-			issuesButton.className += ' toggled-on';
-			issuesMenu.className += ' toggled-on';
-		}
-
-		resetToggle(e.currentTarget);
+		toggleClasses(this);
 	};
-
 	searchButton.onclick = function(e) {
-
 		toggleSlider(this);
-
-		if ( -1 !== searchForm.className.indexOf( 'toggled-on' ) ) {
-			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
-			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
-		} else {
-			searchButton.className += ' toggled-on';
-			searchForm.className += ' toggled-on';
-		}
-
-		resetToggle(e.currentTarget);
+		toggleClasses(this);
 	};
-
-	function resetToggle(buttonElement) {
-		if ( -1 !== buttonElement.className.indexOf('menu-menu') ) {
-			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
-			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
-		} else if ( -1 !== buttonElement.className.indexOf('menu-topics') ) {
-			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
-			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
-			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
-			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
-		} else if ( -1 !== buttonElement.className.indexOf('menu-issues') ) {
-			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
-			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
-			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
-			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
-		} else if ( -1 !== buttonElement.className.indexOf('menu-search') ) {
-			menuButton.className = menuButton.className.replace( ' toggled-on', '' );
-			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
-			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
-			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
-			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
-		}
-		
-	};
-
-	var topicsSliderOpen = false;
-	var issuesSliderOpen = false;
-	var searchSliderOpen = false;
 
 	/* Animation effect on button click */
 	function toggleSlider(button) {
@@ -132,7 +73,75 @@
 			if (searchSliderOpen) toggleSearchSlider();
 			toggleTopicsSlider();
 		}
-	}
+	};
+
+	function toggleClasses(buttonElement) {
+
+		// Menu (mobile) or topics (full) button selected
+		if ( -1 !== buttonElement.className.indexOf('menu-menu') || -1 !== buttonElement.className.indexOf('menu-topics') ) {
+			
+			if ( -1 !== buttonElement.className.indexOf( 'toggled-on' ) ) { // if toggled on
+				menuButton.className = menuButton.className.replace( ' toggled-on', '' );
+				topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
+				topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
+		    } else { 
+		        menuButton.className += ' toggled-on';
+		  		topicsButton.className += ' toggled-on';
+				topicsMenu.className += ' toggled-on';
+		    }
+
+		}
+
+		// Issues button selected
+		if ( -1 !== buttonElement.className.indexOf('menu-issues') ) {
+
+			if ( -1 !== buttonElement.className.indexOf( 'toggled-on' ) ) {
+				issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
+				issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
+			} else {
+				issuesButton.className += ' toggled-on';
+				issuesMenu.className += ' toggled-on';
+			}
+
+		}
+
+		// Search button selected
+		if ( -1 !== buttonElement.className.indexOf('menu-search') ) {
+
+			if ( -1 !== buttonElement.className.indexOf( 'toggled-on' ) ) {
+				searchButton.className = searchButton.className.replace( ' toggled-on', '' );
+				searchForm.className = searchForm.className.replace( ' toggled-on', '' );
+			} else {
+				searchButton.className += ' toggled-on';
+				searchForm.className += ' toggled-on';
+			}
+
+		}
+
+		resetToggle(buttonElement);
+	};
+
+	function resetToggle(buttonElement) {
+
+		if ( -1 !== buttonElement.className.indexOf('menu-menu') || -1 !== buttonElement.className.indexOf('menu-topics') ) {
+			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
+			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
+			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
+			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
+		} else if ( -1 !== buttonElement.className.indexOf('menu-issues') ) {
+			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
+			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
+			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
+			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
+		} else if ( -1 !== buttonElement.className.indexOf('menu-search') ) {
+			menuButton.className = menuButton.className.replace( ' toggled-on', '' );
+			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
+			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
+			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
+			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
+		}
+		
+	};
 
 	function toggleIssuesSlider() {
 		jQuery('.menu-issues-container').slideToggle(
@@ -142,7 +151,7 @@
 	}
 
 	function toggleTopicsSlider() {
-		jQuery('.main-navigation .menu-topics-container').slideToggle(
+		jQuery(topicsMenu).slideToggle(300,
 			function() {
 		        topicsSliderOpen = !topicsSliderOpen; /* toggle between true/false */
 		});
