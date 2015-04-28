@@ -1604,16 +1604,16 @@ img.header-image {
 	background-image: url('images/sprite.png');
 }
 .menu-toggle.menu-menu.toggled-on {
-	background-position-y:-40px;
+	background-position:0 -40px;
 }
 .menu-toggle.menu-search {
 	height:33px;
 	background-image: url('images/sprite.png');
-	background-position-y:-254px;	
+	background-position:0 -254px;	
 }
 .menu-toggle.menu-search.toggled-on {
 	color:#00a5e5;
-	background-position-y:-298px;
+	background-position:0 -298px;
 }
 .menu-toggle span {
 	display:block;
@@ -1711,18 +1711,18 @@ img.header-image {
 }
 .issue span.title:after,
 .event span.title:after {
-		margin-left:7px;
-		border: solid transparent;
-  		content: " ";
-  		height: 0;
-  		width: 0;
-  		position: relative;
-  		pointer-events: none;
-  		border-color: rgba(255, 255, 255, 0);
-  		border-left-color: #fff;
-  		border-width: 7px;
-  		margin-bottom: -1px;
-  		display: inline-block;
+	margin-left:7px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: relative;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-left-color: #fff;
+	border-width: 7px;
+	margin-bottom: -1px;
+	display: inline-block;
 }
 
 /* Homepage entry and search page entry */
@@ -1918,6 +1918,7 @@ aside.pullquote {
 	color:#fff !important;
 	width:100% !important;
 	max-width:none;
+	text-align:left !important;
 }
 aside.pullquote p {
 	border:none;
@@ -2029,6 +2030,11 @@ aside.pqRight:after {
 	.site-content {
 		float: left;
 		width: 65.104166667%;
+	}
+	/* Page and Single Post */
+	.page .site-content,
+	.single .site-content {
+		margin:62px auto 0;
 	}
 	.archive .site-content,
 	.category .site-content {
@@ -2235,7 +2241,6 @@ aside.pqRight:after {
 		margin-left: 24px;
 		margin-left: 1.714285714rem;
 	}
-	
 	.home .site-content,
 	.single-issue .site-content {
 		border-top: 1px solid #ccc;
@@ -2243,6 +2248,12 @@ aside.pqRight:after {
   		width:72%;
   		border-right:1px solid #ccc;
   		margin-right:-1px;
+	}
+	.single-feature span.article-type {
+		font-size:14px;
+		font-size:0.875rem;
+		line-height:0;
+		margin-bottom:22px;
 	}
 	.menu-toggle {
 		display: inline-block;
@@ -2265,12 +2276,12 @@ aside.pqRight:after {
 	.menu-toggle.menu-issues {
 		height:33px;
 		background-image: url('images/sprite.png');
-		background-position-y:-166px;	
+		background-position:0 -166px;	
 	}
 	.menu-toggle.menu-issues:hover,
 	.menu-toggle.menu-issues.toggled-on {
 		color:#00a5e5;
-		background-position-y:-209px;
+		background-position:0 -209px;
 	}
 	.menu-toggle.menu-issues {
 		padding-left:40px;
@@ -2279,19 +2290,19 @@ aside.pqRight:after {
 	.menu-toggle.menu-topics {
 		height:33px;
 		background-image: url('images/sprite.png');
-		background-position-y:-76px;	
+		background-position:0 -76px;	
 	}
 	.menu-toggle.menu-topics:hover,
 	.menu-toggle.menu-topics.toggled-on {
 		color:#00a5e5;
-		background-position-y:-120px;
+		background-position:0 -120px;
 	}
 	.menu-toggle.menu-topics {
 		padding-left:47px;
 	}
 	.menu-toggle.menu-search:hover {
 		color:#00a5e5;
-		background-position-y:-298px;
+		background-position:0 -298px;
 	}
 	.main-navigation ul.nav-menu.toggled-on,
 	.main-navigation div.nav-menu.toggled-on > ul {
@@ -2421,14 +2432,20 @@ aside.pqRight:after {
 		text-transform:uppercase;
 		letter-spacing:0.05rem;
 	}
+	#page .entry-header,
+	#page .sketch .entry-header {
+		margin-bottom: 32px;
+	}
+	.entry-image {
+		margin-right:15px;
+	}
 	.archive-header span.post-type {
 		margin-bottom:9px;
 	}
 	.entry-header h1.entry-title {
 		font-size:3.125rem;
 		font-weight:800;
-		margin-bottom: 45px;
-		margin-bottom: 2.8125rem;
+		margin-bottom: 12px;
 	}
 	.archive-header h1.archive-title {
 		font-size:3.125rem;
@@ -2462,23 +2479,29 @@ aside.pqRight:after {
 		background-image: url('images/sprite.png');
 		background-size:292%;
 	}
+	.introduction {
+		line-height:35.2px;
+		line-height:2.2rem;
+		margin-bottom:15px;
+		margin-bottom:0.9375rem;
+	}
 	span.article-type.editors-note:before {
-		background-position-y: -1310px;
+		background-position:0 -1310px;
 	}
 	span.article-type.first-person:before {
-		background-position-y: -1374px;
+		background-position:0 -1374px;
 	}
 	span.article-type.exclusively-online:before {
-		background-position-y: -1437px;
+		background-position:0 -1437px;
 	}
 	span.article-type.side-notes:before {
-		background-position-y: -1502px;
+		background-position:0 -1502px;
 	}
 	span.article-type.landscape:before {
-		background-position-y: -1564px;
+		background-position:0 -1564px;
 	}
 	span.article-type.takeaway:before {
-		background-position-y: -1628px;
+		background-position:0 -1628px;
 	}
 	.entry-summary {
 		width: 97%;
@@ -2499,7 +2522,7 @@ aside.pqRight:after {
 		max-width: 75px;
 		width: 15%;
 		height: 75px;
-		margin-right:7px;
+		margin-right:15px;
   		background-repeat: no-repeat;
 	}
 	.sketch-image a {
@@ -2509,27 +2532,27 @@ aside.pqRight:after {
 	}
 	.editors-note .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -575px;
+	  	background-position:0 -575px;
 	}
 	.first-person .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -665px;
+	  	background-position:0 -665px;
 	}
 	.exclusively-online .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -755px;
+	  	background-position:0 -755px;
 	}
 	.side-notes .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -845px;
+	  	background-position:0 -845px;
 	}
 	.landscape .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -935px;
+	  	background-position:0 -935px;
 	}
 	.takeaway .sketch-image {
 	  	background-image: url('images/sprite.png');
-	  	background-position-y: -1025px;
+	  	background-position:0 -1025px;
 	}
 	.entry-summary.has-sketch-image{
 		width:81%;
