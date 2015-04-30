@@ -28,7 +28,7 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 			<div class="siteinfo">
 				<div class="column first">
 					<div class="content">
-						<h6>About Us</h6>
+						<h6>About</h6>
 						<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 50, '...');?> <a href="/about">MORE</a></p>
 					</div>
 					<div class="content">
@@ -69,7 +69,7 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 				</div>
 			</div><!-- .site-info -->
 			<div class="legal">
-				&copy;<?php echo date('Y');?> UC Regents, All Rights Reserved
+				<span class="icon-ucla"></span> &copy;<?php echo date('Y');?> UC Regents, All Rights Reserved
 			</div>
 		</div>
 	</footer><!-- #colophon -->

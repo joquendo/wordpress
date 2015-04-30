@@ -1635,6 +1635,8 @@ img.header-image {
 	width:95%;
 	height:100%;
 	padding-left:5%;
+	font-weight:600;
+	letter-spacing:1px;
 }
 .main-navigation ul li a:hover {
 	color:#a6a6a6;
@@ -1657,7 +1659,7 @@ img.header-image {
 	background-color:#f5f5f5;
 	text-align:left;
 	width:100%;
-	top:67px;
+	top:66px;
 	display:none;
 }
 .main-navigation div#searchform {
@@ -2342,7 +2344,7 @@ aside.pqRight:after {
 	.menu-topics-container {
 		left:inherit;
 		max-width:175px;
-		top:48px;
+		top:47px;
 	}
 	.menu-issues-container {
 		position:relative;

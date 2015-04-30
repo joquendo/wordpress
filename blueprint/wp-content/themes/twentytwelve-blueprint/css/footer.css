@@ -12,6 +12,7 @@ footer .wrapper {
 	color: #000;
 	margin-bottom: 5px;
 	text-transform: uppercase;
+	letter-spacing:1px;
 }
 
 #colophon a,
@@ -19,6 +20,11 @@ footer .wrapper {
 .legal {
 	color: #686868;
 	font-weight: 300;
+}
+
+#colophon p {
+	line-height:24px;
+	font-size:14px;
 }
 
 #colophon a {
@@ -136,6 +142,16 @@ div.wpcf7-response-output {
 
 div.wpcf7-validation-errors {
 	color: #ff0000;
+}
+.legal .icon-ucla {
+	background:url('../images/icon-ucla.png') no-repeat 0 0;
+	display:block;
+	width:72px;
+	height:23px;
+	float:left;
+	position:relative;
+	top:-4px;
+	margin-right:25px;
 }
 @media only screen and (min-width: 737px) {
 	#colophon .column {
