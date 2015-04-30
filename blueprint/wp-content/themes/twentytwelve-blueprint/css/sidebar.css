@@ -37,6 +37,10 @@
 	top:2px;
 }
 
+.category #secondary {
+	margin-left:-1px;
+}
+
 #secondary .container .widget {
 	padding-top:11px;
 	padding-bottom:55px;
@@ -67,7 +71,7 @@
 #secondary .container img {
 	border-radius:0px;
 	box-shadow: 0 0 0;
-	width:281px;
+	width:100%;
 }
 
 #secondary .container h3 {
@@ -161,7 +165,7 @@
 }
 
 .single-event .logo img {
-	width:180px;
+	width:100%;
 }
 
 .single-event .logo {
@@ -648,5 +652,11 @@
 	#secondary .container {
 		border-top:1px solid #CCC;
 		padding-left:10%;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.single-event #page .logo {
+		margin-left: 2.857142857rem;
 	}
 }

@@ -38,8 +38,6 @@ get_header(); ?>
 					<p class="staff-name"><?php echo get_the_author_meta('display_name'); ?></p>
 					<p class="staff-bio"><?php echo get_the_author_meta('description'); ?></p>
 				</div>
-				
-				<?php comments_template( '', true ); ?>
 
 				<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
 				<?php
@@ -77,6 +75,8 @@ get_header(); ?>
 					</div>
 
 				</div>
+
+				<?php comments_template( '', true ); ?>
 
 				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 

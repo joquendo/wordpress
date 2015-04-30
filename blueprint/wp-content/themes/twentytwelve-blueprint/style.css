@@ -702,6 +702,7 @@ h2.entry-title {
 #page .sketch .entry-header,
 #page .sketch .entry-header h2.entry-title {
 	margin-bottom:0;
+	text-transform:none;
 }
 #page .entry-header,
 #page .sketch .entry-header {
@@ -1556,6 +1557,7 @@ p {
 /* Header */
 header .wrapper {
 	max-width: 1360px;
+	border-bottom:none;
 }
 header.site-header {
 	margin:0 -1.714285714rem;
@@ -1801,6 +1803,7 @@ span.article-type.research {
 .profile span.article-type,
 span.article-type.profile {
 	color:#6658a6;
+	letter-spacing:1px;
 }
 .table-talk h2,
 .table-talk span.article-type,
@@ -1950,7 +1953,7 @@ aside.pullquote p {
 	font-weight:300;
 	text-transform:uppercase;
 	line-height:28px !important;
-	line-height:1.75rem !important;
+	line-height:2rem !important;
 }
 .research aside.pullquote {
 	background-color: #00a5e5;
@@ -2058,11 +2061,27 @@ aside.pqRight:after {
 	/* Page and Single Post */
 	.page .site-content,
 	.single .site-content {
-		margin:10px auto 0;
+		/*margin:10px auto 0;*/
 	}
 	.archive .site-content,
 	.category .site-content {
 		margin: 10px 0 0;
+		border-right:1px solid #ccc;
+		width:72%;
+	}
+	.single-issue .site-content article,
+	.home .site-content article,
+	.category .site-content article {
+		border-bottom:none;
+	}
+	.single-issue #sketches,
+	.home #sketches,
+	.category #sketches {
+		border-top:1px solid #CCC;
+		padding-top:15px;
+	}
+	.home #main, .wrapper { 
+		border-bottom:1px solid #CCC;
 	}
 	body.template-front-page .site-content,
 	body.attachment .site-content,
@@ -2587,7 +2606,7 @@ aside.pqRight:after {
 	  	background-image: url('images/sprite.png');
 	  	background-position:0 -755px;
 	}
-	.side-notes .sketch-image {
+	.side-note .sketch-image {
 	  	background-image: url('images/sprite.png');
 	  	background-position:0 -845px;
 	}
@@ -2626,10 +2645,11 @@ aside.pqRight:after {
 		text-transform: uppercase;
   		text-decoration: none;
   		color:#fff;
-  		font-size: 0.75rem;
+  		font-size: 0.7rem;
   		display:inline-block;
   		padding:0 0.375rem;
-  		margin-top:0.80rem;
+  		margin-top:0.70rem;
+  		letter-spacing:1px;
 	}
 	p.entry-meta a[rel*="category"]:hover {
 		background-color:#a6a6a6;
@@ -2673,7 +2693,7 @@ aside.pqRight:after {
 		padding:28px 24px;
 		padding:1.75rem 1.5rem !important;
 		font-size:26px;
-		font-size:1.625rem;
+		font-size:1.5rem;
 		font-weight:300;
 		text-transform: uppercase;
 	}
