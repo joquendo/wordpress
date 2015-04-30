@@ -226,6 +226,9 @@
 	padding:17px 55px 17px 55px;
 }
 
+.event-wrapper .btn:hover {
+	background-color:#a6a6a6;
+}
 .event-wrapper .description, .infographic-wrapper .discription {
 	margin-bottom:60px;
 }
@@ -492,7 +495,6 @@
 	text-transform:uppercase;
 	font-weight:100;
 	font-size:12px;
-	color:#a7a7a7;
 }
 
 .infographic-container .close-container {

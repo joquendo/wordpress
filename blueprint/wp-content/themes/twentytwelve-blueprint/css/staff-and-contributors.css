@@ -1,10 +1,10 @@
 .additional-links a.twitter {
-	background-position-y: -540px;
+	background-position: 0 -540px;
 	padding-bottom: 20px;
 	height: 0;
 }
 .additional-links a.rss {
-	background-position-y: -501px;
+	background-position: 0 -501px;
 	padding-bottom: 24px;
 	height: 0;
 }
