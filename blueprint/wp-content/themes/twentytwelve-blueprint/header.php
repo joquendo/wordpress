@@ -176,7 +176,8 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 		<div class="wrapper">
 			<div class="issue">
-				<span><?php echo get_field('issue_date'); ?> Issue</span>
+				<span class="featured-article-title"><?php echo $featured_article->post_title ?></span><br/>
+				<span><font class="issue-num">Issue #<?php echo get_field('issue_number')?></font> &nbsp; <?php echo get_field('issue_date'); ?></span>
 				<a href="<?php echo get_permalink($featured_article->ID); ?>"><span class="title"><?php echo the_title(); ?></span></a>
 			</div>
 			

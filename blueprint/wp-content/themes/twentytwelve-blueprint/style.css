@@ -1677,6 +1677,21 @@ img.header-image {
 	height:59px;
 }
 
+.issue br {
+	display:none;
+}
+
+.issue .issue-num {
+	font-weight:600;
+}
+
+.issue .featured-article-title {
+	font-weight:600;
+	font-size:24px;
+	line-height:34px;
+	display:none;
+}
+
 .event {
 	position:relative;
 	background-color:#0054a6;
@@ -2399,9 +2414,15 @@ aside.pqRight:after {
 	}
 	.issue {
 		position:absolute;
-		margin-top:-100px;
+		margin-top:-120px;
 		background-color:transparent;
-		max-width:50%;
+		max-width:100%;
+	}
+	.issue .featured-article-title {
+		display:inline;
+	}
+	.issue br {
+		display:inherit;
 	}
 	.issue span{
 		color:#00a5e5;
@@ -2411,6 +2432,7 @@ aside.pqRight:after {
 		padding-top:0;
 		display:inline-block;
 		margin-top:0;
+		font-weight:100;
 	}
 	.issue span.title {
 		color:#fff;
@@ -2715,10 +2737,10 @@ aside.pqRight:after {
 @media only screen and (min-width : 1200px) {
 
 	.issue {
-		margin-top:-165px;
+		margin-top:-240px;
 	}
 	.issue span {
-		font-size:1.2rem;
+		font-size:1.15rem;
 	}
 	.issue span.title {
 		margin-top:1rem;
