@@ -181,3 +181,19 @@ function myfeed_request($qv) {
 	return $qv;
 }
 add_filter('request', 'myfeed_request');
+
+function admin_menu_items() {
+    global $menu;
+    $menu[21] = $menu[10]; // Move media menu from index 10 to index 21
+    $menu[10] = array(); // Clear index 10, media menu
+
+    remove_menu_page('tools.php'); // Remove the Tools Menu
+}
+add_action('admin_menu', 'admin_menu_items');
+
+// Removing "Add New" tab from admin menu navigation bar
+function remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('new-content');
+}
+//add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );

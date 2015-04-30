@@ -1067,7 +1067,7 @@ footer.entry-meta {
 	font-weight: 600;
 	margin-right: 10px;	
 }
-#related-article .post-type {
+.related-article .post-type {
 	color: #c3c3c3;
 	font-size: 1.1em;
 	margin-bottom: 25px;
@@ -1901,6 +1901,9 @@ span.article-type.takeaway {
 	margin:1.714285714rem auto 0;
 	float:none;
 }
+.related-article {
+	margin-top:18px;
+}
 /* Blockquote */
 blockquote p,
 .entry-content blockquote p {
@@ -2429,7 +2432,7 @@ aside.pqRight:after {
 		display:none;
 	}
 	span.post-type {
-		display:inline-block;
+		display:block;
 		color:#c3c3c3;
 		font-size:18px;
 		font-size:1.125rem;
@@ -2441,12 +2444,19 @@ aside.pqRight:after {
 		text-transform:uppercase;
 		letter-spacing:0.05rem;
 	}
+	.related-article span.post-type {
+		margin-bottom:21px;
+		margin-bottom:1.125rem;
+	}
+	.related-article {
+		margin-top:55px;
+	}
 	#page .entry-header,
 	#page .sketch .entry-header {
 		margin-bottom: 32px;
 	}
 	.entry-image {
-		margin-right:15px;
+		margin-right:2.5%;
 	}
 	.archive-header span.post-type {
 		margin-bottom:9px;
@@ -2478,7 +2488,7 @@ aside.pqRight:after {
 		display:block
 	}
 	/* Sketch page article-type icons */
-	.single-sketch span.article-type:before {
+	.single-sketch article span.article-type:before {
 		content: "";
 		display: inline-block;
 		width: 53px;

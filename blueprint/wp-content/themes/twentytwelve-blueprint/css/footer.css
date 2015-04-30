@@ -1,6 +1,6 @@
 footer[role="contentinfo"] {
   	position: relative;
-  	margin: 0 -1.714285714rem;
+  	margin: 18px -1.714285714rem 0;
 	background: #ebebeb;
 	font-size: .9rem;
 }
@@ -165,16 +165,11 @@ div.wpcf7-validation-errors {
 	#colophon .last {
 		padding-left: 50px;
 	}
-}
-@media only screen and (min-width: 960px) {
+
 	footer[role="contentinfo"] {
-		margin: 40px -2.857142857rem 0 -2.857142857rem;
+		margin: 100px -2.857142857rem 0;
 	}
 }
-
-
-
-
 
 @media only screen and (max-width: 736px) {
 	footer[role="contentinfo"] { padding-top:0; }
