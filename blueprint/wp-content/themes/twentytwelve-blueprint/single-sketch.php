@@ -50,25 +50,36 @@ get_header(); ?>
 					$post = $post_object;
 					setup_postdata( $post ); 
 				?>
-				<div id="related-article">
-					<h2 class="post-type">Related</h2>
+				<div class="related-article <?php echo get_field('article_type'); ?>">
+
+					<span class="post-type">Related</span>
+
 					<?php if ( get_field('thumbnail') ) : ?>
-						<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
+					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
+					<?php elseif ( !get_field('thumbnail') && 'feature' == get_post_type() ) : ?>
+					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-thumbnail.png" alt="" /></a></div>
 					<?php elseif ( 'sketch' == get_post_type() ) : ?>
-						<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-editors-note.png" alt="" /></a></div>
+					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"></a></div>
 					<?php endif; ?>
-					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print '' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
-						<?php if ( get_field('article_type') ) : ?>
-							<span class="article-type"><?php echo get_field('article_type'); ?></span>
-						<?php endif; ?>	
+					
+					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print 'has-image' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
+					<?php if ( get_field('article_type') ) : ?>
+						<span class="article-type"><?php echo get_field('article_type'); ?></span>
+					<?php endif; ?>	
+						
 						<h2 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h2>
+
 						<?php the_excerpt(); ?>
+
 						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
 					</div>
+
 				</div>
+
 				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+				
 				<?php endif; ?>
 
 			<?php endwhile; // end of the loop. ?>

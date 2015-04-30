@@ -53,8 +53,7 @@ function styling_chat_post($table_talk) {
 
 // Add child theme javascript files
 function register_js_scripts() {
-	wp_register_script('picturefill', get_stylesheet_directory_uri() . '/js/picturefill.min.js');
-	wp_register_script('custom_navigation', get_stylesheet_directory_uri() . '/js/navigation.js');
+	wp_register_script( 'main', get_stylesheet_directory_uri() . '/js/main.js' );
 	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_comment', get_stylesheet_directory_uri() . '/js/comment.js', array( 'jquery' ) );
@@ -65,15 +64,15 @@ function register_js_scripts() {
 }
 add_action('init', 'register_js_scripts');
 
-// de-queue navigation js
+// de-queue navigation js - using main js
 function dequeue_navigation() {
 	wp_dequeue_script( 'twentytwelve-navigation' );
 }
 add_action('wp_print_scripts','dequeue_navigation');
 
-// enqueue custom navigation js
+// enqueue main js
 function add_custom_scripts() {
-	wp_print_scripts('custom_navigation');
+	wp_print_scripts('main');
 }
 add_action('wp_footer', 'add_custom_scripts');
 
@@ -83,16 +82,11 @@ register_nav_menus( array(
 	'secondary' => __( 'Secondary (Issues)', 'twentytwelve')
 ) );
 
-// Add picturefill js for responsive/adaptive images
-function mytheme_dequeue_scripts() {
-	wp_dequeue_script('picturefill', plugins_url( '/js/picturefill.js', __FILE__ ));
-}
-add_action('wp_enqueue_scripts', 'mytheme_dequeue_scripts');
-
 // Image sizes
 function add_image_sizes() {
-	add_image_size('hero_small', 320, 205, array( 'right', 'bottom') );
-	add_image_size('hero_small_2x', 640, 410, array( 'right', 'bottom') );
+	add_image_size( 'mobile', 736, 460 );
+	add_image_size( 'mobile_2x', 1472, 920 );  
+	add_image_size( 'large_1280', 1280, 416 );
 }
 add_action('after_setup_theme', 'add_image_sizes');
 
@@ -174,3 +168,32 @@ function comment_form_defaults_function ($defaults) {
 	
 	return $defaults;
 }
+
+add_filter( 'comment_reply_link_args', 'comment_reply_link_args_function', 10, 1 );
+function comment_reply_link_args_function($args) {
+	$args['after'] = ' <span>&gt;</span>';
+	return $args;
+}
+
+function myfeed_request($qv) {
+	if (isset($qv['feed']) && !isset($qv['post_type']))
+		$qv['post_type'] = array('feature', 'sketch', 'infographic');
+	return $qv;
+}
+add_filter('request', 'myfeed_request');
+
+function admin_menu_items() {
+    global $menu;
+    $menu[21] = $menu[10]; // Move media menu from index 10 to index 21
+    $menu[10] = array(); // Clear index 10, media menu
+
+    remove_menu_page('tools.php'); // Remove the Tools Menu
+}
+add_action('admin_menu', 'admin_menu_items');
+
+// Removing "Add New" tab from admin menu navigation bar
+function remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('new-content');
+}
+//add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );

@@ -1,6 +1,6 @@
 footer[role="contentinfo"] {
   	position: relative;
-  	margin: 0 -1.714285714rem;
+  	margin: 18px -1.714285714rem 0;
 	background: #ebebeb;
 	font-size: .9rem;
 }
@@ -116,12 +116,16 @@ footer .wrapper {
 }
 
 div.wpcf7-mail-sent-ok,
+div.wpcf7-mail-sent-ng,
 div.wpcf7-validation-errors {
 	border: 1px solid #ccc;
 }
 
 div.wpcf7-mail-sent-ok {
 	color: #00a5e5;
+}
+div.wpcf7-mail-sent-ng {
+	color:#ff0000;
 }
 
 div.wpcf7-response-output {
@@ -133,7 +137,7 @@ div.wpcf7-response-output {
 div.wpcf7-validation-errors {
 	color: #ff0000;
 }
-@media only screen and (min-width: 668px) {
+@media only screen and (min-width: 737px) {
 	#colophon .column {
 		box-sizing: border-box;
 		float: left;
@@ -161,18 +165,13 @@ div.wpcf7-validation-errors {
 	#colophon .last {
 		padding-left: 50px;
 	}
-}
-@media only screen and (min-width: 960px) {
+
 	footer[role="contentinfo"] {
-		margin: 0 -2.857142857rem;
+		margin: 100px -2.857142857rem 0;
 	}
 }
 
-
-
-
-
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 736px) {
 	footer[role="contentinfo"] { padding-top:0; }
 	footer .wrapper { padding:0 5%; padding-top:10px; }
 	
@@ -182,12 +181,12 @@ div.wpcf7-validation-errors {
 	#colophon .column { padding-top:1px; }
 	
 	#colophon form.wpcf7-form { margin:15px 0; }
-	#colophon form.wpcf7-form input[type="email"] { width:90%; border:1px solid #ababab; }
-	#colophon form.wpcf7-form input[type="submit"] { display:block; width:90%; margin-top:10px; }
+	#colophon form.wpcf7-form input[type="email"] { width:89%; border:1px solid #ababab; }
+	#colophon form.wpcf7-form input[type="submit"] { display:block; width:89%; margin-top:10px; }
 	
 	#colophon label.float { position:relative; height:0px; display:block; left:inherit; top:14px; margin:0 auto; max-width:118px; }
 	
-	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:90%; }
+	div.wpcf7-response-output { padding-top:0px; margin-top:0px; margin:auto; width:89%; }
 	
 	.legal { margin-top:15px; margin-bottom:10px; }
 	
@@ -206,7 +205,7 @@ div.wpcf7-validation-errors {
 		margin-bottom:-2px; 
 	}
 	
-	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; }
+	#colophon .mobile-footer-nav .menu-topics-container { display:block; position:relative; margin-top:-1px; background:#686868; top:0; }
 	#colophon .mobile-footer-nav .menu-topics-container li { border-top:1px solid #868686; }
 	#colophon .mobile-footer-nav .menu-topics-container li:first-child { border-top:none; }
 }

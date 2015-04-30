@@ -93,7 +93,7 @@ get_header(); ?>
 					?>
 
 						<li>
-							<p class="staff-name"><?php echo $administrator_name; ?> <span class="staff-title"><?php echo $administrator_title; ?></span></p>
+							<p class="staff-name"><?php echo $administrator_name; ?><span class="staff-title"><?php echo $administrator_title; ?></span></p>
 						</li>
 
 					<?php endwhile; ?>

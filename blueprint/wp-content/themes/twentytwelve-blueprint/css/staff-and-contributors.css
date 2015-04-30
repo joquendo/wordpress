@@ -1,3 +1,19 @@
+.additional-links a.twitter {
+	background-position: 0 -540px;
+	padding-bottom: 20px;
+	height: 0;
+}
+.additional-links a.rss {
+	background-position: 0 -501px;
+	padding-bottom: 24px;
+	height: 0;
+}
+.additional-links a {
+	display:block;
+	background-image: url('../images/sprite.png');
+	background-repeat: no-repeat;
+	padding-left: 34px;
+}
 .additional-links img {
 	vertical-align: middle;
 	margin-right: 10px;

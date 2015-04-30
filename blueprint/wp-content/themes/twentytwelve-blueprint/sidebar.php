@@ -109,6 +109,7 @@ global $issueID;
 				
 				<?php
 				$thumb = get_field('thumbnail', $newsworthy['ID']);
+				$newsworthy_url = get_field('url', $newsworthy['ID']);
 				?>
 				
 				<img class="thumbnail" src="<?php echo $thumb['url'] ?>" />
@@ -117,7 +118,7 @@ global $issueID;
 				
 				<p><?php echo $newsworthy['excerpt'] ?></p>
 				
-				<a class="read-more" href="#">Read Our Coverage</a>
+				<a class="read-more" href="<?php echo $newsworthy_url;?>">Read Our Coverage</a>
 				
 			</div> <!-- NEWSWORTHY CONTAINER END -->
 			
