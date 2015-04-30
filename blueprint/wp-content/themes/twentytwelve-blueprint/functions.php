@@ -185,7 +185,7 @@ add_filter('request', 'myfeed_request');
 function admin_menu_items() {
     global $menu;
     $menu[21] = $menu[10]; // Move media menu from index 10 to index 21
-    $menu[10] = array(); // Clear index 10, media menu
+    unset($menu[10]); // Clear index 10, media menu
 
     remove_menu_page('tools.php'); // Remove the Tools Menu
 }

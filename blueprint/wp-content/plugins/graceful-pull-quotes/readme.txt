@@ -4,7 +4,7 @@ Donate link: http://striderweb.com/nerdaphernalia/features/wp-javascript-pull-qu
 Tags: theme, pull-quotes, pull quotes, blurb, quotation, quote
 Requires at least: 2.6
 Tested up to: 4.1
-Stable tag: 2.5
+Stable tag: 2.6.1
 
 Allows you to make pull-quotes without duplicating content. If the plugin is disabled the pull-quotes disappear seamlessly.
 
@@ -36,7 +36,7 @@ To make a pull-quote:
 
 2. (optional) If you want a pull-quote that has text *different* than the text in the `<span>`, put it inside `<!-- an HTML comment -->` like so:
 
-	`<span class="pullquote"><!-- This sentence should be a pull-quote -->`This sentence, without this middle clause, should be a pull-quote`</span>.
+	`<span class="pullquote"><!-- This sentence should be a pull-quote -->`This sentence, without this middle clause, should be a pull-quote`</span>`.
 
 	The content inside the HTML comment will *only* show up as the pull-quote -- it will not appear at all in the main flow of text.
 
@@ -82,17 +82,27 @@ Enjoy!
 
 == Changelog ==
 
-= 2.5 (10 February 2015) =
-* Added <aside> to options for HTML container, and set that to default for new installs
+= 2.6.1 (15 April 2015) =
+* Switched links default back to "head"
+
+= 2.6 (15 April 2015) =
+* Added Setting to put the Style and Script links in the page footer, and set "footer" to default
+* Updated hook for Settings link on Plugins page
+* Updated PHP4-style constructor function
+* Moved a bit of JavaScript into linked file
+* Minor code cleanup
+
+= 2.5 (17 February 2015) =
+* Added "aside" to options for HTML container, and set that to default for new installs
 * Reworked how the Default Style backup works if Styles folder is not found
-* Removed the p_e() and p__() textdomain abstractions, to improve compatibility with upcoming translation features of WordPress
+* Improved compatibility with upcoming translation features of WordPress
 * Now using some built-in WP abstractions: trailingslashit(), selected(), and checked()
 * Code cleanup
 
 = 2.4.2 (27 November 2012) =
 * Pull-quote text in an HTML comment is now trimmed of spaces
 * Improved testing for empty pull-quotes before rendering
-* Bugfix: Was not saving container setting correctly -- error in HTML rendering on Settings page.
+* Bugfix: Was not saving container setting correctly -- error in HTML rendering on Settings page
 
 = 2.4.1 (3 September 2011) =
 * A jspullquotes.css file in a theme is now properly detected in both Parent and Child themes
@@ -100,7 +110,7 @@ Enjoy!
 = 2.4 (5 May 2011) =
 * Updated filenames to reflect new plugin name.
 * Updated .po localization files to reflect current code (calling all translators!)
-* A few more tweaks in preparation for adding plugin to the Official WP Extend repository.
+* A few more tweaks in preparation for adding plugin to the Official WP Extend repository
 
 = 2.3 (28 March 2010) =
 * Renamed to "Graceful Pull-Quotes" (formerly "JavaScript Pull-Quotes")
