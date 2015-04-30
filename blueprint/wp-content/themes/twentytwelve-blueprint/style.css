@@ -536,9 +536,8 @@ a:hover {
 }
 
 /* Header */
-.site-header {
-	padding: 24px 0;
-	padding: 1.714285714rem 0;
+header.site-header {
+	margin:0 -1.714285714rem;
 }
 .site-header h1 a,
 .site-header h2 a {
@@ -1559,10 +1558,6 @@ header .wrapper {
 	max-width: 1360px;
 	border-bottom:none;
 }
-header.site-header {
-	margin:0 -1.714285714rem;
-	padding:1.714285714rem 0 0;
-}
 img.header-image {
 	display:block;
 	margin-top:0;
@@ -1625,7 +1620,8 @@ img.header-image {
 }
 .main-navigation {
 	position:relative;
-	margin-top:5px;
+	margin-top:32px;
+	margin-top:2rem;
 	text-align:right;
 	text-transform:uppercase;
 	height:66px;
@@ -2027,14 +2023,14 @@ aside.pqRight:after {
 	width: device-width;
 }
 
-/* Minimum width of 737 pixels. */
+/* Minimum width of 411 pixels. */
 @media screen and (min-width: 411px) {
 	#searchform label {
 		left: 20%;
 	}
 }
 
-/* Minimum width of 737 pixels. */
+/* Minimum width of 737 pixels--iPhone 6+ Landscape */
 @media screen and (min-width: 737px) {
 	.author {
 		font-size: 1.1em;
@@ -2370,7 +2366,7 @@ aside.pqRight:after {
 		text-align:center;
 		padding:50px 0;
 		z-index:10;
-		top:-10px;
+		top:0;
 	}
 	.menu-issues-container.toggled-on {
 		display:block;
@@ -2428,6 +2424,17 @@ aside.pqRight:after {
 	}
 	.menu-issues-container .nav-menu .menu-item .hover a:hover {
 		background-color:#000;
+	}
+	.menu-issues-container:after {
+		content:"";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 15px 20px 0 20px;
+		border-color: #f5f5f5 transparent transparent transparent;
+		position: absolute;
+		bottom: -15px;
+		right: 192px;
 	}
 	.main-navigation div#searchform {
 		max-width:480px;
@@ -2776,6 +2783,13 @@ aside.pqRight:after {
 	}
 	.entry-summary p {
 		font-size: 1.125rem;
+	}
+}
+
+/* Mobile only ----------*/
+@media only screen and (max-width : 736px) {
+	.menu-issues-container {
+		visibility: hidden;
 	}
 }
 
