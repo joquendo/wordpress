@@ -6,15 +6,15 @@ get_header();
 wp_reset_query();
 $event_id     = get_the_ID();
 $title        = get_the_title();
-$header_image = get_field('header_image',$event_id);
+$header_image = get_field('full_image',$event_id);
 $introduction = get_field('introduction',$event_id);
 $date         = date( 'l, F j, Y', strtotime( get_field('date',$event_id) ) );
-$time_copy    = get_field('time_copy',$event_id);
+$time_copy    = get_field('time',$event_id);
 $address      = get_field('address',$event_id);
 $parking_info = get_field('parking_info',$event_id);
 $map_url      = get_field('google_map_url',$event_id);
 $register_url = get_field('register_url',$event_id);
-$description  = get_field('description',$event_id);
+$description  = get_the_content();
 ?>
 
 <div class="event-wrapper">
@@ -89,9 +89,9 @@ $description  = get_field('description',$event_id);
 		
 		
 		
-		<?php if ( have_rows('panelist') ) : ?>
+		<?php if ( have_rows('panelists') ) : ?>
 		
-			<?php while ( have_rows('panelist') ) : the_row(); ?>
+			<?php while ( have_rows('panelists') ) : the_row(); ?>
 			
 				<?php
 				$profile = get_sub_field('profile_image');
@@ -110,6 +110,44 @@ $description  = get_field('description',$event_id);
 						<div class="col-2">
 							
 							<span class="label">Panelist</span>
+							
+							<span class="name"><?php echo $name ?></span>
+							
+							<span class="title"><?php echo $title ?></span>
+							
+							<p><?php echo $blurb ?></p>
+							
+						</div>
+					</div>
+					
+				</div>
+			
+			<?php endwhile; ?>
+			
+		<?php endif; ?>
+
+
+		<?php if ( have_rows('speakers') ) : ?>
+		
+			<?php while ( have_rows('speakers') ) : the_row(); ?>
+			
+				<?php
+				$profile = get_sub_field('profile_image');
+				$name = get_sub_field('name');
+				$title = get_sub_field('title');
+				$blurb = get_sub_field('blurb');
+				?>
+				
+				<div class="speaker clearfix">
+				
+					<div class="container">
+						<div class="col-1">
+							<img src="<?php echo $profile['url'] ?>" />
+						</div>
+						
+						<div class="col-2">
+							
+							<span class="label">Speaker</span>
 							
 							<span class="name"><?php echo $name ?></span>
 							
