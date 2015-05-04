@@ -524,6 +524,7 @@ a:hover {
 .site {
 	padding: 0 24px;
 	padding: 0 1.714285714rem;
+	padding: 0 1.2rem;
 	background-color: #fff;
 }
 .site-content {
@@ -537,7 +538,7 @@ a:hover {
 
 /* Header */
 header.site-header {
-	margin:0 -1.714285714rem;
+	margin:0 -1.2rem;
 }
 .site-header h1 a,
 .site-header h2 a {
@@ -649,6 +650,7 @@ footer[role="contentinfo"] {
 	margin-top: 24px;
 	margin-top: 1.714285714rem;
 	padding-top: 55px;
+	padding-bottom:15px;
 }
 footer[role="contentinfo"] a {
 	color: #686868;
@@ -1921,7 +1923,7 @@ span.article-type.takeaway {
 	margin:1.714285714rem auto 0;
 	float:none;
 }
-.single .wrapper { border-bottom:none; }
+.single .wrapper, .page .wrapper { border-bottom:none; }
 .related-article {
 	margin-top:18px;
 }
