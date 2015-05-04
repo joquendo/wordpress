@@ -19,7 +19,7 @@ global $issueID;
 				<h3>Next Event</h3>
 				
 				<?php
-				$thumb = get_field('thumbnail',$event_id);
+				$thumb = get_field('sidebar_image',$event_id);
 				$date = date( 'l, F j, Y', strtotime( get_field('date',$event_id) ) );
 				$title = get_the_title( $event_id );
 				$premalink = get_permalink($event_id);
