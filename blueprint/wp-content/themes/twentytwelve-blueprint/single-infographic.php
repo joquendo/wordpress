@@ -10,7 +10,7 @@ $issue          = get_field('issue', $infographic_id);
 $issue_date     = get_field('issue_date', $issue->ID);
 $issue_number   = get_field('issue_number', $issue->ID);
 $pdf            = get_field('pdf_download', $infographic_id);
-$content       = get_the_content();
+$content        = get_the_content();
 $tags           = wp_get_post_terms($infographic_id);
 $categories     = get_the_category($infographic_id);
 
