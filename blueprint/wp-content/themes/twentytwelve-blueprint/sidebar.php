@@ -45,7 +45,7 @@ global $issueID;
 	<?php if ( $infographic_id = getInfographicID($issueID) ) : ?>
 	
 		<?php
-		$sidebar_image = get_field('thumbnails', $infographic_id);
+		$sidebar_image = get_field('sidebar_image', $infographic_id);
 		$full_image    = get_field('full_image', $infographic_id);
 		$issue         = get_field('issue', $infographic_id);
 		$issue_number  = get_field('issue_number', $issue->ID);
