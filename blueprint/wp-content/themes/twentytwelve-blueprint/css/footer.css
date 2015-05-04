@@ -5,6 +5,7 @@ footer[role="contentinfo"] {
 	font-size: .9rem;
 }
 footer .wrapper {
+	border-bottom: none;
 	padding: 0 24px;
 	padding: 0 1.714285714rem;
 }
