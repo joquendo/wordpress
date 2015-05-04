@@ -696,7 +696,7 @@ h2.entry-title {
 	font-weight: 800;
 	line-height: 1.2;
 	margin-bottom: 11px;
-	margin-bottom: 0.6875rem;
+	margin-bottom: 0;
 }
 #page .sketch .entry-header,
 #page .sketch .entry-header h2.entry-title {
@@ -1790,7 +1790,7 @@ span.article-type {
 	font-weight:600;
 	text-transform:uppercase;
 	margin-bottom:12px;
-	margin-bottom:0.75rem;
+	margin-bottom:0.25rem;
 }
 .research h2,
 .research span.article-type,
