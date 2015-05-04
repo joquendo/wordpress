@@ -251,13 +251,17 @@
 	padding-left:5%;
 }
 
-.event-wrapper .moderator, .event-wrapper .panelist {
+.event-wrapper .moderator,
+.event-wrapper .panelist,
+.event-wrapper .speaker {
 	border-top:1px solid #E4E4E4;
 	margin-top:30px;
 	padding-top:20px;
 }
 
-.event-wrapper .moderator .label, .event-wrapper .panelist .label {
+.event-wrapper .moderator .label,
+.event-wrapper .panelist .label,
+.event-wrapper .speaker .label {
 	display:block;
 	text-transform:uppercase;
 	font-weight:100;
@@ -265,7 +269,9 @@
 	margin-bottom:8px;
 }
 
-.event-wrapper .moderator .name, .event-wrapper .panelist .name {
+.event-wrapper .moderator .name,
+.event-wrapper .panelist .name,
+.event-wrapper .speaker .name {
 	display:block;
 	text-transform:uppercase;
 	font-weight:800;
@@ -273,7 +279,9 @@
 	margin-bottom:16px;
 }
 
-.event-wrapper .moderator .title, .event-wrapper .panelist .title {
+.event-wrapper .moderator .title,
+.event-wrapper .panelist .title,
+.event-wrapper .speaker .title {
 	font-style:italic;
 	font-weight:100;
 	font-size:18px;
