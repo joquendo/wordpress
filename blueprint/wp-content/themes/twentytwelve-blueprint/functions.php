@@ -197,3 +197,18 @@ function remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu('new-content');
 }
 //add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+//fomatting the meta catgories
+function print_categories ($categories) {
+	
+	$separator = ' ';
+	$output = '';
+	
+	if($categories){
+		foreach($categories as $category) {
+			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
+		}
+		$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
+		echo $topics_list;
+	} 
+}

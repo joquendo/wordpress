@@ -1592,6 +1592,7 @@ img.header-image {
 	border-radius:0;
 	box-shadow:none;
 	margin-left:4px;
+	outline:none;
 }
 .menu-toggle.menu-topics,
 .menu-toggle.menu-issues,
@@ -1774,6 +1775,7 @@ img.header-image {
 }
 #featured span.article-type {
 	display:none;
+	line-height:14px;
 }
 span.post-type {
 	display:none;
@@ -1874,19 +1876,21 @@ span.article-type.takeaway {
 	margin-right: 1px;
 	padding: 25px;
 	width: 67%;	
+	background:#f5f5f5;
 }
 
 #submit-search-query {
 	box-shadow: none;
-	color: #030303;
+	color: #FFFFFF;
 	font-size: 1.4em;
 	font-weight: 800;
 	padding: 25px 15px;	
 	text-transform: uppercase;	
+	background:#a6a6a6;
 }
 
 #searchform label {
-	color: #ccc;
+	color: #686868;
 	display: block;
 	font-weight: 300;
 	margin: 0 0 2px;
@@ -1917,6 +1921,7 @@ span.article-type.takeaway {
 	margin:1.714285714rem auto 0;
 	float:none;
 }
+.single .wrapper { border-bottom:none; }
 .related-article {
 	margin-top:18px;
 }
@@ -2438,7 +2443,7 @@ aside.pqRight:after {
 	}
 	.main-navigation div#searchform {
 		max-width:480px;
-		right:0;
+		right:33px;
 	}
 	.issue {
 		position:absolute;

@@ -47,6 +47,7 @@ get_header(); ?>
 					// override $post
 					$post = $post_object;
 					setup_postdata( $post ); 
+					$categories = get_the_category();
 				?>
 				<div class="related-article <?php echo get_field('article_type'); ?>">
 
@@ -71,7 +72,7 @@ get_header(); ?>
 
 						<?php the_excerpt(); ?>
 
-						<p class="entry-meta"><?php echo $topics_list; //SET 'IN TOPICS'?></p>
+						<p class="entry-meta"><?php print_categories($categories); //SET 'IN TOPICS'?></p>
 					</div>
 
 				</div>
