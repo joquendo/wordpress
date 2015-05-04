@@ -45,14 +45,19 @@ global $issueID;
 	<?php if ( $infographic_id = getInfographicID($issueID) ) : ?>
 	
 		<?php
-		$thumb        = get_field('thumbnails', $infographic_id);
-		$image        = get_field('infographic', $infographic_id);
-		$issue        = get_field('issue', $infographic_id);
-		$issue_number = get_field('issue_number', $issue->ID);
-		$summary      = get_field('summary', $infographic_id );
-		$title        = get_the_title($infographic_id);
-		$premalink    = get_permalink($infographic_id);
-		$categories   = get_the_category($infographic_id);
+		$sidebar_image = get_field('sidebar_image', $infographic_id);
+		$full_image    = get_field('full_image', $infographic_id);
+		$issue         = get_field('issue', $infographic_id);
+		$issue_number  = get_field('issue_number', $issue->ID);
+		$title         = get_the_title($infographic_id);
+		$premalink     = get_permalink($infographic_id);
+		$categories    = get_the_category($infographic_id);
+
+		$post		   = get_post($infographic_id);
+		setup_postdata( $post );
+		$excerpt       = get_the_excerpt();
+		$content       = get_the_content();
+		wp_reset_postdata();
 		?>
 	
 		<div class="container">
@@ -60,20 +65,29 @@ global $issueID;
 			<div class="widget infographic">
 				
 				<!-- INFOGRAPHIC CONTAINER START-->
-				<a href="<?php echo $premalink ?>" class="lightbox-open">
+				<a href="<?php echo $premalink ?>">
 					
 					<h3>Visually Speaking</h3>
 					
-					<img class="thumbnail" src="<?php echo $thumb['url']?>" />
+				<?php if (! empty($sidebar_image) ) : ?>
+					
+					<img class="thumbnail" src="<?php echo $sidebar_image['url']?>" />
+
+				<?php else : ?>
+
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-sidebar.png"/>
+
+				<?php endif; ?>
 					
 					<h4><?php echo $title ?></h4>
 					
-					<p><?php echo $summary ?></p>
+					<p><?php echo $excerpt ?></p>
 					
-					<input type="hidden" name="infographic" value="<?php echo $image['url'] ?>" />
+					<input type="hidden" name="infographic" value="<?php echo $full_image['url'] ?>" />
 					<input type="hidden" name="title" value="<?php echo $title ?>" />
 					<input type="hidden" name="issue" value="<?php echo $issue->post_title ?>" />
 					<input type="hidden" name="issue_number" value="<?php echo $issue_number ?>" />
+					<input type="hidden" name="content" value="<?php echo $content ?>" />
 					
 				</a> <!-- INFOGRAPHIC CONTAINER END -->
 				

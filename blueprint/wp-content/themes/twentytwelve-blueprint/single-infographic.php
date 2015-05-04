@@ -5,21 +5,17 @@ get_header();
 wp_reset_query();
 $infographic_id = get_the_ID();
 $title          = get_the_title();
-$header_image   = get_field('infographic',$infographic_id);
+$full_image		= get_field('full_image', $infographic_id);
 $issue          = get_field('issue', $infographic_id);
 $issue_date     = get_field('issue_date', $issue->ID);
 $issue_number   = get_field('issue_number', $issue->ID);
 $pdf            = get_field('pdf_download', $infographic_id);
-$summary        = get_field('summary', $infographic_id);
+$content       = get_the_content();
 $tags           = wp_get_post_terms($infographic_id);
 $categories     = get_the_category($infographic_id);
 
 $archives = getInfographic($infographic_id);
 ?>
-
-
-
-
 
 <div class="infographic-wrapper">
 	
@@ -29,13 +25,14 @@ $archives = getInfographic($infographic_id);
 		
 		<h1 class="entry-title"><?php echo $title ?></h1>
 		
-		<img class="header" src="<?php echo $header_image['url'] ?>" />
+		<img class="header" src="<?php echo $full_image['url'] ?>" />
 		
 		<div class="icon-container">
 			<span class="icon-expand lightbox-open">
-				<input type="hidden" name="infographic" value="<?php echo $header_image['url'] ?>" />
+				<input type="hidden" name="infographic" value="<?php echo $full_image['url'] ?>" />
 				<input type="hidden" name="title" value="<?php echo $title ?>" />
 				<input type="hidden" name="issue" value="<?php echo $issue->post_title ?>" />
+				<input type="hidden" name="issue_number" value="<?php echo $issue_number; ?>" />
 			</span>
 			
 			<?php if( $pdf ) : ?>
@@ -50,7 +47,7 @@ $archives = getInfographic($infographic_id);
 			<span class="issue-name"><?php echo $issue->post_title ?></span>. <?php echo $issue_date ?>, ISSUE #<?php echo $issue_number ?>
 		</p>
 		
-		<p class="description"><?php echo $summary ?></p>
+		<p class="description"><?php echo $content ?></p>
 		
 		
 		<?php if(count($categories) > 0 and count($tags) > 0) : ?>
@@ -106,7 +103,7 @@ $archives = getInfographic($infographic_id);
 				<?php foreach($archives as $key=>$archive ) : ?>
 				
 					<?php
-					$archiveImage   = get_field('thumbnails', $archive->ID);
+					$archiveImage   = get_field('sidebar_image', $archive_issue->ID);
 					$archive_issue  = get_field('issue', $archive->ID);
 					$archive_date   = get_field('issue_date', $archive_issue->ID);
 					$archive_number = get_field('issue_number', $archive_issue->ID);
@@ -114,7 +111,17 @@ $archives = getInfographic($infographic_id);
 					?>
 					
 					<a href="<?php echo $permalink ?>" class="item <?php echo ( ($count%3) === 2 )? 'last':'' ?>">
+
+					<?php if ( ! empty( $archiveImage ) ) : ?>
+
 						<img src="<?php echo $archiveImage['url'] ?>" />
+
+					<?php else : ?>
+
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-thumbnail.png"/>
+
+					<?php endif; ?>
+
 						<div class="title">
 							<?php echo $archive->post_title; ?>
 						</div>

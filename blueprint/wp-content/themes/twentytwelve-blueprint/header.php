@@ -143,13 +143,13 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				endif;
 
 				// Mobile hero image
-				$mobile_hero_image = get_field('mobile_hero_image');
+				$mobile_hero = get_field('mobile_hero');
 
-				if ( !empty( $mobile_hero_image ) ) :
-					$mobile_hero_image = get_field('mobile_hero_image');
-					$mobile_hero_image_url = $mobile_hero_image['url'];
+				if ( !empty( $mobile_hero ) ) :
+					$mobile_hero = get_field('mobile_hero');
+					$mobile_hero_url = $mobile_hero['url'];
 				else:
-					$mobile_hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero-mobile.png';
+					$mobile_hero_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero-mobile.png';
 				endif;
 			?>
 				
@@ -163,7 +163,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					<?php else : ?>
 					<source media="(min-width:737px)" srcset="<?php echo $hero_image_url; ?>" />
 					<?php endif; ?>
-					<source srcset="<?php echo $mobile_hero_image_url; ?>" />
+					<source srcset="<?php echo $mobile_hero_url; ?>" />
 					<img src="<?php echo $hero_image_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
 

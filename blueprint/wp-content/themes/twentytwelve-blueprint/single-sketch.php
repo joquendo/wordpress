@@ -52,15 +52,15 @@ get_header(); ?>
 
 					<span class="post-type">Related</span>
 
-					<?php if ( get_field('thumbnail') ) : ?>
-					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail'); ?>" alt="" /></a></div>
-					<?php elseif ( !get_field('thumbnail') && 'feature' == get_post_type() ) : ?>
+					<?php if ( get_field('thumbnail_image') ) : ?>
+					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php the_field('thumbnail_image'); ?>" alt="" /></a></div>
+					<?php elseif ( !get_field('thumbnail_image') && 'feature' == get_post_type() ) : ?>
 					<div class="entry-image"><a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/fpo-thumbnail.png" alt="" /></a></div>
 					<?php elseif ( 'sketch' == get_post_type() ) : ?>
 					<div class="sketch-image"><a href="<?php the_permalink(); ?>" rel="bookmark"></a></div>
 					<?php endif; ?>
 					
-					<div class="entry-summary <?php ( get_field('thumbnail') ) ? print 'has-image' : print 'has-image' ?> <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
+					<div class="entry-summary has-image <?php ( 'sketch' == get_post_type() ) ? print 'has-sketch-image' : print '' ?>">
 					<?php if ( get_field('article_type') ) : ?>
 						<span class="article-type"><?php echo get_field('article_type'); ?></span>
 					<?php endif; ?>	

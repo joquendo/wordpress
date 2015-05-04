@@ -59,11 +59,16 @@ get_header(); ?>
 		
 		<?php endif; ?>
 
-		<?php /* Loop through sketch post type */ ?>	
-
-
+		<?php /* Loop through sketch post type */
+			$args = array(
+				'post_type' => 'sketch',
+				'orderby' => 'menu_order',
+				'order'	=> 'ASC'
+			);
+			$sketches_query = new WP_Query( $args );
+		?>
 	
-		<?php if ( have_posts() ) : ?>
+		<?php if ( $sketches_query->have_posts() ) : ?>
 
 			<div id="sketches">
 			
@@ -71,11 +76,17 @@ get_header(); ?>
 				<span class="post-type"><?php echo $obj->labels->name; ?></span>
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php if ( 'sketch' == get_post_type() ) :
-					get_template_part( 'content', get_post_format() );
-				endif; ?>
-			<?php endwhile; ?>
+			<?php while ( $sketches_query->have_posts() ) : $sketches_query->the_post(); ?>
+			
+			<?php get_template_part( 'content', get_post_format() ); ?>
+	
+			<?php
+				// Featured loop ends
+				endwhile;
+
+				//Resetting
+				wp_reset_postdata();
+			?>
 
 			</div> <!-- End sketches div -->
 
