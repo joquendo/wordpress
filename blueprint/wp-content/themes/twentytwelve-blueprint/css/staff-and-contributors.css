@@ -77,3 +77,22 @@ ul.staff-members li {
 ul.staff-members li:first-child {
 	border-bottom: none;
 }
+
+@media screen and (max-width: 738px) {
+	
+	h2.section-title {
+		font-size:1.2em;
+	}
+	
+	.staff-name {
+		font-size:1em;
+	}
+	
+	span.staff-title {
+		font-size:0.85em;
+	}
+	
+	.special-note {
+		margin-bottom:25px;
+	}
+}

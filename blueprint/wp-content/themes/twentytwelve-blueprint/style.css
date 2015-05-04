@@ -524,6 +524,7 @@ a:hover {
 .site {
 	padding: 0 24px;
 	padding: 0 1.714285714rem;
+	padding: 0 1.2rem;
 	background-color: #fff;
 }
 .site-content {
@@ -537,7 +538,7 @@ a:hover {
 
 /* Header */
 header.site-header {
-	margin:0 -1.714285714rem;
+	margin:0 -1.2rem;
 }
 .site-header h1 a,
 .site-header h2 a {
@@ -648,7 +649,8 @@ footer[role="contentinfo"] {
 	line-height: 2;
 	margin-top: 24px;
 	margin-top: 1.714285714rem;
-	padding: 55px 0;
+	padding-top: 55px;
+	padding-bottom:15px;
 }
 footer[role="contentinfo"] a {
 	color: #686868;
@@ -696,7 +698,7 @@ h2.entry-title {
 	font-weight: 800;
 	line-height: 1.2;
 	margin-bottom: 11px;
-	margin-bottom: 0.6875rem;
+	margin-bottom: 0;
 }
 #page .sketch .entry-header,
 #page .sketch .entry-header h2.entry-title {
@@ -1790,7 +1792,7 @@ span.article-type {
 	font-weight:600;
 	text-transform:uppercase;
 	margin-bottom:12px;
-	margin-bottom:0.75rem;
+	margin-bottom:0.25rem;
 }
 .research h2,
 .research span.article-type,
@@ -1921,7 +1923,7 @@ span.article-type.takeaway {
 	margin:1.714285714rem auto 0;
 	float:none;
 }
-.single .wrapper { border-bottom:none; }
+.single .wrapper, .page .wrapper { border-bottom:none; }
 .related-article {
 	margin-top:18px;
 }
