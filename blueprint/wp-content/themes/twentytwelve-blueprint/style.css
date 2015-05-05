@@ -650,7 +650,7 @@ footer[role="contentinfo"] {
 	margin-top: 24px;
 	margin-top: 1.714285714rem;
 	padding-top: 55px;
-	padding-bottom:15px;
+	padding-bottom:55px;
 }
 footer[role="contentinfo"] a {
 	color: #686868;
@@ -2168,9 +2168,15 @@ aside.pqRight:after {
 	.main-navigation li a:focus {
 		color: #000;
 	}
+	/* Removing right margin to fix topics navigation - right margin not necessary
 	.main-navigation li {
 		margin: 0 40px 0 0;
 		margin: 0 2.857142857rem 0 0;
+		position: relative;
+	}
+	*/
+	.main-navigation li {
+		margin: 0;
 		position: relative;
 	}
 	.main-navigation li ul {
@@ -2360,7 +2366,8 @@ aside.pqRight:after {
 	.main-navigation div.nav-menu.toggled-on > ul {
 		width:initial;
 	}
-	.main-navigation ul.nav-menu li.menu-item {
+	.main-navigation ul.nav-menu li.menu-item,
+	.main-navigation ul.nav-menu li.cat-item {
 		width:100%;
 		border-bottom:none;
 	}
