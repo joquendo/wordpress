@@ -1575,7 +1575,7 @@ img.header-image {
 }
 .logo {
 	position:absolute;
-	margin-top:-9px;
+	margin-top:12px;
 	margin-left:15px;
 	max-width:95px;
 	height:auto;
