@@ -51,39 +51,25 @@ $archives = getInfographic($infographic_id);
 		
 		
 		<?php if(count($categories) > 0 and count($tags) > 0) : ?>
-		
-			<div class="taxonomy clearfix">
+			<div id="in-topics">
+				<p class="entry-meta"><span class="title">In topics:</span>
+				<?php 
+					$categories = get_the_category();
+					$separator = ' ';
+					$output = '';
+					if($categories){
+						foreach($categories as $category) {
+							$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
+						}
+						$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
+						echo $topics_list;
+					} 
+				?>
+				</p>
 				
-				<div class="col-1">
-					
-					<?php if(count($categories) > 0) : ?>
-						In Topics:
-						<p class="entry-meta">
-							<?php foreach($categories as $key=>$category) : ?>
-								<a href="<?php echo get_category_link($category->term_id) ?>" rel="category tag"><?php echo $category->name ?></a>
-							<?php endforeach; ?>
-						</p>
-					<?php endif; ?>
-				</div>
-				
-				<div class="col-2">
-					
-					<?php if(count($tags) > 0) : ?>
-						Tags: 
-						<span class="tags">
-						
-							<?php
-							//print tags
-							foreach ($tags as $key=>$tag) {
-								echo $tag->name;
-								if( (count($tags)-1) > $key)
-									echo ', ';
-							}
-							?>
-						</span>
-					<?php endif; ?>
-				</div>
-			
+				<?php if( has_tag() ) : ?>
+				<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>
+				<?php endif;?>
 			</div>
 		<?php endif; ?>
 		
