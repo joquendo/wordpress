@@ -48,47 +48,60 @@ if($post_type === 'issue') $issueID = get_the_ID();
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 
-		<?php // Issues drawer
+		<?php 
 
-		$menu_name = 'secondary';
+		// Issues Drawer
+		$menu_list = '<!-- Start menu-issues-container --><div class="menu-issues-container">';
+		$menu_list .= '<div id="menu-issues" class="nav-menu">';
 
-		if ( ($locations = get_nav_menu_locations() ) && isset ( $locations[ $menu_name ] ) ) {
-			$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-			$menu_items = wp_get_nav_menu_items($menu->term_id);
+		// Note: There is a filter overriding the WP_Query request by appending ORDER BY wp_posts.menu_order ASC
+		$args = array (
+			'post_type' => 'issue',
+			'orderby' => 'post_date', //orderby not working due to some override (possibly Simple Page Ordering plugin)
+			'order' => 'ASC' //order not working due to some override (possibly Simple Page Ordering plugin)
+		);
 
-			$menu_list  = '<div class="menu-issues-container">';
+		// Fix: Removing override and appending 'ORDER BY wp_posts.post_date ASC' to WP_Query request
+		add_filter( 'posts_orderby', 'filter_query' );
 
-				$menu_list .='<div id="menu-' . $menu->slug . '" class="nav-menu">';
-				
-					foreach ( (array) $menu_items as $key => $menu_item ) {
-						$cover_image_url = get_field('cover_image', $menu_item->object_id);
-						$issue_date = get_field('issue_date', $menu_item->object_id);
-						$pdf = get_field('pdf_download', $menu_item->object_id);
-						$url = $menu_item->url;
-						$menu_list .= '<div class="menu-item">';
-							if ( !empty($cover_image_url) ) :
-								$menu_list .= '<img src="' . $cover_image_url . '" />';
-							else :
-								$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
-							endif;
-							$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
-							$menu_list .= '<span>' . $issue_date . '</span>';
-						$menu_list .= '</div>'; // End menu item
-					}
+		function filter_query( $query ) {
+			$query = 'wp_posts.post_date ASC';
+			return $query;
+		}; // End removing override
 
-				$menu_list .='</div>'; // End menu-{menu->slug}
+		// WP_Query for issues
+		$published_issues = new WP_Query( $args );
 
-			$menu_list .='</div>'; // End menu-issues-container
+		while ( $published_issues->have_posts() ) : $published_issues->the_post();
+			
+			$issue_id			= get_the_ID();
+			$cover_image_url	= get_field('cover_image', $issue_id);
+			$issue_date			= get_field('issue_date', $issue_id);
+			$pdf				= get_field('pdf_download', $issue_id);
+			$url				= get_permalink($issue_id);
 
-		} else {
+			$menu_list .= '<div class="menu-item">';
 
-			$menu_list = '<div class="menu-issues-container"><ul><li>Menu "' . $menu_name . '" not defined.</li></ul></div>';
+			if ( ! empty($cover_image_url) ) :
+				$menu_list .= '<img src="' . $cover_image_url . '" />';
+			else :
+				$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
+			endif;
 
-		}
+			$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
+			$menu_list .= '<span>' . $issue_date . '</span>';
+			$menu_list .= '</div>'; // End menu item
+
+		endwhile;
+
+		$menu_list .= '</div>';
+		$menu_list .= '</div><!-- End menu-issues-container -->';
 
 		echo $menu_list;
 
-		// End issues drawer
+		wp_reset_postdata();
+
+		// End Issues Drawer
 
 		?>
 
@@ -128,6 +141,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 				/* Homepage/front page only - Load hero image from latest issue */
 				if ( is_home() ) :
+
 					// New WP_Query loop for a single post
 					$latest_post = new WP_Query( 'post_type=issue&posts_per_page=1' );
 
@@ -137,12 +151,15 @@ if($post_type === 'issue') $issueID = get_the_ID();
 						$issueID = get_the_ID();
 				 	endwhile;
 
+				else :
+
+					// Hero image
+					$hero_image = get_field('hero_image');
+
 				endif; 
 
 			?>
 			<?php
-				// Hero image
-				$hero_image = get_field('hero_image');
 
 				if ( !empty($hero_image) ) : 
 					$hero_image_id = $hero_image['id'];
