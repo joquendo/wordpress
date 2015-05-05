@@ -25,7 +25,7 @@ get_header(); ?>
 				<?php get_template_part( 'content', 'page' ); ?>
 
 				<!-- BLUE PRINT STAFF MEMBERS -->
-				<?php if( have_rows('blue_print_staff') ): ?>
+				<?php if( have_rows('blueprint_staff') ): ?>
 
 				<h2 class="section-title">Blueprint Staff</h2>
 
