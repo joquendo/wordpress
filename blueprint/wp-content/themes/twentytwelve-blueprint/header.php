@@ -139,7 +139,11 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					$hero_image_id = $hero_image['id'];
 					$hero_image_url = $hero_image['url'];
 				else :
-					$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero.png';
+					if(get_post_type() == 'feature') {
+						$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero.png';
+					} else {
+						$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero.png';
+					}
 				endif;
 
 				// Mobile hero image
@@ -149,7 +153,11 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					$mobile_hero = get_field('mobile_hero');
 					$mobile_hero_url = $mobile_hero['url'];
 				else:
-					$mobile_hero_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero-mobile.png';
+					if(get_post_type() == 'feature') {
+						$mobile_hero_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero-mobile.png';
+					} else {
+						$mobile_hero_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero-mobile.png';
+					}
 				endif;
 			?>
 				
