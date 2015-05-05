@@ -29,7 +29,7 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 				<div class="column first">
 					<div class="content">
 						<h6>About</h6>
-						<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 50, '...');?> <a href="/about">MORE</a></p>
+						<p><?php echo wp_trim_words(get_post_field('post_content', $about_us_id), 50, '...');?> <a href="/about">More</a></p>
 					</div>
 					<div class="content">
 						<p><a href="/staff-and-contributors">Staff and Contributors</a></p>
@@ -49,7 +49,7 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 							<?php echo get_field('city', $about_us_id); ?>, <?php echo get_field('state', $about_us_id); ?> <?php echo get_field('zip', $about_us_id); ?>
 						</p>
 						<p>
-							P: <?php echo get_field('phone', $about_us_id); ?><br/>
+							P: <span class="phone"><?php echo get_field('phone', $about_us_id); ?></span><br/>
 							E: <a href="mailto:<?php echo get_field('email', $about_us_id); ?>"><?php echo get_field('email', $about_us_id); ?></a>
 						</p>
 					</div>

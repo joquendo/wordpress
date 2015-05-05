@@ -112,7 +112,7 @@ footer .wrapper {
 #colophon label.float {
   left: 14px;
   position: absolute;
-  top: 12px;
+  top: 14px;
 }
 
 #colophon span.wpcf7-form-control-wrap {
@@ -122,6 +122,8 @@ footer .wrapper {
 #colophon span.wpcf7-not-valid-tip {
   display: none;
 }
+
+#colophon .phone { font-weight:600; }
 
 div.wpcf7-mail-sent-ok,
 div.wpcf7-mail-sent-ng,
@@ -185,7 +187,7 @@ div.wpcf7-validation-errors {
 	}
 
 	footer[role="contentinfo"] {
-		margin: 100px -2.857142857rem 0;
+		margin: 40px -2.857142857rem 0;
 	}
 }
 

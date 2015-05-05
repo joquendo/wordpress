@@ -1792,8 +1792,7 @@ span.article-type {
 	color:#00a5e5;
 	font-size:12px;
 	font-size:0.75rem;
-	line-height:12px;
-	line-height:0.75rem;
+	line-height:14px;
 	font-weight:600;
 	text-transform:uppercase;
 	margin-bottom:12px;
@@ -1903,7 +1902,7 @@ span.article-type.takeaway {
 	margin: 0 0 2px;
 	position: absolute;
 	text-transform: uppercase;
-	top: 30px;
+	top: 28px;
 	left: 10%;
 }
 
@@ -2074,7 +2073,7 @@ aside.pqRight:after {
 	}
 	.archive .site-content,
 	.category .site-content {
-		margin: 10px 0 0;
+		margin: 18px 0 0;
 		border-right:1px solid #ccc;
 		width:72%;
 	}
@@ -2088,6 +2087,7 @@ aside.pqRight:after {
 	.category #sketches {
 		border-top:1px solid #CCC;
 		padding-top:18px;
+		margin-top:60px;
 	}
 	.home #main, .wrapper { 
 		border-bottom:1px solid #CCC;
@@ -2173,13 +2173,6 @@ aside.pqRight:after {
 	.main-navigation li a:focus {
 		color: #000;
 	}
-	/* Removing right margin to fix topics navigation - right margin not necessary
-	.main-navigation li {
-		margin: 0 40px 0 0;
-		margin: 0 2.857142857rem 0 0;
-		position: relative;
-	}
-	*/
 	.main-navigation li {
 		margin: 0;
 		position: relative;
@@ -2314,8 +2307,8 @@ aside.pqRight:after {
 	span.article-type {
 		font-size:14px;
 		font-size:0.875rem;
-		line-height:0;
-		margin-bottom:22px;
+		line-height:14px;
+		margin-bottom:5px;
 	}
 	.menu-toggle {
 		display: inline-block;
@@ -2486,7 +2479,8 @@ aside.pqRight:after {
 		margin-top:1.5rem;
 		font-size:3rem;
 		line-height:3rem;
-		width:80%;
+		width:100%;
+		max-width:450px;
 	}
 	.issue span.title:after {
 		border-width: 20px;
@@ -2673,9 +2667,10 @@ aside.pqRight:after {
   		color:#fff;
   		font-size: 0.7rem;
   		display:inline-block;
-  		padding:0 0.375rem;
+  		padding:0 0.3rem;
   		margin-top:0.70rem;
   		letter-spacing:1px;
+  		line-height:18px;
 	}
 	p.entry-meta a[rel*="category"]:hover {
 		background-color:#a6a6a6;
@@ -2688,7 +2683,7 @@ aside.pqRight:after {
 		border-style: solid;
 		border-width: 0 13px 8px 0px;
 		border-color: transparent transparent #000 transparent;
-		margin-top: -0.5rem;
+		margin-top: -0.4rem;
 		display:block;
 	}
 	p.entry-meta a[rel*="category"].hover:before {
@@ -2755,6 +2750,7 @@ aside.pqRight:after {
 	.home .header-image {
 		display:none;
 	}
+	#content > div:first-child:not(#featured) { border:none; margin-top:-10px; }
 }
 
 /* iPads  ----------- */
@@ -2768,7 +2764,7 @@ aside.pqRight:after {
 		font-size: 1.125rem;
 	}
 	#searchform label {
-		left: 15%;
+		left: 14%;
 	}
 }
 
