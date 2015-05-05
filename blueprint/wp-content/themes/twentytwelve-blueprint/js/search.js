@@ -52,9 +52,17 @@ jQuery(document).ready(function ($) {
 		SEARCH BOX
 		SEND THE URL ENCODED QUERY TO GOOGLE WITH SITE:BLUEPRINT.UCLA.EDU
 	:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-	$('#submit-search-query').click(function() {
+	$('#submit-search-query').click(function() {  //GO BUTTON CLICKED
 		var q = encodeURI( $('#search-query').val() );
 		//SEND THE QUERY TO GOOGLE AND LOAD IN EXISTING WINDOW
 		window.location.href = "https://www.google.com/#q="+q+"+site:blueprint.ucla.edu";
+	});
+	$('#search-form').keydown(function(e) { //ENTER/RETURN KEYBOARD BUTTON PUSHED
+	    if (e.keyCode == 13) {
+		    e.preventDefault();
+		    var q = encodeURI( $('#search-query').val() );
+			//SEND THE QUERY TO GOOGLE AND LOAD IN EXISTING WINDOW
+			window.location.href = "https://www.google.com/#q="+q+"+site:blueprint.ucla.edu";
+		}
 	});
 });
