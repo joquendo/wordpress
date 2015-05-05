@@ -55,6 +55,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 		if ( ($locations = get_nav_menu_locations() ) && isset ( $locations[ $menu_name ] ) ) {
 			$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 			$menu_items = wp_get_nav_menu_items($menu->term_id);
+
 			$menu_list  = '<div class="menu-issues-container">';
 
 				$menu_list .='<div id="menu-' . $menu->slug . '" class="nav-menu">';
@@ -103,7 +104,13 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				<button class="menu-toggle menu-search"><span class="nav-search">Search</span></button>
 
 				<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+				
+				<!-- Topics navigation dropdown menu (Categories list) -->
+				<div class="menu-topics-container">
+					<ul id="menu-topics" class="nav-menu">
+						<?php wp_list_categories('title_li='); ?>
+					</ul>
+				</div>
 				
 				<div id="searchform">
 					<label for="search-query">What are you searching for?</label>
