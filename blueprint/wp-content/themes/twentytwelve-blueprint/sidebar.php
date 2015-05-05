@@ -25,11 +25,19 @@ global $issueID;
 				$premalink = get_permalink($event_id);
 				?>
 				
-				<img class="thumbnail" src="<?php echo $thumb['url']?>" />
+				<a href="<?php echo $premalink ?>">
+					<?php if ( trim($thumb['url']) !== '' ) : ?>
+					
+						<img class="thumbnail" src="<?php echo $thumb['url']?>" />
+					<?php else : ?>
+						
+						<img class="thumbnail" src="<?php echo get_stylesheet_directory_uri() . '/images/fpo-event-sidebar.png' ?>" />
+					<?php endif; ?>
 				
-				<h4><?php echo $title ?></h4>
-				
-				<span class="date"><?php echo $date?></span>
+					<h4><?php echo $title ?></h4>
+					
+					<span class="date"><?php echo $date?></span>
+				</a>
 				
 				<a class="btn" href="<?php echo $premalink ?>">More Info</a>
 				
