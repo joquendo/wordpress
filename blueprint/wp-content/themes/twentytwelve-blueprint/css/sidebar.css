@@ -122,7 +122,7 @@
 
 #secondary .container .read-more {
 	font-size:16px;
-	font-weight:800;
+	font-weight:600;
 	color:#000;
 	text-decoration:none;
 	margin-top:20px;
@@ -147,7 +147,7 @@
 
 #secondary .container .list a {
 	color:#000;
-	font-weight:800;
+	font-weight:600;
 	text-decoration:none;
 	font-size:16px;
 	line-height:20px;
@@ -208,7 +208,7 @@
 
 .event-wrapper .subtitle {
 	text-transform:uppercase;
-	font-weight:800;
+	font-weight:600;
 	color:#000;
 }
 
@@ -280,7 +280,7 @@
 .event-wrapper .speaker .name {
 	display:block;
 	text-transform:uppercase;
-	font-weight:800;
+	font-weight:600;
 	font-size:18px;
 	margin-bottom:16px;
 }
@@ -441,7 +441,7 @@
 }
 
 .infographic-archive .title {
-	font-weight:800;
+	font-weight:600;
 	text-transform:uppercase;
 	font-size:20px;
 	margin-top:15px;
@@ -503,7 +503,7 @@
 
 .infographic-container .title {
 	text-transform:uppercase;
-	font-weight:800;
+	font-weight:600;
 	font-size:24px;
 	display:block;
 	width:30%;
