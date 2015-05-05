@@ -112,10 +112,12 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					</ul>
 				</div>
 				
-				<div id="searchform">
-					<label for="search-query">What are you searching for?</label>
-					<input type="text" id="search-query" name="search-query" /><!--
-					--><button type="button" id="submit-search-query">Go</button>
+				<div id="search-form-container">
+					<form id="search-form">
+						<label for="search-query">What are you searching for?</label>
+						<input type="text" id="search-query" name="search-query" /><!--
+						--><button type="button" id="submit-search-query">Go</button>
+					</form>
 				</div>
 			</nav><!-- #site-navigation -->
 		</div>

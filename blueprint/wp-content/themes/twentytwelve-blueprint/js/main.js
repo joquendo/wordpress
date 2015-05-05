@@ -26,7 +26,7 @@
 
 	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement;
 	issuesMenu	 = document.getElementById( 'menu-issues' ).parentElement; // Show/hide container element
-	searchForm   = document.getElementById( 'searchform' ); 
+	searchForm   = document.getElementById( 'search-form' ); 
 
 	if ( ! menuButton && ! topicsButton && ! searchButton && ! searchButton ) {
 		return;
@@ -158,7 +158,7 @@
 	}
 
 	function toggleSearchSlider() {
-		jQuery('#searchform').slideToggle(
+		jQuery('#search-form-container').slideToggle(
 			function() {
 	        	searchSliderOpen = !searchSliderOpen; /* toggle between true/false */
 		});
