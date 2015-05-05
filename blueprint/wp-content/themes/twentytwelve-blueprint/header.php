@@ -156,7 +156,8 @@ if($post_type === 'issue') $issueID = get_the_ID();
 			<?php /*Issue or feature page (with hero image) */
 
 			if ( 'issue' == get_post_type() || 'feature' == get_post_type() && ! is_category() ) : ?>
-
+				
+				<?php /*
 				<picture>
 					<?php if ( !empty($hero_image) ) : ?>
 					<source media="(min-width:737px)" <?php echo tevkori_get_srcset_string( $hero_image_id, 'full' ); ?> />
@@ -166,6 +167,10 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					<source srcset="<?php echo $mobile_hero_url; ?>" />
 					<img src="<?php echo $hero_image_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
 				</picture>
+				*/ ?>
+				
+				<img src="<?php echo $mobile_hero_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
+				<span class="hero-desktop-image" style="background-image:url('<?php echo $hero_image_url?>');"></span>
 
 			<?php endif; ?>
 				
