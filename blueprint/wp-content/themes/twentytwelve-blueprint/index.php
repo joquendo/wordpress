@@ -73,7 +73,7 @@ get_header(); ?>
 			<div id="sketches">
 			
 				<?php $obj = get_post_type_object( get_post_type() ); ?>
-				<span class="post-type"><?php echo $obj->labels->name; ?></span>
+				<span class="post-type">Sketches</span>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( $sketches_query->have_posts() ) : $sketches_query->the_post(); ?>
