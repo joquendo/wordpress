@@ -80,9 +80,7 @@ global $post_type;
 						<h2 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h2>
-						<?php if ( 'sketch' != get_post_type() ) // If not a sketch, then display to excerpt
-							the_excerpt();
-						?>
+						<?php the_excerpt(); ?>
 						<p class="entry-meta"><?php blueprint_get_categories(); ?></p>
 					</div><!-- .entry-summary -->
 
