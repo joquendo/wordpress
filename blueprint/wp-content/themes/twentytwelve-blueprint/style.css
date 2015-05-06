@@ -2450,20 +2450,8 @@ aside.pqRight:after {
 	.menu-issues-container .nav-menu .menu-item .hover a:hover {
 		background-color:#a6a6a6;
 	}
-	.menu-issues-container:after {
-		content:"";
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 15px 20px 0 20px;
-		border-color: #f5f5f5 transparent transparent transparent;
-		position: absolute;
-		bottom: -15px;
-		right: 192px;
-	}
 	#menu-issues {
 		margin: 0 10%;
-		/*width: 72%;*/
   		max-width: 1146px;
 	}
 	.slick-prev {
@@ -2819,6 +2807,17 @@ aside.pqRight:after {
 		display:inline-block;
 		font-size:14px;
 		font-size:0.875rem;
+	}
+	.menu-issues.toggled-on:before {
+		content:"";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 15px 20px 0 20px;
+		border-color: #f5f5f5 transparent transparent transparent;
+		position: absolute;
+		top: -32px;
+		right: 192px;
 	}
 	.event span.title:after {
   		border-width: 12px;
