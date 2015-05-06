@@ -1668,6 +1668,12 @@ img.header-image {
 	top:66px;
 	display:none;
 }
+/*.menu-issues-container {
+	display:block;
+	height:0; 
+	overflow:hidden;
+	padding:0 !important;
+}*/
 .main-navigation div#search-form-container {
 	display:none;
 	position:absolute;

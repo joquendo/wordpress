@@ -144,9 +144,15 @@
 	};
 
 	function toggleIssuesSlider() {
-		jQuery('.menu-issues-container').slideToggle(
-			function() {
-	        	issuesSliderOpen = !issuesSliderOpen; /* toggle between true/false */
+		jQuery('.menu-issues-container').slideToggle( {
+			start : function () {
+				console.log('start');
+				slider.slick('slickSetOption','slidesToShow',5,true);	
+			},
+			
+			complete : function () {
+				issuesSliderOpen = !issuesSliderOpen; /* toggle between true/false */
+			}
 		});
 	}
 
@@ -184,8 +190,9 @@
 	);
 } )();
 
+var slider;
 jQuery(document).ready(function(){
-  jQuery('#menu-issues').slick({
+  slider = jQuery('#menu-issues').slick({
   	infinite		: false,
   	slidesToShow	: 5,
   	draggable		: false
