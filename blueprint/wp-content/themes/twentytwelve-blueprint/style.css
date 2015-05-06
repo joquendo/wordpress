@@ -1654,8 +1654,9 @@ img.header-image {
 }
 .main-navigation li {
 	margin-top:0;
-	line-height:4em;
+	line-height:1em;
 	border-bottom:1px solid #ccc;
+	padding:11px 5px;
 }
 .menu-topics-container,
 .menu-issues-container {
@@ -2171,7 +2172,7 @@ aside.pqRight:after {
 	.main-navigation li a {
 		border-bottom: 0;
 		color: #000;
-		line-height: 3.692307692;
+		line-height: 1;
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
