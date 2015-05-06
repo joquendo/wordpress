@@ -116,7 +116,7 @@ get_header();
 		<?php endif; // end have_posts() check   ?>
 		
 
-		<?php if ( $sketches_query->have_posts() == false && $featured_query->have_posts() == false ) : ?>
+		<?php if ( $featured_query->have_posts() == false && $sketches_query->have_posts() == false ) : ?>
 				<article id="post-0" class="post no-results not-found">
 
 				<?php if ( current_user_can( 'edit_posts' ) ) :
