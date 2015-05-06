@@ -15,13 +15,15 @@ $about_us_id = get_id_by_slug('about'); //RETRIEVES ID OF PAGE/POST WITH SLUG - 
 	
 	
 	<footer id="colophon" role="contentinfo">
-		
+
+		<!-- Topics footer menu (Categories list) -->
 		<div class="mobile-footer-nav">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+			<div class="menu-topics-container">
+				<ul id="menu-topics" class="nav-menu">
+					<?php wp_list_categories('title_li='); ?>
+				</ul>
+			</div>
 		</div>
-		
-		
-		
 		
 		
 		<div class="wrapper">
