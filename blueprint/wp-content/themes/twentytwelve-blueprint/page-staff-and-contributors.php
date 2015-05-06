@@ -36,10 +36,19 @@ get_header(); ?>
 								// vars
 								$staff_member = get_sub_field('staff_member');
 								$staff_image = get_field('staff_image', 'user_'.$staff_member['ID']);
+
+								//STAFF IMAGE URL
+								if ( !empty( $staff_image ) ) :
+									$staff_image_url = $staff_image['url'];
+									$staff_image_alt = $staff_member['display_name'];
+								else:
+									$staff_image_url = get_stylesheet_directory_uri() . "/images/fpo-avatar.png";
+									$staff_image_alt = "Image Needed";
+								endif;
 							?>
 
 							<li>	
-								<img class="staff-image" src="<?php echo $staff_image['url']; ?>" alt="<?php echo $staff_member['display_name']; ?>" />
+								<img class="staff-image" src="<?php echo $staff_image_url; ?>" alt="<?php echo $staff_image_alt; ?>" />
 								<p class="staff-name"><?php echo $staff_member['display_name']; ?></p>
 								<p class="staff-title"><?php echo the_field('staff_title', 'user_'.$staff_member['ID']); ?></p>
 								<p class="staff-bio"><?php echo $staff_member['user_description']; ?></p>
