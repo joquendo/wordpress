@@ -19,6 +19,10 @@
  */
 if ( post_password_required() )
 	return;
+	
+//if comment is closed
+if( $post->comment_status === 'closed' )
+	return;
 ?>
 
 <div id="comments" class="comments-area">
