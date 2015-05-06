@@ -146,7 +146,7 @@
 	function toggleIssuesSlider() {
 		jQuery('.menu-issues-container').slideToggle( {
 			start : function () {
-				console.log('start');
+				//refresh width
 				slider.slick('slickSetOption','slidesToShow',5,true);	
 			},
 			
