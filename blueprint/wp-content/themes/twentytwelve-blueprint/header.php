@@ -189,7 +189,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				
 			<?php /*Issue or feature page (with hero image) */
 
-			if ( 'issue' == get_post_type() || 'feature' == get_post_type() && ! is_category() ) : ?>
+			if ( ( 'issue' == get_post_type() || 'feature' == get_post_type() ) && ! is_category() ) : ?>
 				
 				<?php /*
 				<picture>
