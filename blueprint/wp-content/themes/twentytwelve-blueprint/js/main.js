@@ -182,5 +182,13 @@
 			jQuery(this).removeClass('hover');
 		}
 	);
-
 } )();
+
+jQuery(document).ready(function(){
+  jQuery('#menu-issues').slick({
+  	infinite		: false,
+  	slidesToShow	: 6,
+  	variableWidth	: true,
+  	draggable		: false
+  });
+});
