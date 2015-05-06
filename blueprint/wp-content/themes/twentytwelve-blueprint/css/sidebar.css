@@ -520,7 +520,7 @@
 	cursor:pointer;
 }
 
-.lightbox-img-container { position:relative; display:inline-block; }
+.lightbox-img-container { position:relative; display:inline-block; cursor:pointer; }
 .lightbox-img-container.alignleft { margin:0.857142857rem 1.714285714rem 0.857142857rem 0; }
 .lightbox-img-container.alignright { margin:0.857142857rem 0 0.857142857rem 1.714285714rem; }
 .lightbox-img-container .lightbox-img { display:block; margin:0; }

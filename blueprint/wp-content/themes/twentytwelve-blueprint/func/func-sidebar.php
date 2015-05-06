@@ -139,9 +139,39 @@ function getInfographic ($currentID) {
 
 
 
+//add lightbox to image tag
 function get_image_tag_function ( $html, $id, $alt, $title, $align, $size ) {
 	
 	return '<span class="lightbox-img-container '. $align .'">'.$html.'</span>';
 }
 
 add_filter('get_image_tag', 'get_image_tag_function', 10, 6);
+
+//add lightbox to captions
+function img_caption_function ($empty, $attr, $content) {
+	
+	global $wpdb;
+	
+	//get the post id
+	$tmp = explode( '_',$attr['id'] );
+	$id = $tmp[1];
+	
+	//get the credits
+	$sql = "SELECT * FROM wp_posts a WHERE a.ID=$id";
+	$result = $wpdb->get_results($sql);
+	
+	//format credit
+	$credit = '';
+	if( count($result) > 0 ) {
+		$credit = ' : ' . $result[0]->post_content;
+	}
+	
+	$ret  = '<div id="'.$attr['id'].'" style="width: '.$attr['width'].'px" class="wp-caption '.$attr['align'].'">';
+	$ret .=   '<span class="lightbox-img-container">' . $content . '</span>';
+	$ret .= '  <p class="wp-caption-text">' . $attr['caption'] . $credit . '</p>';
+	$ret .= '</div>';
+	
+	return $ret;
+}
+
+add_filter( 'img_caption_shortcode', 'img_caption_function', 10, 3);
