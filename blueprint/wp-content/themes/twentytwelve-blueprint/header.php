@@ -65,6 +65,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 		add_filter( 'posts_orderby', 'filter_query' );
 
 		function filter_query( $query ) {
+			remove_filter( current_filter(), __FUNCTION__ );
 			$query = 'wp_posts.post_date ASC';
 			return $query;
 		}; // End removing override
