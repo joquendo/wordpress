@@ -81,6 +81,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 			$url				= get_permalink($issue_id);
 
 			$menu_list .= '<div class="menu-item">';
+			$menu_list .= '<div class="menu-item-wrap">';
 
 			if ( ! empty($cover_image_url) ) :
 				$menu_list .= '<img src="' . $cover_image_url . '" />';
@@ -90,6 +91,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 			$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
 			$menu_list .= '<span>' . $issue_date . '</span>';
+			$menu_list .= '</div>'; // End menu item wrap
 			$menu_list .= '</div>'; // End menu item
 
 		endwhile;

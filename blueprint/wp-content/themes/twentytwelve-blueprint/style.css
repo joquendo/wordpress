@@ -2400,9 +2400,13 @@ aside.pqRight:after {
 		text-align:center;
 	}
 	.menu-issues-container .nav-menu .menu-item {
+		width:120px;
+		display:block;
+	}
+	.menu-issues-container .nav-menu .menu-item .menu-item-wrap {
+		width:120px;
+		margin:0 auto;
 		position:relative;
-		display:inline-block;
-		margin:0 30px;
 	}
 	.menu-issues-container .nav-menu .menu-item span {
 		display:block;
@@ -2452,8 +2456,8 @@ aside.pqRight:after {
 		right: 192px;
 	}
 	#menu-issues {
-		margin: 0 auto;
-		width: 72%;
+		margin: 0 10%;
+		/*width: 72%;*/
   		max-width: 1146px;
 	}
 	.slick-prev {

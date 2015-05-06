@@ -187,8 +187,7 @@
 jQuery(document).ready(function(){
   jQuery('#menu-issues').slick({
   	infinite		: false,
-  	slidesToShow	: 6,
-  	variableWidth	: true,
+  	slidesToShow	: 5,
   	draggable		: false
   });
 });
