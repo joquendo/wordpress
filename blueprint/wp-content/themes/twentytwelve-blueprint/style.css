@@ -1661,7 +1661,7 @@ img.header-image {
 .menu-issues-container {
 	position:absolute;
 	left:0;
-	right:210px;
+	right:96px;
 	background-color:#f5f5f5;
 	text-align:left;
 	width:100%;
@@ -2319,7 +2319,6 @@ aside.pqRight:after {
 		display:none;
 	}
 	.menu-toggle.menu-topics,
-	.menu-toggle.menu-issues,
 	.menu-toggle.menu-search span {
 		display:inline-block;
 		font-size:14px;
@@ -2376,7 +2375,7 @@ aside.pqRight:after {
 	.menu-issues-container {
 		position:relative;
 		text-align:center;
-		padding:50px 0;
+		padding:58px 0 40px;
 		z-index:10;
 		top:0;
 	}
@@ -2410,6 +2409,9 @@ aside.pqRight:after {
 		text-align:center;
 		font-size: 0.75rem;
 		color: #686868;
+		margin-top:0.5rem;
+		text-transform:uppercase;
+		pointer-events:none;
 	}
 	.menu-issues-container .nav-menu .menu-item .hover {
 		position: absolute;
@@ -2428,14 +2430,15 @@ aside.pqRight:after {
   		text-transform:uppercase;
   		text-decoration:none;
   		color:#fff;
-  		font-size:0.75rem;
+  		font-size:13px;
+  		font-size:0.8125rem;
   		letter-spacing:0.03rem;
   		line-height:2.1rem;
 		margin-bottom:12px;
-		background-color:#00a5e5;
+		background-color:#000;
 	}
 	.menu-issues-container .nav-menu .menu-item .hover a:hover {
-		background-color:#000;
+		background-color:#a6a6a6;
 	}
 	.menu-issues-container:after {
 		content:"";
@@ -2447,6 +2450,49 @@ aside.pqRight:after {
 		position: absolute;
 		bottom: -15px;
 		right: 192px;
+	}
+	#menu-issues {
+		margin: 0 auto;
+		width: 72%;
+  		max-width: 1146px;
+	}
+	.slick-prev {
+		left: -55px !important;
+	}
+	.slick-next {
+		right: -55px !important;
+	}
+	.slick-prev,
+	.slick-next {
+		margin-top:-22px !important;
+		height:35px !important;
+	}
+	.slick-prev:before {
+		border: solid transparent;
+		content: "" !important;
+		height: 0;
+		width: 0;
+		position: relative;
+		pointer-events: none;
+		border-color: rgba(255, 255, 255, 0);
+		border-right-color: #000;
+		border-width: 17px;
+		margin-bottom: -1px;
+		right:17px;
+		display: inline-block;
+	}
+	.slick-next:before {
+		border: solid transparent;
+		content: "" !important;
+		height: 0;
+		width: 0;
+		position: relative;
+		pointer-events: none;
+		border-color: rgba(255, 255, 255, 0);
+		border-left-color: #000;
+		border-width: 17px;
+		margin-bottom: -1px;
+		display: inline-block;
 	}
 	.main-navigation div#search-form-container {
 		max-width:480px;
@@ -2755,8 +2801,15 @@ aside.pqRight:after {
 }
 
 /* iPads  ----------- */
-@media only screen and (min-width : 768px) {
-
+@media only screen and (min-width : 769px) {
+	.menu-topics-container {
+		right:210px;
+	}
+	.menu-toggle.menu-issues {
+		display:inline-block;
+		font-size:14px;
+		font-size:0.875rem;
+	}
 	.event span.title:after {
   		border-width: 12px;
   		margin-bottom:-2px;
@@ -2791,29 +2844,21 @@ aside.pqRight:after {
 	header.site-header {
 		margin:0 -2.857142857rem;
 	}
-	/*.page .logo,
-	.archive .logo,
-	.category .logo {
-		margin-left: 45px;
-		margin-left: 2.857142857rem;
-	}*/
 }
 
 /* Desktops and Laptops -----*/
 @media only screen and (min-width : 1200px) {
-
-	/*.issue span {
-		font-size:1.15rem;
-	}*/
 	.entry-summary p {
 		font-size: 1.125rem;
 	}
 }
 
 /* Mobile only ----------*/
-@media only screen and (max-width : 736px) {
+@media only screen and (max-width : 768px) {
 	.menu-issues-container {
 		visibility: hidden;
+		height:0;
+		padding:0;
 	}
 }
 

@@ -29,7 +29,10 @@ get_header(); ?>
 						} 
 					?>
 					</p>
+					
+					<?php if( has_tag() ) : ?>
 					<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>
+					<?php endif;?>
 				</div>
 
 				<div id="author-bio">

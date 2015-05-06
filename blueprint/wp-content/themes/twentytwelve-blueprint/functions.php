@@ -12,6 +12,8 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'footer-style',  get_stylesheet_directory_uri() . '/css/footer.css', array('child-style','twentytwelve-style') );
 	wp_enqueue_style( 'issue-style',  get_stylesheet_directory_uri() . '/css/issue.css', array('child-style') );
 	wp_enqueue_style( 'comment-style',  get_stylesheet_directory_uri() . '/css/comment.css', array('child-style','twentytwelve-style') );
+	wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array('child-style', 'twentytwelve-style') );
+	wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array('child-style', 'twentytwelve-style') );
 }
 
 // Remove custom font enabled in twentytwelve theme
@@ -61,6 +63,7 @@ function register_js_scripts() {
 	wp_enqueue_script( 'imagesloaded-pkgd', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded/imagesloaded.pkgd.js', array( 'jquery' ) );
 	wp_enqueue_script( 'imagesloaded', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded/imagesloaded.js', array( 'jquery', 'imagesloaded-pkgd' ) );
 	wp_enqueue_script( 'custom_sidebar', get_stylesheet_directory_uri() . '/js/sidebar.js', array( 'jquery', 'imagesloaded' ) );
+	wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/vendor/slick/slick.min.js', array( 'jquery'), '1.0.0', true );
 }
 add_action('init', 'register_js_scripts');
 
