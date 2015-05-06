@@ -31,13 +31,16 @@
 .comments-area article header img { width:50px; height:auto; position:absolute; }
 .comments-area article header { min-height:50px; margin-bottom:-30px; }
 .comments-area article header cite { margin-left:73px; display:inline; }
+.comments-area article header cite .fn { position:relative; top:-4px; }
 .comments-area article header time { margin-left:10px; display:inline; color:#bcbcbc; font-weight:100; }
-.comments-area .comment-content { margin-left:73px; margin-top:12px; }
-.comments-area .comment-content p { margin-bottom:0; line-height:inherit; font-size:17px; font-weight:300; color:#696969; }
+.comments-area .comment-content { margin-left:73px; margin-top:8px; }
+.comments-area .comment-content p { margin-bottom:0; line-height:24px; font-size:17px; font-weight:300; color:#696969; }
 .comments-area .reply { margin-left:73px; margin-top:5px; }
 .comments-area .reply span { position:relative; top:2px; font-weight:600; }
 .comments-area .edit-link { line-height:inherit; font-size:14px; display:none; }
 .comments-area cite b { font-weight:600; }
+
+.comments-area article header a { position:relative; top:-4px; }
 
 a.comment-reply-link, a.comment-edit-link { line-height:inherit; }
 a.comment-reply-link { font-size:12px; font-weight:600; text-transform:uppercase; text-decoration:none; color:#000; }
