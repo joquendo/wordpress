@@ -182,10 +182,6 @@
 	/*margin-top:0;*/
 }
 
-.single-event .site-header {
-	height:135px;
-}
-
 .single-event #masthead .event {
 	display:none;
 }
@@ -328,10 +324,6 @@
 
 .single-infographic .logo {
 	margin-top:0;
-}
-
-.single-infographic .site-header {
-	height:135px;
 }
 
 .single-infographic #masthead .event {
