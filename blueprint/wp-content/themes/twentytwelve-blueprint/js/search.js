@@ -5,6 +5,8 @@ jQuery(document).ready(function ($) {
 	:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	var textInputs = $('#search-query');
 	var textLabels = textInputs.prev('label');
+	var viewportWidth = $(window).width();
+	var mobileWidth = (viewportWidth < 569);
 
 	textLabels.addClass('float');
 
@@ -12,21 +14,24 @@ jQuery(document).ready(function ($) {
 	// Fade on focus, hide on keydown
 	textInputs.each(function() {
 		// If field has value
-		if ( $(this).val() ) {
-			$(this).prev('label').hide();
-		} else {
-			$(this).prev('label').show();
+		if (!mobileWidth) {
+			if ( $(this).val() ) {
+				$(this).prev('label').hide();
+			} else {
+				$(this).prev('label').show();
+			}
 		}
-
 		// On focus
 		$(this).focus(function() {
 			$(this).prev().addClass('focus');
 
 			// If field has value
-			if ( $(this).val() ) {
-				$(this).prev('label').hide();
-			} else {
-				$(this).prev('label').show();
+			if ( !mobileWidth ) {
+				if ( $(this).val() ) {
+					$(this).prev('label').hide();
+				} else {
+					$(this).prev('label').show();
+				}
 			}
 		});
 
@@ -35,10 +40,12 @@ jQuery(document).ready(function ($) {
 			$(this).prev().removeClass('focus');
 
 			// If field has value
-			if ( $(this).val() ) {
-				$(this).prev('label').hide();
-			} else {
-				$(this).prev('label').show();
+			if ( !mobileWidth ) {
+				if ( $(this).val() ) {
+					$(this).prev('label').hide();
+				} else {
+					$(this).prev('label').show();
+				}
 			}
 		});
 
