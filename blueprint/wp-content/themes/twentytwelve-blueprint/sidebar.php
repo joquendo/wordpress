@@ -73,9 +73,10 @@ global $issueID;
 			<div class="widget infographic">
 				
 				<!-- INFOGRAPHIC CONTAINER START-->
+				
+				<h3>Visually Speaking</h3>
+				
 				<a href="<?php echo $premalink ?>">
-					
-					<h3>Visually Speaking</h3>
 					
 				<?php if (! empty($sidebar_image) ) : ?>
 					
@@ -133,13 +134,14 @@ global $issueID;
 				$thumb = get_field('thumbnail', $newsworthy['ID']);
 				$newsworthy_url = get_field('url', $newsworthy['ID']);
 				?>
-				
-				<img class="thumbnail" src="<?php echo $thumb['url'] ?>" />
-				
-				<h4>Headline: <?php echo $newsworthy['title'] ?> </h4>
-				
-				<p><?php echo $newsworthy['excerpt'] ?></p>
-				
+				<a href="<?php echo $newsworthy_url;?>">
+					<img class="thumbnail" src="<?php echo $thumb['url'] ?>" />
+					
+					<h4>Headline: <?php echo $newsworthy['title'] ?> </h4>
+					
+					<p><?php echo $newsworthy['excerpt'] ?></p>
+				</a>
+
 				<a class="read-more" href="<?php echo $newsworthy_url;?>">Read Our Coverage</a>
 				
 			</div> <!-- NEWSWORTHY CONTAINER END -->
