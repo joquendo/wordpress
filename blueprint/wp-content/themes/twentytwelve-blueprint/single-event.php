@@ -25,8 +25,16 @@ $description  = get_the_content();
 		
 		<h1><?php echo $title ?></h1>
 		
+		<?php if (! empty($header_image) ) : ?>	
+
 		<img class="header" src="<?php echo $header_image['url'] ?>" />
+
+		<?php else : ?>
 		
+		<img class="header" src="<?php echo get_stylesheet_directory_uri() . '/images/fpo-event-full.png' ?>" />
+
+		<?php endif; ?>
+
 		<p><?php echo $introduction ?></p>
 		
 		<p>
