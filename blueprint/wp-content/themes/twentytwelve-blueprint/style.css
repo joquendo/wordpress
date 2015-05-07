@@ -1619,7 +1619,7 @@ img.header-image {
 	background-position:0 -254px;	
 }
 .menu-toggle.menu-search.toggled-on {
-	color:#00a5e5;
+	color:#a6a6a6;
 	background-position:0 -298px;
 }
 .menu-toggle span {
@@ -1887,7 +1887,7 @@ span.article-type.takeaway {
 	font-size: 1em;
 	margin-right: 1px;
 	padding: 25px;
-	width: 67%;	
+	width: 61%;	
 	background:#f5f5f5;
 }
 
@@ -1902,14 +1902,7 @@ span.article-type.takeaway {
 }
 
 #search-form label {
-	color: #686868;
-	display: block;
-	font-weight: 300;
-	margin: 0 0 2px;
-	position: absolute;
-	text-transform: uppercase;
-	top: 28px;
-	left: 10%;
+	display:none;
 }
 
 #search-query label.float {
@@ -2038,13 +2031,6 @@ aside.pqRight:after {
 }
 @viewport {
 	width: device-width;
-}
-
-/* Minimum width of 411 pixels. */
-@media screen and (min-width: 411px) {
-	#search-form label {
-		left: 20%;
-	}
 }
 
 /* Minimum width of 737 pixels--iPhone 6+ Landscape */
@@ -2794,8 +2780,23 @@ aside.pqRight:after {
 		display:none;
 	}
 	#content > div:first-child:not(#featured) { border:none; margin-top:-10px; }
-	#search-form label { left:14%; }
+
+	#search-query {
+		width: 67%;	
+	}
+	#search-form label {
+		color: #686868;
+		display: block;
+		font-weight: 300;
+		margin: 0 0 2px;
+		position: absolute;
+		text-transform: uppercase;
+		top: 28px;
+		left: 14%;
+	}
 }
+
+
 
 /* iPads  ----------- */
 @media only screen and (min-width : 769px) {
@@ -2869,7 +2870,12 @@ aside.pqRight:after {
 		padding:0;
 	}
 }
-
+/* mobile landscape -------- */
+@media only screen and ( max-width : 768px ) and ( orientation: landscape ) {
+	#search-query {
+		width: 77%;	
+	}
+}
 /* =Print
 ----------------------------------------------- */
 
