@@ -49,34 +49,7 @@ $archives = getInfographic($infographic_id);
 		
 		<p class="description"><?php echo $content ?></p>
 		
-		
-		<?php if(count($categories) > 0 and count($tags) > 0) : ?>
-			<div id="in-topics">
-				<p class="entry-meta"><span class="title">In topics:</span>
-				<?php 
-					$categories = get_the_category();
-					$separator = ' ';
-					$output = '';
-					if($categories){
-						foreach($categories as $category) {
-							$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" rel="category tag">'.$category->cat_name.'</a>'.$separator;
-						}
-						$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
-						echo $topics_list;
-					} 
-				?>
-				</p>
-				
-				<?php if( has_tag() ) : ?>
-				<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>
-				<?php endif;?>
-			</div>
-		<?php endif; ?>
-		
-		
-		
-		
-		
+		<?php get_template_part('content', 'taxonomy'); //IN TOPICS AND TAGS ?>
 		
 		<?php if( $archives ) : ?>
 
