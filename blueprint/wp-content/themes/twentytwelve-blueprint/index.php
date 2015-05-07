@@ -21,8 +21,6 @@ get_header(); ?>
 			
 		<?php /* Loop through featured custom post type */
 
-			// Setting a temporary value to avoid errors
-			$do_not_duplicate = null;
 			// Loop arguments
 			$args = array(
 				'post_type' => 'feature',
@@ -41,13 +39,21 @@ get_header(); ?>
 				<span class="post-type"><?php echo $obj->labels->name; ?></span>
 
 			<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
-				// Save the post ID to $do_not_duplicate
-				$do_not_duplicate[] = $post->ID;
+
+				$post_issue = get_field('issue');
+				
+				// Filter to only show features of current issue
+				if ($post_issue->ID == $issueID) :
+
 			?>
 
 			<?php get_template_part( 'content', get_post_format() ); ?>
 
 			<?php
+
+				// End if Filter
+				endif;
+
 				// Featured loop ends
 				endwhile;
 
@@ -76,11 +82,22 @@ get_header(); ?>
 				<span class="post-type">Sketches</span>
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( $sketches_query->have_posts() ) : $sketches_query->the_post(); ?>
+			<?php while ( $sketches_query->have_posts() ) : $sketches_query->the_post();
+
+				$post_issue = get_field('issue');
+				
+				// Filter to only show sketches of current issue
+				if ($post_issue->ID == $issueID) :
+
+			?>
 			
 			<?php get_template_part( 'content', get_post_format() ); ?>
 	
 			<?php
+
+				// End if Filter
+				endif;
+
 				// Featured loop ends
 				endwhile;
 
