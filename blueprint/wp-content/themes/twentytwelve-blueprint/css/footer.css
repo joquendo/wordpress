@@ -191,8 +191,28 @@ div.wpcf7-validation-errors {
 	}
 }
 
+@media only screen and (max-width: 1025px) {
+	
+	#colophon form.wpcf7-form input[type="email"] {
+		width:85%;
+	}
+	
+	#colophon form.wpcf7-form input[type="submit"] {
+		width:85%;
+		margin-top:10px;	
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	
+	footer[role="contentinfo"] {
+		padding-left:1.2rem;
+		padding-right:1.2rem;
+	}
+}
+
 @media only screen and (max-width: 736px) {
-	footer[role="contentinfo"] { padding-top:0; margin:18px -1.2rem 0; }
+	footer[role="contentinfo"] { padding-top:0; margin:18px -1.2rem 0; padding-left:initial; padding-right:initial; }
 	footer .wrapper { padding:0 5%; padding-top:10px; }
 	
 	#colophon h6 { margin-top:10px; }

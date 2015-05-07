@@ -56,6 +56,8 @@ function styling_chat_post($table_talk) {
 // Add child theme javascript files
 function register_js_scripts() {
 	wp_register_script( 'main', get_stylesheet_directory_uri() . '/js/main.js' );
+	
+	wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/js/vendor/modernizr-2.6.2.min.js', array() );
 	wp_enqueue_script( 'custom_search', get_stylesheet_directory_uri() . '/js/search.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_footer', get_stylesheet_directory_uri() . '/js/footer.js', array( 'jquery' ) );
 	wp_enqueue_script( 'custom_comment', get_stylesheet_directory_uri() . '/js/comment.js', array( 'jquery' ) );
