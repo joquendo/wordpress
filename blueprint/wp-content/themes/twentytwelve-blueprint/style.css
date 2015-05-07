@@ -2305,6 +2305,7 @@ aside.pqRight:after {
 	.single.single-feature .logo {
 		margin-top:31px;
 		margin-left:40px;
+		width:100%;
 		max-width:198px;
 	}
 	
