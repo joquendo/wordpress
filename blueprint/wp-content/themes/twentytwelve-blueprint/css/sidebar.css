@@ -25,7 +25,7 @@
 	background:#000;
 	color:#FFF;
 	text-transform:uppercase;
-	font-weight:600;
+	font-weight:800;
 	font-size:16px;
 	position:relative;
 	text-decoration:none;
@@ -121,7 +121,7 @@
 
 #secondary .container .read-more {
 	font-size:16px;
-	font-weight:600;
+	font-weight:800;
 	color:#000;
 	text-decoration:none;
 	margin-top:20px;
@@ -139,14 +139,14 @@
 
 #secondary .container .list li {
 	color:#C3C3C3;
-	font-weight:600;
+	font-weight:800;
 	padding-left:10px;
 	margin-bottom:23px;
 }
 
 #secondary .container .list a {
 	color:#000;
-	font-weight:600;
+	font-weight:800;
 	text-decoration:none;
 	font-size:16px;
 	line-height:20px;
@@ -207,7 +207,7 @@
 
 .event-wrapper .subtitle {
 	text-transform:uppercase;
-	font-weight:600;
+	font-weight:800;
 	color:#000;
 }
 
@@ -290,7 +290,7 @@
 .event-wrapper .speaker .name {
 	display:block;
 	text-transform:uppercase;
-	font-weight:600;
+	font-weight:800;
 	font-size:18px;
 	margin-bottom:16px;
 }
@@ -422,7 +422,7 @@
 }
 
 .infographic-archive .title {
-	font-weight:600;
+	font-weight:800;
 	text-transform:uppercase;
 	font-size:20px;
 	margin-top:15px;
@@ -484,7 +484,7 @@
 
 .infographic-container .title {
 	text-transform:uppercase;
-	font-weight:600;
+	font-weight:800;
 	font-size:24px;
 	display:block;
 	width:30%;

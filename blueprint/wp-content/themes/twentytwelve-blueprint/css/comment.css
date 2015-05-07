@@ -1,5 +1,5 @@
 .comments-area { margin-top:45px;}
-.comments-title { text-transform:uppercase; font-weight:600; color:#c0c0c0; margin-bottom:10px; letter-spacing:1px; }
+.comments-title { text-transform:uppercase; font-weight:800; color:#c0c0c0; margin-bottom:10px; letter-spacing:1px; }
 
 #comments .grey-wrapper { background:#F5F5F5; padding:34px 40px; }
 
@@ -36,14 +36,14 @@
 .comments-area .comment-content { margin-left:73px; margin-top:8px; }
 .comments-area .comment-content p { margin-bottom:0; line-height:24px; font-size:17px; font-weight:300; color:#696969; }
 .comments-area .reply { margin-left:73px; margin-top:5px; }
-.comments-area .reply span { position:relative; top:2px; font-weight:600; }
+.comments-area .reply span { position:relative; top:2px; font-weight:800; }
 .comments-area .edit-link { line-height:inherit; font-size:14px; display:none; }
-.comments-area cite b { font-weight:600; }
+.comments-area cite b { font-weight:800; }
 
 .comments-area article header a { position:relative; top:-4px; }
 
 a.comment-reply-link, a.comment-edit-link { line-height:inherit; }
-a.comment-reply-link { font-size:12px; font-weight:600; text-transform:uppercase; text-decoration:none; color:#000; }
+a.comment-reply-link { font-size:12px; font-weight:800; text-transform:uppercase; text-decoration:none; color:#000; }
 
 .comment-awaiting-moderation { margin-left:73px; display:block; }
 

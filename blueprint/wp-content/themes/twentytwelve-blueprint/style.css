@@ -196,7 +196,7 @@ img {
 	font-size: 11px;
 	font-size: 0.785714286rem;
 	line-height: 2.181818182;
-	font-weight: bold;
+	font-weight: 800;
 	text-transform: uppercase;
 	color: #636363;
 }
@@ -691,7 +691,7 @@ h1.archive-title,
 h1.entry-title {
 	font-size: 32px;
 	font-size: 2rem;
-	font-weight: 600;
+	font-weight: 800;
 	margin-bottom: 11px;
 	margin-bottom: 0.6875rem;
 }
@@ -701,7 +701,7 @@ h2.archive-title,
 h2.entry-title {
 	font-size:14px;
 	font-size: 0.875rem;
-	font-weight: 600;
+	font-weight: 800;
 	line-height: 1.2;
 	margin-bottom: 11px;
 	margin-bottom: 0;
@@ -722,7 +722,7 @@ h2.entry-title a {
 	color:#000;
 	font-size:15px;
 	font-size: 0.9375rem;
-	font-weight: 600;
+	font-weight: 800;
 	text-decoration: none;
 }
 .archive-header h2.archive-title a:hover,
@@ -796,7 +796,7 @@ article.sticky .featured-post {
 .mu_register h2 {
 	color: #000;
 	font-size: 1.375rem;
-	font-weight: 600;
+	font-weight: 800;
 	line-height: 1.5rem;
 }
 .entry-content h3,
@@ -956,7 +956,7 @@ img.aligncenter,
 }
 .entry-content dt,
 .comment-content dt {
-	font-weight: bold;
+	font-weight: 800;
 	line-height: 1.714285714;
 }
 .entry-content dd,
@@ -1013,7 +1013,7 @@ footer.entry-meta {
 .author {
 	color: #000;
 	font-size: 1em;
-	font-weight: 600;
+	font-weight: 800;
 	text-transform: uppercase;
 }
 .introduction {
@@ -1046,7 +1046,7 @@ footer.entry-meta {
 }
 #author-bio .staff-name {
 	font-size: 1.2em;
-	font-weight: 600;
+	font-weight: 800;
 }
 #author-bio .staff-title {
 	color: #000;
@@ -1075,7 +1075,7 @@ footer.entry-meta {
 #taxonomy .title {
 	color: #c3c3c3;
 	font-size: .8em;
-	font-weight: 600;
+	font-weight: 800;
 	margin-right: 10px;	
 }
 .related-article .post-type {
@@ -1199,7 +1199,7 @@ article.format-link header {
 	font-size: 11px;
 	font-size: 0.785714286rem;
 	line-height: 2.181818182;
-	font-weight: bold;
+	font-weight: 800;
 	font-style: italic;
 	text-transform: uppercase;
 	color: #848484;
@@ -1361,7 +1361,7 @@ article.format-quote .entry-content blockquote {
 	font-size: 0.714285714rem;
 }
 .comments-area .bypostauthor cite b {
-	font-weight: bold;
+	font-weight: 800;
 }
 a.comment-reply-link,
 a.comment-edit-link {
@@ -1646,7 +1646,7 @@ img.header-image {
 	width:95%;
 	height:100%;
 	padding-left:5%;
-	font-weight:600;
+	font-weight:800;
 	letter-spacing:1px;
 }
 .main-navigation ul li a:hover {
@@ -1702,11 +1702,11 @@ img.header-image {
 }
 
 .issue .issue-num {
-	font-weight:600;
+	font-weight:800;
 }
 
 .issue .featured-article-title {
-	font-weight:600;
+	font-weight:800;
 	font-size:24px;
 	line-height:34px;
 	display:none;
@@ -1740,7 +1740,7 @@ img.header-image {
 .issue span.title,
 .event span.title {
 	font-size:1em;
-	font-weight:600;
+	font-weight:800;
 	margin-top:17px;
 	display:inline-block;
 	width:90%;
@@ -1805,7 +1805,7 @@ span.article-type {
 	font-size:12px;
 	font-size:0.75rem;
 	line-height:14px;
-	font-weight:600;
+	font-weight:800;
 	text-transform:uppercase;
 	margin-bottom:12px;
 	margin-bottom:0.25rem;
@@ -1901,7 +1901,7 @@ span.article-type.takeaway {
 	box-shadow: none;
 	color: #FFFFFF;
 	font-size: 1.4em;
-	font-weight: 600;
+	font-weight: 800;
 	padding: 25px 15px;	
 	text-transform: uppercase;	
 	background:#a6a6a6;
@@ -2230,7 +2230,7 @@ aside.pqRight:after {
 	.main-navigation .current-menu-ancestor > a,
 	.main-navigation .current_page_item > a,
 	.main-navigation .current_page_ancestor > a {
-		font-weight: bold;
+		font-weight: 800;
 	}
 	#search-form-container,
 	.main-navigation div#search-form-container {
@@ -2556,7 +2556,7 @@ aside.pqRight:after {
 		line-height:1.125rem;
 		margin-bottom:18px;
 		margin-bottom:1.875rem;
-		font-weight:600;
+		font-weight:800;
 		text-transform:uppercase;
 		letter-spacing:1px;
 	}
@@ -2579,12 +2579,12 @@ aside.pqRight:after {
 	}
 	.entry-header h1.entry-title {
 		font-size:3.125rem;
-		font-weight:600;
+		font-weight:800;
 		margin-bottom: 12px;
 	}
 	.archive-header h1.archive-title {
 		font-size:3.125rem;
-		font-weight:600;
+		font-weight:800;
 		margin-bottom: 0;
 	}
 	.archive-header h2.archive-title,
