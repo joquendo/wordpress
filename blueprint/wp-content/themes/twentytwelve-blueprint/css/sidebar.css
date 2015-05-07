@@ -58,7 +58,8 @@
 	text-decoration:none;
 }
 
-#secondary .container .widget.infographic a {
+#secondary .container .widget.infographic a,
+#secondary .container .widget.newsworthy a {
 	text-decoration:none;
 }
 
