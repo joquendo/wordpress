@@ -2829,7 +2829,7 @@ aside.pqRight:after {
 
 
 
-/* iPads  ----------- */
+
 @media only screen and (min-width : 769px) {
 	.menu-topics-container {
 		right:210px;
@@ -2862,10 +2862,19 @@ aside.pqRight:after {
 	}
 }
 
-/* Minimum width of 960 pixels. */
-@media screen and (min-width: 900px) {
-	
-	
+/* iPads  ----------- */
+@media screen and (min-width: 769px) and (max-width:1024px) {
+	.menu-issues-container .nav-menu .menu-item .hover {
+		height: 136px;
+		padding-top: 19px;
+	}
+
+	.menu-issues-container .nav-menu .menu-item .hover a {
+		font-size: 16px;
+		font-size: 1rem;
+		line-height: 2.1rem;
+		padding: .8rem 10px;
+	}
 }
 
 /* Minimum width of 960 pixels. */
