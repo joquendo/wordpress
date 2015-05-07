@@ -2782,9 +2782,9 @@ aside.pqRight:after {
 		height:initial;
 		overflow:hidden;
 	}
-	.single-feature .header-image-container {
+	/*.single-feature .header-image-container {
 		height:550px;
-	}
+	}*/
 	.single-issue .hero-desktop-image,
 	.single-feature .hero-desktop-image,
 	.home .hero-desktop-image {
