@@ -618,6 +618,7 @@
 	#secondary .container .btn { margin-top:13px; width:auto; text-align:center; }
 	#secondary .container .widget.event { padding-bottom:35px; padding-top:0px; }
 	#secondary .container .widget { padding-bottom:35px; }
+	#secondary .container .widget.infographic p.entry-meta { display:none; }
 }
 
 @media screen and (max-width:575px) {
