@@ -1049,7 +1049,7 @@ footer.entry-meta {
 #author-bio .staff-title {
 	color: #000;
 }
-#in-topics {
+#taxonomy {
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;
 	color: #a6a6a6;
@@ -1059,18 +1059,18 @@ footer.entry-meta {
 	padding-top: 10px;
 	text-transform: uppercase;
 }
-#in-topics .entry-meta {
+#taxonomy .entry-meta {
 	margin-bottom: 10px;
 }
-#in-topics .entry-meta.tags a {
+#taxonomy .entry-meta.tags a {
 	color: #000;
 	font-size: .8em;
 	text-decoration: none;
 }
-#in-topics .entry-meta.tags a:hover {
+#taxonomy .entry-meta.tags a:hover {
 	text-decoration: underline;
 }
-#in-topics .title {
+#taxonomy .title {
 	color: #c3c3c3;
 	font-size: .8em;
 	font-weight: 600;

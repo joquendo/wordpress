@@ -1,4 +1,4 @@
-<div id="in-topics">
+<div id="taxonomy">
 	<?php if( has_category() ): ?>
 	<p class="entry-meta"><span class="title">In topics:</span>
 	<?php 
