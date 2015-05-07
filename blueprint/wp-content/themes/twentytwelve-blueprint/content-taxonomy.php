@@ -1,4 +1,5 @@
-<div id="in-topics">
+<div id="taxonomy">
+	<?php if( has_category() ): ?>
 	<p class="entry-meta"><span class="title">In topics:</span>
 	<?php 
 		$categories = get_the_category();
@@ -13,6 +14,7 @@
 		} 
 	?>
 	</p>
+	<?php endif; ?>
 	
 	<?php if( has_tag() ) : ?>
 	<p class="entry-meta tags"><span class="title">Tagged:</span><?php the_tags( '', ', ' ); ?></p>

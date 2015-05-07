@@ -201,6 +201,9 @@ div.wpcf7-validation-errors {
 		width:85%;
 		margin-top:10px;	
 	}
+	#colophon .content.additional-links p a.rss {
+		display:none;
+	}
 }
 
 @media only screen and (max-width: 960px) {
