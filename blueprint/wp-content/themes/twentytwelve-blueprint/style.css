@@ -380,6 +380,7 @@ img.wp-post-image {
 	font-size: 0.857142857rem;
 	line-height: 18px;
 	color: #686868;
+	margin-top:10px;
 }
 .wp-caption .photo-credit { color:#a6a6a6; font-style:normal; text-transform:uppercase; font-size:12px; }
 img.wp-smiley,
