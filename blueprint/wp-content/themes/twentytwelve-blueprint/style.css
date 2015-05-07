@@ -2112,9 +2112,11 @@ aside.pqRight:after {
 		line-height: 1.846153846;
 		margin-bottom: 0;
 	}
-	.home .main-navigation {
-		height:42px;
+	.home .main-navigation,
+	.single-issue .main-navigation {
+		height:115px;
 		margin-bottom:5px;
+		z-index:0;
 	}
 	.page .main-navigation,
 	.archive .main-navigation,
@@ -2122,6 +2124,7 @@ aside.pqRight:after {
 	.single:not(.single-issue) .main-navigation {
 		height:100px;
 		margin-bottom: 20px;
+		z-index:0;
 	}
 	.page-header {
 		margin-bottom: 48px;
@@ -2274,9 +2277,9 @@ aside.pqRight:after {
 	.home .logo,
 	.single-issue .logo {
 		z-index:5;
-		margin-top:125px;
+		margin-top:31px;
 		margin-left:40px;
-		max-width:220px;
+		max-width:198px;
 	}
 	.page .logo,
 	.archive .logo,
@@ -2287,7 +2290,15 @@ aside.pqRight:after {
 		max-width:170px;
 		margin-left: 24px;
 		margin-left: 1.714285714rem;
+		z-index:1;
 	}
+	
+	.single.single-feature .logo {
+		margin-top:31px;
+		margin-left:40px;
+		max-width:198px;
+	}
+	
 	.home .site-content,
 	.single-issue .site-content {
 		border-top: 1px solid #ccc;
