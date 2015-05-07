@@ -14,6 +14,7 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'comment-style',  get_stylesheet_directory_uri() . '/css/comment.css', array('child-style','twentytwelve-style') );
 	wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array('child-style', 'twentytwelve-style') );
 	wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array('child-style', 'twentytwelve-style') );
+	wp_enqueue_style( 'ie8-style', get_stylesheet_directory_uri() . '/css/ie8.css', array('child-style', 'twentytwelve-style') );
 }
 
 // Remove custom font enabled in twentytwelve theme

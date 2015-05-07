@@ -1,0 +1,5 @@
+.ie8 .main-navigation .menu-toggle.menu-topics,
+.ie8 .main-navigation .menu-toggle.menu-issues,
+.ie8 .main-navigation .menu-toggle.menu-search { display:inline; }
+
+.ie8 body .site { padding-left:0; padding-right:0; margin-bottom:0; }
