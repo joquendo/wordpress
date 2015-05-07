@@ -62,6 +62,10 @@
 	text-decoration:none;
 }
 
+.widget-area .widget a {
+	text-decoration:none;
+}
+
 #secondary .container .widget.infographic a[rel*="category"] {
 	color:#FFF;
 	line-height:18px;
