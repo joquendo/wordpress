@@ -172,7 +172,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 					if(get_post_type() == 'feature') {
 						$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero.png';
 					} else {
-						$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-issue-hero.png';
+						$hero_image_url = get_stylesheet_directory_uri() . '/images/fpo-feature-hero.png';
 					}
 				endif;
 
@@ -208,6 +208,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 				*/ ?>
 				
 				<img src="<?php echo $mobile_hero_url; ?>" alt="<?php echo $hero_image['alt']; ?>" class="header-image" />
+				<img src="<?php echo $hero_image_url?>" alt="<?php echo $hero_image['alt']; ?>" class="tablet-image" />
 				<span class="hero-desktop-image" style="background-image:url('<?php echo $hero_image_url?>');"></span>
 
 			<?php endif; ?>

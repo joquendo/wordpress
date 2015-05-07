@@ -163,7 +163,7 @@ function img_caption_function ($empty, $attr, $content) {
 	//format credit
 	$credit = '';
 	if( count($result) > 0 ) {
-		$credit = ' <br/>Photo Credit : ' . $result[0]->post_content;
+		$credit = ' <br/><span class="photo-credit">' . $result[0]->post_content . '</span>';
 	}
 	
 	$ret  = '<div id="'.$attr['id'].'" style="width: '.$attr['width'].'px" class="wp-caption '.$attr['align'].'">';
