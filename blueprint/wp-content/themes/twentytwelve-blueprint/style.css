@@ -1564,7 +1564,7 @@ p {
 	max-width: 1280px;
 	margin: 0 auto;
 }
-#main { margin-top:18px; }
+#main { margin-top:18px; min-height:500px; }
 /* Header */
 header .wrapper {
 	max-width: 1360px;
@@ -2030,6 +2030,14 @@ aside.pqRight:after {
 	display:none;
 }
 
+.error404 .header-image-container {
+	display:none;
+}
+
+.error404 #main {
+	margin-top:50px;
+}
+
 /* =Media queries
 -------------------------------------------------------------- */
 
@@ -2295,6 +2303,7 @@ aside.pqRight:after {
 	.page .logo,
 	.archive .logo,
 	.category .logo,
+	.error404 .logo,
 	.single:not(.single-issue) .logo {
 		margin-top:15px;
 		width:16%;
