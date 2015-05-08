@@ -153,7 +153,7 @@ global $issueID;
 	
 	
 	
-	<?php if ( have_rows('pick','options') ) : ?>
+	<?php if ( have_rows('editors_picks', 'options') ) : ?>
 		<div class="container">
 			
 			<!-- EDITOR'S PICKS CONTAINER START-->
@@ -162,15 +162,17 @@ global $issueID;
 				<h3>Editor's Picks</h3>
 				
 				<ol class="list">
-					
-					<?php while ( have_rows('pick','options') ) : ?>
-					
-						<?php the_row() ?>
-					
-						<li><a href="<?php the_sub_field('link') ?>"><?php the_sub_field('label') ?></a></li>
-					
+					<?php while ( have_rows('editors_picks', 'options') ) : the_row(); //CUSTOM REPEATING FIELD
+
+							$post_object = get_sub_field('article', 'options'); //RELATIONAL FIELD THAT POINTS TO ARTICLES
+							// override $post
+							$post = $post_object;
+							setup_postdata( $post );  
+					?>	
+						<li><a href="<?php echo get_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a></li>
 					<?php endwhile; ?>
-					
+
+					<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 				</ol>
 				
 			</div> <!-- EDITOR'S PICKS CONTAINER END -->
