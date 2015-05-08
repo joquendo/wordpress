@@ -22,10 +22,14 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', 'page' ); ?>
 
 				<!-- BLUE PRINT STAFF MEMBERS -->
 				<?php if( have_rows('blueprint_staff') ): ?>
+				<article class="page type-page status-publish hentry">
+					<header class="entry-header">
+						<h1 class="entry-title"><?php echo get_the_title(); ?></h1>
+					</header>
+				</article>
 
 				<h2 class="section-title">Blueprint Staff</h2>
 
@@ -111,12 +115,9 @@ get_header(); ?>
 
 				<?php endif; ?>
 
-				<!-- SPECIAL NOTE x-->
-				<?php if( get_field('special_note') ): ?>
-					<p class="special-note"><?php the_field('special_note'); ?></p>
-				<?php endif; ?>
-
-				<?php //comments_template( '', true ); ?>
+				<!-- SPECIAL NOTE -->
+				<div class="special-note"><?php echo the_content(); //DEFAULT PAGE CONTENT USED AS SPECIAL NOTE ?></div>
+	
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
