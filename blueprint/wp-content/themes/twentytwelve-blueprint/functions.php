@@ -2,9 +2,9 @@
 
 include_once(__DIR__.'/func/func-sidebar.php');
 
-// Setup a child theme
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
+
+// Add child theme CSS files
 function theme_enqueue_styles() {
 	wp_enqueue_style( 'fonts-style',  get_stylesheet_directory_uri() . '/css/fonts.css');
 	wp_enqueue_style( 'child-style',  get_stylesheet_directory_uri() . '/style.css', array('fonts-style') );
@@ -17,6 +17,9 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array('child-style', 'twentytwelve-style') );
 	wp_enqueue_style( 'ie8-style', get_stylesheet_directory_uri() . '/css/ie8.css', array('child-style', 'twentytwelve-style') );
 }
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
+
 
 // Remove custom font enabled in twentytwelve theme
 function remove_open_sans() {
@@ -24,39 +27,32 @@ function remove_open_sans() {
 }
 add_action('wp_print_styles','remove_open_sans');
 
-// Displaying custom post types on the front page
-add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
+
+// Add custom post types to default query
 function add_my_post_types_to_query( $query ) {
+	// Check if home, category, tag, or main query. && empty( $query... ) was added to supress errors with menu
 	if ( ( is_home() || is_category() || is_tag() ) && $query->is_main_query() && empty( $query->query_vars['suppress_filters'] ) )
 		$query->set( 'post_type', array( 'feature', 'sketch' ) );
 		$query->set( 'orderby', 'menu_order');
 		$query->set( 'order', 'ASC');
 	return $query;
 }
+add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
-// Add theme support for post format chat
-add_action( 'after_setup_theme', 'add_post_formats_support', 11 );
 
-function add_post_formats_support() {
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'chat' ) );
+
+// dequeue default navigation.js (Using maing.js instead)
+function dequeue_navigation() {
+	wp_dequeue_script( 'twentytwelve-navigation' );
 }
+add_action('wp_print_scripts','dequeue_navigation');
 
-// Styling chat post
-function styling_chat_post($table_talk) {
-	global $post;
-	if(has_post_format('chat')) {
-		$chat_output = "<ul class=\"chat\">\n";
-		$chat_output .= "</ul>\n";
-		$$table_talk = $chat_output;
-		return $table_talk;
-	} else {
-		return 'blah';
-	}
-}
+
 
 // Add child theme javascript files
 function register_js_scripts() {
+	// Using main.js for navigation and other UI elements
 	wp_register_script( 'main', get_stylesheet_directory_uri() . '/js/main.js' );
 	
 	wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/js/vendor/modernizr-2.6.2.min.js', array() );
@@ -71,31 +67,33 @@ function register_js_scripts() {
 }
 add_action('init', 'register_js_scripts');
 
-// de-queue navigation js - using main js
-function dequeue_navigation() {
-	wp_dequeue_script( 'twentytwelve-navigation' );
-}
-add_action('wp_print_scripts','dequeue_navigation');
 
-// enqueue main js
+
+// enqueue main.js to load in footer
 function add_custom_scripts() {
 	wp_print_scripts('main');
 }
 add_action('wp_footer', 'add_custom_scripts');
 
-// Add the new menu
+
+
+// Add the new menu -- May not be used anymore
 register_nav_menus( array(
 	'primary' => __( 'Top Menu (Above Header)', 'twentytwelve' ),
 	'secondary' => __( 'Secondary (Issues)', 'twentytwelve')
 ) );
 
-// Image sizes
+
+
+// Image sizes -- May not be used anymore
 function add_image_sizes() {
 	add_image_size( 'mobile', 736, 460 );
 	add_image_size( 'mobile_2x', 1472, 920 );  
 	add_image_size( 'large_1280', 1280, 416 );
 }
 add_action('after_setup_theme', 'add_image_sizes');
+
+
 
 function get_id_by_slug($page_slug) {
     $page = get_page_by_path($page_slug);
@@ -106,13 +104,18 @@ function get_id_by_slug($page_slug) {
     }
 }
 
+
+
 // Remove Posts from admin menu bar
 function remove_menu_pages() {
 	remove_menu_page('edit.php');
 }
 add_action('admin_menu', 'remove_menu_pages');
 
-/**
+
+
+/** Override twentytwelve_entry_meta()
+ *
  * Set up post entry meta.
  *
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
@@ -159,12 +162,16 @@ function twentytwelve_entry_meta() {
 	);
 }
 
+
+
 function blueprint_get_categories () {
 	$categories_list = get_the_category_list( __( ' ', 'twentytwelve' ) );
 	if ( $categories_list != 'Uncategorized') {
 		printf( $categories_list );
 	}
 }
+
+
 
 //Comment Form Filter
 add_filter( 'comment_form_defaults', 'comment_form_defaults_function', 10 , 1 );
@@ -223,9 +230,9 @@ function print_categories ($categories) {
 //Replace options default name with custom name Editor's Pick
 if( function_exists('acf_set_options_page_title') )
 {
-    acf_set_options_page_title( __('Editor\'s Pick') );
+    acf_set_options_page_title( __('Editor\'s Picks') );
 }
 if( function_exists('acf_set_options_page_menu') )
 {
-    acf_set_options_page_menu( __('Editor\'s Pick') );
+    acf_set_options_page_menu( __('Editor\'s Picks') );
 }
