@@ -203,7 +203,7 @@ function remove_admin_bar_links() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('new-content');
 }
-//add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
 //fomatting the meta catgories
 function print_categories ($categories) {
@@ -218,4 +218,14 @@ function print_categories ($categories) {
 		$topics_list = trim($output, $separator); //REUSE THIS VAR TO DISPLAY CATEGORIES
 		echo $topics_list;
 	} 
+}
+
+//Replace options default name with custom name Editor's Pick
+if( function_exists('acf_set_options_page_title') )
+{
+    acf_set_options_page_title( __('Editor\'s Pick') );
+}
+if( function_exists('acf_set_options_page_menu') )
+{
+    acf_set_options_page_menu( __('Editor\'s Pick') );
 }
