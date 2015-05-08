@@ -2460,7 +2460,7 @@ aside.pqRight:after {
 		background-color:#a6a6a6;
 	}
 	#menu-issues {
-		margin: 0 auto;
+		margin: 0 7%;
   		max-width: 1146px;
 	}
 	.slick-prev {
@@ -2860,6 +2860,10 @@ aside.pqRight:after {
 	#searchform label {
 		left: 14%;
 	}
+	/* Center issues drawer slider */
+	.slick-track {
+		margin:0 auto;
+	}
 }
 
 /* iPads  ----------- */
@@ -2938,6 +2942,9 @@ aside.pqRight:after {
 	.single-feature .header-image-container,
 	.home .header-image-container {
 		height:550px;
+	}
+	#menu-issues {
+	  margin: 0 auto;
 	}
 }
 
