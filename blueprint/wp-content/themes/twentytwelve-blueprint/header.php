@@ -51,9 +51,7 @@ if($post_type === 'issue') $issueID = get_the_ID();
 
 		<?php 
 
-		// Issues Drawer
-		$menu_list = '<!-- Start menu-issues-container --><div class="menu-issues-container">';
-		$menu_list .= '<div id="menu-issues" class="nav-menu">';
+		/* Issues Drawer */
 
 		// Note: There is a filter overriding the WP_Query request by appending ORDER BY wp_posts.menu_order ASC
 		$args = array (
@@ -74,38 +72,47 @@ if($post_type === 'issue') $issueID = get_the_ID();
 		// WP_Query for issues
 		$published_issues = new WP_Query( $args );
 
-		while ( $published_issues->have_posts() ) : $published_issues->the_post();
+		$total_issues = $published_issues -> post_count;
+
+		if ( $total_issues > 1 ) :
 			
-			$issue_id			= get_the_ID();
-			$cover_image_url	= get_field('cover_image', $issue_id);
-			$issue_date			= get_field('issue_date', $issue_id);
-			$pdf				= get_field('pdf_download', $issue_id);
-			$url				= get_permalink($issue_id);
+			$menu_list = '<!-- Start menu-issues-container --><div class="menu-issues-container">';
+			$menu_list .= '<div id="menu-issues" class="nav-menu">';
 
-			$menu_list .= '<div class="menu-item">';
-			$menu_list .= '<div class="menu-item-wrap">';
+			while ( $published_issues->have_posts() ) : $published_issues->the_post();
+				
+				$issue_id			= get_the_ID();
+				$cover_image_url	= get_field('cover_image', $issue_id);
+				$issue_date			= get_field('issue_date', $issue_id);
+				$pdf				= get_field('pdf_download', $issue_id);
+				$url				= get_permalink($issue_id);
 
-			if ( ! empty($cover_image_url) ) :
-				$menu_list .= '<img src="' . $cover_image_url . '" />';
-			else :
-				$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
-			endif;
+				$menu_list .= '<div class="menu-item">';
+				$menu_list .= '<div class="menu-item-wrap">';
 
-			$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
-			$menu_list .= '<span>' . $issue_date . '</span>';
-			$menu_list .= '</div>'; // End menu item wrap
-			$menu_list .= '</div>'; // End menu item
+				if ( ! empty($cover_image_url) ) :
+					$menu_list .= '<img src="' . $cover_image_url . '" />';
+				else :
+					$menu_list .= '<img src="' . get_stylesheet_directory_uri() . '/images/fpo-issue-cover.png" />';
+				endif;
 
-		endwhile;
+				$menu_list .= '<div class="hover"><a href="' . $url . '">View</a><a href="' . $pdf . '">Download</a></div>';
+				$menu_list .= '<span>' . $issue_date . '</span>';
+				$menu_list .= '</div>'; // End menu item wrap
+				$menu_list .= '</div>'; // End menu item
 
-		$menu_list .= '</div>';
-		$menu_list .= '</div><!-- End menu-issues-container -->';
+			endwhile;
 
-		echo $menu_list;
+			$menu_list .= '</div>';
+			$menu_list .= '</div><!-- End menu-issues-container -->';
+
+			echo $menu_list;
+
+		endif;
 
 		wp_reset_postdata();
 
-		// End Issues Drawer
+		/* End Issues Drawer */
 
 		?>
 

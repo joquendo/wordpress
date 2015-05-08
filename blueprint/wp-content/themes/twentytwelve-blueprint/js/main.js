@@ -24,12 +24,17 @@
 	issuesButton = nav.getElementsByTagName( 'button' )[2];
 	searchButton = nav.getElementsByTagName( 'button' )[3];
 
-	topicsMenu   = nav.getElementsByTagName( 'ul' )[0].parentElement;
-	issuesMenu	 = document.getElementById( 'menu-issues' ).parentElement; // Show/hide container element
+	topicsMenu   = ( nav.getElementsByTagName( 'ul' )[0] ) ? nav.getElementsByTagName( 'ul' )[0].parentElement : null;
+	issuesMenu	 = ( document.getElementById( 'menu-issues' ) ) ? document.getElementById( 'menu-issues' ).parentElement : null;
 	searchForm   = document.getElementById( 'search-form' ); 
 
 	if ( ! menuButton && ! topicsButton && ! searchButton && ! searchButton ) {
 		return;
+	}
+
+	if ( ! issuesMenu ) {
+		issuesButton.style.display = 'none';
+		topicsMenu.style.right = '100px';
 	}
 
 
@@ -125,7 +130,7 @@
 
 		if ( -1 !== buttonElement.className.indexOf('menu-menu') || -1 !== buttonElement.className.indexOf('menu-topics') ) {
 			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
-			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
+			if ( issuesMenu ) issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
 			searchButton.className = searchButton.className.replace( ' toggled-on', '' );
 			searchForm.className = searchForm.className.replace( ' toggled-on', '' );
 		} else if ( -1 !== buttonElement.className.indexOf('menu-issues') ) {
@@ -136,7 +141,7 @@
 		} else if ( -1 !== buttonElement.className.indexOf('menu-search') ) {
 			menuButton.className = menuButton.className.replace( ' toggled-on', '' );
 			issuesButton.className = issuesButton.className.replace( ' toggled-on', '' );
-			issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
+			if ( issuesMenu ) issuesMenu.className = issuesMenu.className.replace( ' toggled-on', '' );
 			topicsButton.className = topicsButton.className.replace( ' toggled-on', '' );
 			topicsMenu.className = topicsMenu.className.replace( ' toggled-on', '' );
 		}
